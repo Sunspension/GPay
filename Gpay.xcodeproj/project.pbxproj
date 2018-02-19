@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C80203B2BD6003D40C7 /* AppDelegate.swift */; };
+		771E4C83203B2BD6003D40C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C82203B2BD6003D40C7 /* ViewController.swift */; };
+		771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C84203B2BD6003D40C7 /* Main.storyboard */; };
+		771E4C88203B2BD6003D40C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C87203B2BD6003D40C7 /* Assets.xcassets */; };
+		771E4C8B203B2BD6003D40C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */; };
+		771E4C96203B2BD6003D40C7 /* GpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C95203B2BD6003D40C7 /* GpayTests.swift */; };
+		771E4CA1203B2BD6003D40C7 /* GpayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4CA0203B2BD6003D40C7 /* GpayUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		771E4C92203B2BD6003D40C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 771E4C75203B2BD6003D40C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 771E4C7C203B2BD6003D40C7;
+			remoteInfo = Gpay;
+		};
+		771E4C9D203B2BD6003D40C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 771E4C75203B2BD6003D40C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 771E4C7C203B2BD6003D40C7;
+			remoteInfo = Gpay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		771E4C7D203B2BD6003D40C7 /* Gpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gpay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		771E4C80203B2BD6003D40C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		771E4C82203B2BD6003D40C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		771E4C85203B2BD6003D40C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		771E4C87203B2BD6003D40C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		771E4C8A203B2BD6003D40C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		771E4C8C203B2BD6003D40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771E4C91203B2BD6003D40C7 /* GpayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GpayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		771E4C95203B2BD6003D40C7 /* GpayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpayTests.swift; sourceTree = "<group>"; };
+		771E4C97203B2BD6003D40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771E4C9C203B2BD6003D40C7 /* GpayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GpayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		771E4CA0203B2BD6003D40C7 /* GpayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpayUITests.swift; sourceTree = "<group>"; };
+		771E4CA2203B2BD6003D40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		771E4C7A203B2BD6003D40C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C8E203B2BD6003D40C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C99203B2BD6003D40C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		771E4C74203B2BD6003D40C7 = {
+			isa = PBXGroup;
+			children = (
+				771E4C7F203B2BD6003D40C7 /* Gpay */,
+				771E4C94203B2BD6003D40C7 /* GpayTests */,
+				771E4C9F203B2BD6003D40C7 /* GpayUITests */,
+				771E4C7E203B2BD6003D40C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		771E4C7E203B2BD6003D40C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				771E4C7D203B2BD6003D40C7 /* Gpay.app */,
+				771E4C91203B2BD6003D40C7 /* GpayTests.xctest */,
+				771E4C9C203B2BD6003D40C7 /* GpayUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		771E4C7F203B2BD6003D40C7 /* Gpay */ = {
+			isa = PBXGroup;
+			children = (
+				771E4C80203B2BD6003D40C7 /* AppDelegate.swift */,
+				771E4C82203B2BD6003D40C7 /* ViewController.swift */,
+				771E4C84203B2BD6003D40C7 /* Main.storyboard */,
+				771E4C87203B2BD6003D40C7 /* Assets.xcassets */,
+				771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */,
+				771E4C8C203B2BD6003D40C7 /* Info.plist */,
+			);
+			path = Gpay;
+			sourceTree = "<group>";
+		};
+		771E4C94203B2BD6003D40C7 /* GpayTests */ = {
+			isa = PBXGroup;
+			children = (
+				771E4C95203B2BD6003D40C7 /* GpayTests.swift */,
+				771E4C97203B2BD6003D40C7 /* Info.plist */,
+			);
+			path = GpayTests;
+			sourceTree = "<group>";
+		};
+		771E4C9F203B2BD6003D40C7 /* GpayUITests */ = {
+			isa = PBXGroup;
+			children = (
+				771E4CA0203B2BD6003D40C7 /* GpayUITests.swift */,
+				771E4CA2203B2BD6003D40C7 /* Info.plist */,
+			);
+			path = GpayUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		771E4C7C203B2BD6003D40C7 /* Gpay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 771E4CA5203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "Gpay" */;
+			buildPhases = (
+				771E4C79203B2BD6003D40C7 /* Sources */,
+				771E4C7A203B2BD6003D40C7 /* Frameworks */,
+				771E4C7B203B2BD6003D40C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gpay;
+			productName = Gpay;
+			productReference = 771E4C7D203B2BD6003D40C7 /* Gpay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		771E4C90203B2BD6003D40C7 /* GpayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 771E4CA8203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "GpayTests" */;
+			buildPhases = (
+				771E4C8D203B2BD6003D40C7 /* Sources */,
+				771E4C8E203B2BD6003D40C7 /* Frameworks */,
+				771E4C8F203B2BD6003D40C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				771E4C93203B2BD6003D40C7 /* PBXTargetDependency */,
+			);
+			name = GpayTests;
+			productName = GpayTests;
+			productReference = 771E4C91203B2BD6003D40C7 /* GpayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		771E4C9B203B2BD6003D40C7 /* GpayUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 771E4CAB203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "GpayUITests" */;
+			buildPhases = (
+				771E4C98203B2BD6003D40C7 /* Sources */,
+				771E4C99203B2BD6003D40C7 /* Frameworks */,
+				771E4C9A203B2BD6003D40C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				771E4C9E203B2BD6003D40C7 /* PBXTargetDependency */,
+			);
+			name = GpayUITests;
+			productName = GpayUITests;
+			productReference = 771E4C9C203B2BD6003D40C7 /* GpayUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		771E4C75203B2BD6003D40C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = gpn;
+				TargetAttributes = {
+					771E4C7C203B2BD6003D40C7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					771E4C90203B2BD6003D40C7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 771E4C7C203B2BD6003D40C7;
+					};
+					771E4C9B203B2BD6003D40C7 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 771E4C7C203B2BD6003D40C7;
+					};
+				};
+			};
+			buildConfigurationList = 771E4C78203B2BD6003D40C7 /* Build configuration list for PBXProject "Gpay" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 771E4C74203B2BD6003D40C7;
+			productRefGroup = 771E4C7E203B2BD6003D40C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				771E4C7C203B2BD6003D40C7 /* Gpay */,
+				771E4C90203B2BD6003D40C7 /* GpayTests */,
+				771E4C9B203B2BD6003D40C7 /* GpayUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		771E4C7B203B2BD6003D40C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771E4C8B203B2BD6003D40C7 /* LaunchScreen.storyboard in Resources */,
+				771E4C88203B2BD6003D40C7 /* Assets.xcassets in Resources */,
+				771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C8F203B2BD6003D40C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C9A203B2BD6003D40C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		771E4C79203B2BD6003D40C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771E4C83203B2BD6003D40C7 /* ViewController.swift in Sources */,
+				771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C8D203B2BD6003D40C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771E4C96203B2BD6003D40C7 /* GpayTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771E4C98203B2BD6003D40C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771E4CA1203B2BD6003D40C7 /* GpayUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		771E4C93203B2BD6003D40C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 771E4C7C203B2BD6003D40C7 /* Gpay */;
+			targetProxy = 771E4C92203B2BD6003D40C7 /* PBXContainerItemProxy */;
+		};
+		771E4C9E203B2BD6003D40C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 771E4C7C203B2BD6003D40C7 /* Gpay */;
+			targetProxy = 771E4C9D203B2BD6003D40C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		771E4C84203B2BD6003D40C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				771E4C85203B2BD6003D40C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				771E4C8A203B2BD6003D40C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		771E4CA3203B2BD6003D40C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		771E4CA4203B2BD6003D40C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		771E4CA6203B2BD6003D40C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = Gpay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.Gpay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		771E4CA7203B2BD6003D40C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = Gpay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.Gpay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		771E4CA9203B2BD6003D40C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = GpayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.GpayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gpay.app/Gpay";
+			};
+			name = Debug;
+		};
+		771E4CAA203B2BD6003D40C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = GpayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.GpayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gpay.app/Gpay";
+			};
+			name = Release;
+		};
+		771E4CAC203B2BD6003D40C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = GpayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.GpayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gpay;
+			};
+			name = Debug;
+		};
+		771E4CAD203B2BD6003D40C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BT398QG55;
+				INFOPLIST_FILE = GpayUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.GpayUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gpay;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		771E4C78203B2BD6003D40C7 /* Build configuration list for PBXProject "Gpay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771E4CA3203B2BD6003D40C7 /* Debug */,
+				771E4CA4203B2BD6003D40C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		771E4CA5203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "Gpay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771E4CA6203B2BD6003D40C7 /* Debug */,
+				771E4CA7203B2BD6003D40C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		771E4CA8203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "GpayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771E4CA9203B2BD6003D40C7 /* Debug */,
+				771E4CAA203B2BD6003D40C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		771E4CAB203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "GpayUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				771E4CAC203B2BD6003D40C7 /* Debug */,
+				771E4CAD203B2BD6003D40C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 771E4C75203B2BD6003D40C7 /* Project object */;
+}
