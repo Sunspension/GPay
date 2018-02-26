@@ -7,13 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7713ABA2203DB0B3001F0CFD /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABA0203DB0B3001F0CFD /* ButtonCell.swift */; };
+		7713ABA3203DB0B3001F0CFD /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7713ABA1203DB0B3001F0CFD /* ButtonCell.xib */; };
+		7713ABA5203DB119001F0CFD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABA4203DB119001F0CFD /* RoundedButton.swift */; };
+		7713ABAC203DC5D5001F0CFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAB203DC5D5001F0CFD /* Constants.swift */; };
+		7713ABAE203DC82E001F0CFD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAD203DC82E001F0CFD /* ApiClient.swift */; };
+		7713ABB0203DC902001F0CFD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAF203DC902001F0CFD /* API.swift */; };
 		771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C80203B2BD6003D40C7 /* AppDelegate.swift */; };
-		771E4C83203B2BD6003D40C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C82203B2BD6003D40C7 /* ViewController.swift */; };
 		771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C84203B2BD6003D40C7 /* Main.storyboard */; };
 		771E4C88203B2BD6003D40C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C87203B2BD6003D40C7 /* Assets.xcassets */; };
 		771E4C8B203B2BD6003D40C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */; };
 		771E4C96203B2BD6003D40C7 /* GpayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C95203B2BD6003D40C7 /* GpayTests.swift */; };
 		771E4CA1203B2BD6003D40C7 /* GpayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4CA0203B2BD6003D40C7 /* GpayUITests.swift */; };
+		77242C88203D6F12003D9852 /* SingUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C87203D6F12003D9852 /* SingUpController.swift */; };
+		77242C8C203D8255003D9852 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C8B203D8255003D9852 /* UITableViewExtensions.swift */; };
+		77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */; };
+		773BEE1D203D98BD006D9677 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE1B203D98BD006D9677 /* LabelCell.swift */; };
+		773BEE1E203D98BD006D9677 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE1C203D98BD006D9677 /* LabelCell.xib */; };
+		773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE1F203D9A02006D9677 /* ImageViewCell.swift */; };
+		773BEE22203D9A02006D9677 /* ImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE20203D9A02006D9677 /* ImageViewCell.xib */; };
+		773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE23203DA462006D9677 /* PhoneCell.swift */; };
+		773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE24203DA462006D9677 /* PhoneCell.xib */; };
+		773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE29203DA854006D9677 /* RoundedView.swift */; };
+		77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */; };
+		77C313272044007900DA309B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313262044007900DA309B /* Error.swift */; };
+		77C313292044394900DA309B /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313282044394900DA309B /* ResponseError.swift */; };
+		77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */; };
+		77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */; };
+		77C313302044514100DA309B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132F2044514000DA309B /* R.generated.swift */; };
+		77C43507203EC1E800C8BB90 /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43506203EC1E800C8BB90 /* MapsController.swift */; };
+		77C43509203EFBF200C8BB90 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43508203EFBF200C8BB90 /* SignUpRouter.swift */; };
+		77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */; };
+		B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521269A89BA4413A881E475A /* Pods_Gpay.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +59,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.debug.xcconfig"; sourceTree = "<group>"; };
+		521269A89BA4413A881E475A /* Pods_Gpay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gpay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7713ABA0203DB0B3001F0CFD /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		7713ABA1203DB0B3001F0CFD /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		7713ABA4203DB119001F0CFD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		7713ABAB203DC5D5001F0CFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7713ABAD203DC82E001F0CFD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		7713ABAF203DC902001F0CFD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		771E4C7D203B2BD6003D40C7 /* Gpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gpay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		771E4C80203B2BD6003D40C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		771E4C82203B2BD6003D40C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		771E4C85203B2BD6003D40C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		771E4C87203B2BD6003D40C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		771E4C8A203B2BD6003D40C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +79,26 @@
 		771E4C9C203B2BD6003D40C7 /* GpayUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GpayUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		771E4CA0203B2BD6003D40C7 /* GpayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GpayUITests.swift; sourceTree = "<group>"; };
 		771E4CA2203B2BD6003D40C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77242C87203D6F12003D9852 /* SingUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpController.swift; sourceTree = "<group>"; };
+		77242C8B203D8255003D9852 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
+		773BEE1B203D98BD006D9677 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		773BEE1C203D98BD006D9677 /* LabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		773BEE1F203D9A02006D9677 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
+		773BEE20203D9A02006D9677 /* ImageViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewCell.xib; sourceTree = "<group>"; };
+		773BEE23203DA462006D9677 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		773BEE24203DA462006D9677 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
+		773BEE29203DA854006D9677 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77C313262044007900DA309B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		77C313282044394900DA309B /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionExtensions.swift; sourceTree = "<group>"; };
+		77C3132F2044514000DA309B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		77C43506203EC1E800C8BB90 /* MapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
+		77C43508203EFBF200C8BB90 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +127,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7713ABA6203DC099001F0CFD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7713ABAD203DC82E001F0CFD /* ApiClient.swift */,
+				7713ABAF203DC902001F0CFD /* API.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7713ABAA203DC5B7001F0CFD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				77C3132F2044514000DA309B /* R.generated.swift */,
+				771E4C80203B2BD6003D40C7 /* AppDelegate.swift */,
+				7713ABAB203DC5D5001F0CFD /* Constants.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		771E4C74203B2BD6003D40C7 = {
 			isa = PBXGroup;
 			children = (
 				771E4C7F203B2BD6003D40C7 /* Gpay */,
+				773BEE27203DA839006D9677 /* Custom */,
+				77242C8A203D822E003D9852 /* Extensions */,
 				771E4C94203B2BD6003D40C7 /* GpayTests */,
 				771E4C9F203B2BD6003D40C7 /* GpayUITests */,
 				771E4C7E203B2BD6003D40C7 /* Products */,
+				E40B7EF85F8CB80A3E747F70 /* Pods */,
+				84E4DF580F326B74C8FB2B5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +173,11 @@
 		771E4C7F203B2BD6003D40C7 /* Gpay */ = {
 			isa = PBXGroup;
 			children = (
-				771E4C80203B2BD6003D40C7 /* AppDelegate.swift */,
-				771E4C82203B2BD6003D40C7 /* ViewController.swift */,
+				77C3132A20443F0A00DA309B /* Responses */,
+				77C313252044006000DA309B /* Errors */,
+				7713ABAA203DC5B7001F0CFD /* App */,
+				7713ABA6203DC099001F0CFD /* Services */,
+				77FA6FE4203C612200694EB2 /* Modules */,
 				771E4C84203B2BD6003D40C7 /* Main.storyboard */,
 				771E4C87203B2BD6003D40C7 /* Assets.xcassets */,
 				771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */,
@@ -125,6 +204,119 @@
 			path = GpayUITests;
 			sourceTree = "<group>";
 		};
+		77242C8A203D822E003D9852 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77242C8B203D8255003D9852 /* UITableViewExtensions.swift */,
+				77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */,
+				77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */,
+				77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		773BEE27203DA839006D9677 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				773BEE28203DA848006D9677 /* Views */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		773BEE28203DA848006D9677 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				773BEE29203DA854006D9677 /* RoundedView.swift */,
+				7713ABA4203DB119001F0CFD /* RoundedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		77C313252044006000DA309B /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				77C313262044007900DA309B /* Error.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		77C3132A20443F0A00DA309B /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				77C313282044394900DA309B /* ResponseError.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		77C43505203EC1C000C8BB90 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				77C43506203EC1E800C8BB90 /* MapsController.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		77C43A27203F0F3D00C8BB90 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77FA6FE4203C612200694EB2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				77C43505203EC1C000C8BB90 /* Maps */,
+				77FA6FE5203C613200694EB2 /* Signup */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		77FA6FE5203C613200694EB2 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				77C43A27203F0F3D00C8BB90 /* Models */,
+				77FA6FE6203C61E500694EB2 /* Views */,
+				77242C87203D6F12003D9852 /* SingUpController.swift */,
+				77C43508203EFBF200C8BB90 /* SignUpRouter.swift */,
+				77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		77FA6FE6203C61E500694EB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				773BEE1B203D98BD006D9677 /* LabelCell.swift */,
+				773BEE1C203D98BD006D9677 /* LabelCell.xib */,
+				773BEE1F203D9A02006D9677 /* ImageViewCell.swift */,
+				773BEE20203D9A02006D9677 /* ImageViewCell.xib */,
+				773BEE23203DA462006D9677 /* PhoneCell.swift */,
+				773BEE24203DA462006D9677 /* PhoneCell.xib */,
+				7713ABA0203DB0B3001F0CFD /* ButtonCell.swift */,
+				7713ABA1203DB0B3001F0CFD /* ButtonCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84E4DF580F326B74C8FB2B5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				521269A89BA4413A881E475A /* Pods_Gpay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E40B7EF85F8CB80A3E747F70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */,
+				ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +324,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 771E4CA5203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "Gpay" */;
 			buildPhases = (
+				6F1D1B1A92A49098BFDCA7E8 /* [CP] Check Pods Manifest.lock */,
+				7713ABA7203DC16F001F0CFD /* ShellScript */,
 				771E4C79203B2BD6003D40C7 /* Sources */,
 				771E4C7A203B2BD6003D40C7 /* Frameworks */,
 				771E4C7B203B2BD6003D40C7 /* Resources */,
+				214137B4AD3C3F3CF1D694DE /* [CP] Embed Pods Frameworks */,
+				2235CD8692127822931F01BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,7 +429,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				771E4C8B203B2BD6003D40C7 /* LaunchScreen.storyboard in Resources */,
+				773BEE22203D9A02006D9677 /* ImageViewCell.xib in Resources */,
 				771E4C88203B2BD6003D40C7 /* Assets.xcassets in Resources */,
+				773BEE1E203D98BD006D9677 /* LabelCell.xib in Resources */,
+				7713ABA3203DB0B3001F0CFD /* ButtonCell.xib in Resources */,
+				773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */,
 				771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,13 +454,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		214137B4AD3C3F3CF1D694DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SHSPhoneComponent/SHSPhoneComponent.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSPhoneComponent.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2235CD8692127822931F01BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F1D1B1A92A49098BFDCA7E8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gpay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7713ABA7203DC16F001F0CFD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Gpay/App\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		771E4C79203B2BD6003D40C7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				771E4C83203B2BD6003D40C7 /* ViewController.swift in Sources */,
+				773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */,
+				7713ABA5203DB119001F0CFD /* RoundedButton.swift in Sources */,
+				77242C88203D6F12003D9852 /* SingUpController.swift in Sources */,
+				7713ABA2203DB0B3001F0CFD /* ButtonCell.swift in Sources */,
+				77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */,
+				77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */,
+				77C43509203EFBF200C8BB90 /* SignUpRouter.swift in Sources */,
+				773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */,
+				77C313292044394900DA309B /* ResponseError.swift in Sources */,
+				77C313302044514100DA309B /* R.generated.swift in Sources */,
 				771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */,
+				7713ABB0203DC902001F0CFD /* API.swift in Sources */,
+				77242C8C203D8255003D9852 /* UITableViewExtensions.swift in Sources */,
+				773BEE1D203D98BD006D9677 /* LabelCell.swift in Sources */,
+				7713ABAE203DC82E001F0CFD /* ApiClient.swift in Sources */,
+				77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */,
+				773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */,
+				77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */,
+				7713ABAC203DC5D5001F0CFD /* Constants.swift in Sources */,
+				77C43507203EC1E800C8BB90 /* MapsController.swift in Sources */,
+				77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */,
+				77C313272044007900DA309B /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +730,7 @@
 		};
 		771E4CA6203B2BD6003D40C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +746,7 @@
 		};
 		771E4CA7203B2BD6003D40C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
