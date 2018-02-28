@@ -10,5 +10,7 @@ import Foundation
 
 struct AuthResponse: Decodable {
     
-    let sid: String
+    let token: String
+    
+    let tokenExperiationAt: TimeInterval
 }

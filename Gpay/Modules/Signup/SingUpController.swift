@@ -21,10 +21,7 @@ class SingUpController: UITableViewController {
     
     private let items: [Item] = [.logo, .title, .phone, .code, .action]
     
-    private var login = Observable<Bool>.just(false)
-    
-    private var password = Observable<Bool>.just(false)
-    
+    private let viewModel = SignUpViewModel()
     
     override func viewDidLoad() {
         
@@ -105,13 +102,9 @@ class SingUpController: UITableViewController {
                 cell.phoneField.formatter.setDefaultOutputPattern(" (###) ### ## ##")
                 cell.enablePrefix()
                 
-                let phoneLenght = 18
-                
-                self.login = cell.phoneField.rx
-                    .text
-                    .orEmpty
-                    .map { $0.count != phoneLenght }
-                    .share(replay: 1)
+                self.viewModel.login = cell.phoneField.rx
+                    .text.orEmpty
+                    .asObservable()
                 
                 return cell
                 
@@ -122,13 +115,9 @@ class SingUpController: UITableViewController {
                 cell.phoneField.placeholder = "Код"
                 cell.phoneField.formatter.setDefaultOutputPattern("####")
                 
-                let codeLenght = 4
-                
-                self.password = cell.phoneField.rx
-                    .text
-                    .orEmpty
-                    .map { $0.count != codeLenght }
-                    .share(replay: 1)
+                self.viewModel.password = cell.phoneField.rx
+                    .text.orEmpty
+                    .asObservable()
                 
                 return cell
                 
@@ -136,15 +125,25 @@ class SingUpController: UITableViewController {
                 
                 let cell: ButtonCell = table.dequeueReusableCell(for: indexPath)
                 cell.selectionStyle = .none
-                cell.button.rx
-                    .tap
-                    .subscribe(onNext: { [weak self] _ in self?.signup() })
-                    .disposed(by: cell.disposeBag)
                 
-                let isCanLogin = Observable.combineLatest(self.login, self.password) { !$0 && !$1 }
-                    .share(replay: 1)
-                
-                isCanLogin
+                self.viewModel.loginAction = cell.button.rx.tap.asObservable()
+                self.viewModel.authResponse
+                    .subscribe { response in
+                    
+                        switch response {
+                            
+                        case .error(let error):
+                            
+                            self.showOkAlert(title: "Ошибка", message: error.localizedDescription)
+                            break
+
+                        default:
+                            break
+                        }
+                        
+                    }.disposed(by: cell.disposeBag)
+
+                self.viewModel.isCanLogin
                     .bind(to: cell.button.rx.isEnabled)
                     .disposed(by: cell.disposeBag)
                 
@@ -152,28 +151,5 @@ class SingUpController: UITableViewController {
             }
             
         }.disposed(by: disposeBag)
-    }
-    
-    private func signup() {
-        
-        API.signup(login: "", password: "jjjj")
-            .subscribe { response in
-            
-            switch response {
-                
-            case .success(let object):
-                
-                print(object)
-                break
-                
-            case .error(let error):
-                
-                self.showOkAlert(title: "Ошибка", message: error.localizedDescription)
-                break
-            }
-            
-        }.disposed(by: disposeBag)
-        
-        view.endEditing(true)
     }
 }

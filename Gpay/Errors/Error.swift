@@ -14,6 +14,8 @@ enum Error: Swift.Error {
     
     case system
     
+    case wrongPhoneFormat
+    
     case any(error: Swift.Error)
     
     
@@ -23,6 +25,9 @@ enum Error: Swift.Error {
             
         case "LT-1":
             self = .system
+            
+        case "LT-33":
+            self = .wrongPhoneFormat
             
         default:
             self = .response(response: response)
@@ -41,6 +46,9 @@ extension Error: LocalizedError {
             
         case .system:
             return "System error"
+            
+        case .wrongPhoneFormat:
+            return "The customer's phone must contain 10 digits"
             
         case .response(let response):
             return response.errorMessage

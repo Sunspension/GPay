@@ -14,6 +14,30 @@ enum ApiClient {
     case signup(login: String, password: String)
 }
 
+enum CodingKeys: String, CodingKey {
+
+    case jsonrpc, method, params
+}
+
+struct RequestObject {
+    
+    var method = ""
+    
+    var params = [String : Any]()
+    
+    
+    func requestParams() -> [String : Any] {
+        
+        var par = [String : Any]()
+        
+        par["jsonrpc"] = "2.0"
+        par["method"] = method
+        par["params"] = params
+        
+        return par
+    }
+}
+
 extension ApiClient: TargetType {
     
     var baseURL: URL {
@@ -36,10 +60,25 @@ extension ApiClient: TargetType {
             
         case .signup:
             return .post
-            
-        default:
-            return .get
         }
+    }
+    
+    var parameters: [String : Any] {
+        
+        var request = RequestObject()
+        
+        switch self {
+            
+        case .signup(let login, let password):
+
+            request.method = "token"
+            request.params["phone"] = login
+            request.params["password"] = password
+        }
+        
+        let params = request.requestParams()
+        
+        return params
     }
     
     var sampleData: Data {
@@ -52,7 +91,7 @@ extension ApiClient: TargetType {
         switch self {
             
         default:
-            return .requestParameters(parameters: [:], encoding: URLEncoding.default)
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }
     

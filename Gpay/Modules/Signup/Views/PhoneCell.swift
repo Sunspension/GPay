@@ -12,7 +12,7 @@ import RxSwift
 
 class PhoneCell: UITableViewCell {
 
-    private var disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     @IBOutlet weak var phoneField: SHSPhoneTextField!
     

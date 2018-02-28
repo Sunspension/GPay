@@ -28,7 +28,7 @@ struct API {
         
         do {
             
-            let response = try response.map(ResponseError.self, atKeyPath: "result")
+            let response = try response.map(ResponseError.self)
             return Error(response: response)
         }
         catch let error {
@@ -40,17 +40,18 @@ struct API {
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
     
-    public func mapResponse<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = nil, using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Single<D> {
+    public func mapResponse<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = "result", using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Single<D> {
         
-        return flatMap { response -> Single<D> in
+        return flatMap { res -> Single<D> in
             
             do {
                 
-                return Single.just(try response.map(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData))
+                let response = try res.map(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData)
+                return Single.just(response)
             }
             catch {
                 
-                throw API.handleError(response)
+                throw API.handleError(res)
             }
         }
     }

@@ -179,8 +179,8 @@
 				7713ABA6203DC099001F0CFD /* Services */,
 				77FA6FE4203C612200694EB2 /* Modules */,
 				771E4C84203B2BD6003D40C7 /* Main.storyboard */,
-				771E4C87203B2BD6003D40C7 /* Assets.xcassets */,
 				771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */,
+				771E4C87203B2BD6003D40C7 /* Assets.xcassets */,
 				771E4C8C203B2BD6003D40C7 /* Info.plist */,
 			);
 			path = Gpay;
