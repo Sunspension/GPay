@@ -11,6 +11,5 @@ import Foundation
 struct ResponseError: Decodable {
     
     let errorCode: String
-    
     let errorMessage: String
 }

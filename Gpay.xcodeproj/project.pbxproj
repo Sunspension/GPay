@@ -22,6 +22,7 @@
 		77242C88203D6F12003D9852 /* SingUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C87203D6F12003D9852 /* SingUpController.swift */; };
 		77242C8C203D8255003D9852 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C8B203D8255003D9852 /* UITableViewExtensions.swift */; };
 		77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */; };
+		7726BB2F204844B3003231B9 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7726BB2E204844B3003231B9 /* StorageManager.swift */; };
 		773BEE1D203D98BD006D9677 /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE1B203D98BD006D9677 /* LabelCell.swift */; };
 		773BEE1E203D98BD006D9677 /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE1C203D98BD006D9677 /* LabelCell.xib */; };
 		773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE1F203D9A02006D9677 /* ImageViewCell.swift */; };
@@ -29,15 +30,20 @@
 		773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE23203DA462006D9677 /* PhoneCell.swift */; };
 		773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE24203DA462006D9677 /* PhoneCell.xib */; };
 		773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE29203DA854006D9677 /* RoundedView.swift */; };
+		77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB8E20498D60001DCEBB /* MapsRouter.swift */; };
+		77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB9020498E3F001DCEBB /* SingUpRouter.swift */; };
+		77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB922049A1EB001DCEBB /* MapsViewModel.swift */; };
 		77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */; };
+		77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */; };
 		77C313272044007900DA309B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313262044007900DA309B /* Error.swift */; };
 		77C313292044394900DA309B /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313282044394900DA309B /* ResponseError.swift */; };
 		77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */; };
 		77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */; };
 		77C313302044514100DA309B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132F2044514000DA309B /* R.generated.swift */; };
 		77C43507203EC1E800C8BB90 /* MapsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43506203EC1E800C8BB90 /* MapsController.swift */; };
-		77C43509203EFBF200C8BB90 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43508203EFBF200C8BB90 /* SignUpRouter.swift */; };
 		77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */; };
+		77C8B9132049412600EB8BEE /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B9122049412600EB8BEE /* GasStation.swift */; };
+		77C8B91520494A9200EB8BEE /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B91420494A9200EB8BEE /* WireFrame.swift */; };
 		B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521269A89BA4413A881E475A /* Pods_Gpay.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +88,7 @@
 		77242C87203D6F12003D9852 /* SingUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpController.swift; sourceTree = "<group>"; };
 		77242C8B203D8255003D9852 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtensions.swift; sourceTree = "<group>"; };
+		7726BB2E204844B3003231B9 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		773BEE1B203D98BD006D9677 /* LabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
 		773BEE1C203D98BD006D9677 /* LabelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		773BEE1F203D9A02006D9677 /* ImageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCell.swift; sourceTree = "<group>"; };
@@ -89,15 +96,20 @@
 		773BEE23203DA462006D9677 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		773BEE24203DA462006D9677 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
 		773BEE29203DA854006D9677 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		77AADB8E20498D60001DCEBB /* MapsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
+		77AADB9020498E3F001DCEBB /* SingUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpRouter.swift; sourceTree = "<group>"; };
+		77AADB922049A1EB001DCEBB /* MapsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewModel.swift; sourceTree = "<group>"; };
 		77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSPhoneComponentExtensions.swift; sourceTree = "<group>"; };
 		77C313262044007900DA309B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		77C313282044394900DA309B /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertActionExtensions.swift; sourceTree = "<group>"; };
 		77C3132F2044514000DA309B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		77C43506203EC1E800C8BB90 /* MapsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsController.swift; sourceTree = "<group>"; };
-		77C43508203EFBF200C8BB90 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
 		77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		77C8B9122049412600EB8BEE /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
+		77C8B91420494A9200EB8BEE /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
 		ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +185,7 @@
 		771E4C7F203B2BD6003D40C7 /* Gpay */ = {
 			isa = PBXGroup;
 			children = (
+				7726BB2D2048449E003231B9 /* Helpers */,
 				77C3132A20443F0A00DA309B /* Responses */,
 				77C313252044006000DA309B /* Errors */,
 				7713ABAA203DC5B7001F0CFD /* App */,
@@ -211,8 +224,18 @@
 				77242C8D203D833E003D9852 /* UITableViewCellExtensions.swift */,
 				77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */,
 				77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */,
+				77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7726BB2D2048449E003231B9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7726BB2E204844B3003231B9 /* StorageManager.swift */,
+				77C8B91420494A9200EB8BEE /* WireFrame.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		773BEE27203DA839006D9677 /* Custom */ = {
@@ -251,24 +274,35 @@
 		77C43505203EC1C000C8BB90 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				77C8B911204940F200EB8BEE /* ResponseModel */,
 				77C43506203EC1E800C8BB90 /* MapsController.swift */,
+				77AADB8E20498D60001DCEBB /* MapsRouter.swift */,
+				77AADB922049A1EB001DCEBB /* MapsViewModel.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
 		};
-		77C43A27203F0F3D00C8BB90 /* Models */ = {
+		77C43A27203F0F3D00C8BB90 /* ResponseModel */ = {
 			isa = PBXGroup;
 			children = (
 				77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */,
 			);
-			path = Models;
+			path = ResponseModel;
+			sourceTree = "<group>";
+		};
+		77C8B911204940F200EB8BEE /* ResponseModel */ = {
+			isa = PBXGroup;
+			children = (
+				77C8B9122049412600EB8BEE /* GasStation.swift */,
+			);
+			path = ResponseModel;
 			sourceTree = "<group>";
 		};
 		77FA6FE4203C612200694EB2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				77C43505203EC1C000C8BB90 /* Maps */,
 				77FA6FE5203C613200694EB2 /* Signup */,
+				77C43505203EC1C000C8BB90 /* Maps */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -276,11 +310,11 @@
 		77FA6FE5203C613200694EB2 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
-				77C43A27203F0F3D00C8BB90 /* Models */,
+				77C43A27203F0F3D00C8BB90 /* ResponseModel */,
 				77FA6FE6203C61E500694EB2 /* Views */,
 				77242C87203D6F12003D9852 /* SingUpController.swift */,
-				77C43508203EFBF200C8BB90 /* SignUpRouter.swift */,
 				77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */,
+				77AADB9020498E3F001DCEBB /* SingUpRouter.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -464,6 +498,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -471,11 +506,14 @@
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSPhoneComponent/SHSPhoneComponent.framework",
+				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -483,6 +521,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSPhoneComponent.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -549,17 +589,23 @@
 				7713ABA5203DB119001F0CFD /* RoundedButton.swift in Sources */,
 				77242C88203D6F12003D9852 /* SingUpController.swift in Sources */,
 				7713ABA2203DB0B3001F0CFD /* ButtonCell.swift in Sources */,
+				77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */,
 				77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */,
 				77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */,
-				77C43509203EFBF200C8BB90 /* SignUpRouter.swift in Sources */,
 				773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */,
+				77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */,
 				77C313292044394900DA309B /* ResponseError.swift in Sources */,
 				77C313302044514100DA309B /* R.generated.swift in Sources */,
 				771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */,
 				7713ABB0203DC902001F0CFD /* API.swift in Sources */,
+				77C8B9132049412600EB8BEE /* GasStation.swift in Sources */,
 				77242C8C203D8255003D9852 /* UITableViewExtensions.swift in Sources */,
+				77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */,
+				77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */,
 				773BEE1D203D98BD006D9677 /* LabelCell.swift in Sources */,
+				7726BB2F204844B3003231B9 /* StorageManager.swift in Sources */,
 				7713ABAE203DC82E001F0CFD /* ApiClient.swift in Sources */,
+				77C8B91520494A9200EB8BEE /* WireFrame.swift in Sources */,
 				77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */,
 				773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */,
 				77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */,

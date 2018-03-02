@@ -7,7 +7,25 @@
 		<key>Gpay.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>771E4C7C203B2BD6003D40C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>771E4C90203B2BD6003D40C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>771E4C9B203B2BD6003D40C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -9,5 +9,7 @@ pod 'RxDataSources', '~> 3.0'
 pod 'R.swift'
 pod 'SHSPhoneComponent'
 pod 'GoogleMaps'
+pod 'KeychainAccess'
+pod 'Swinject'
 
 end

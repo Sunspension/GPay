@@ -11,11 +11,11 @@ import Foundation
 enum Error: Swift.Error {
     
     case response(response: ResponseError)
-    
     case system
-    
     case wrongPhoneFormat
-    
+    case emptyPhone
+    case incorrectPassword
+    case authorization
     case any(error: Swift.Error)
     
     
@@ -28,6 +28,15 @@ enum Error: Swift.Error {
             
         case "LT-33":
             self = .wrongPhoneFormat
+            
+        case "LT-32":
+            self = .emptyPhone
+            
+        case "LT-86":
+            self = .incorrectPassword
+            
+        case "LT-403":
+            self = .authorization
             
         default:
             self = .response(response: response)
@@ -48,7 +57,16 @@ extension Error: LocalizedError {
             return "System error"
             
         case .wrongPhoneFormat:
-            return "The customer's phone must contain 10 digits"
+            return "Phone number must contains 10 digits"
+            
+        case .emptyPhone:
+            return "Phone number can not be empty"
+            
+        case .incorrectPassword:
+            return "Incorrect password"
+            
+        case .authorization:
+            return "Unauthorized request"
             
         case .response(let response):
             return response.errorMessage

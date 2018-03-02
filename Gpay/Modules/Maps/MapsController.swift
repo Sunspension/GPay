@@ -8,31 +8,46 @@
 
 import UIKit
 import GoogleMaps
+import Swinject
+import RxSwift
 
 class MapsController: UIViewController {
 
-    @IBOutlet weak var mapView: GMSMapView!
+    private var bag = DisposeBag()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    private var mapView: GMSMapView {
+        
+        return self.view as! GMSMapView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var stackView: UIStackView!
+    
+    var viewModel: MapsViewModel! {
+        
+        willSet {
+            
+            newValue.stations
+                .bind(onNext: self.onStations(_:))
+                .disposed(by: bag)
+            
+            self.rx.viewDidLoad
+                .map { self.mapView.bringSubview(toFront: self.stackView) }
+                .bind(to: newValue.viewDidLoad)
+                .disposed(by: bag)
+        }
     }
-    */
-
+    
+    private func onStations(_ stations: [GasStation]) {
+        
+        for station in stations {
+            
+            let position = CLLocationCoordinate2D(latitude: station.latitude, longitude: station.longitude)
+            let marker = GMSMarker(position: position)
+            marker.icon = R.image.pin()
+            marker.map = mapView
+            
+            let camera = GMSCameraPosition.camera(withTarget: position, zoom: 10)
+            mapView.animate(to: camera)
+        }
+    }
 }

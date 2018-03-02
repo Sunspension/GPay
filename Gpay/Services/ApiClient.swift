@@ -12,6 +12,7 @@ import Moya
 enum ApiClient {
     
     case signup(login: String, password: String)
+    case gasStations
 }
 
 enum CodingKeys: String, CodingKey {
@@ -26,12 +27,18 @@ struct RequestObject {
     var params = [String : Any]()
     
     
-    func requestParams() -> [String : Any] {
+    mutating func requestParams() -> [String : Any] {
         
         var par = [String : Any]()
         
         par["jsonrpc"] = "2.0"
         par["method"] = method
+        
+        if let auth = StorageManager.auth {
+            
+            params["token"] = auth.token
+        }
+        
         par["params"] = params
         
         return par
@@ -42,7 +49,7 @@ extension ApiClient: TargetType {
     
     var baseURL: URL {
         
-        return URL(string: Constants.API.baseURL)!
+        return URL(string: "http://178.159.32.137:8080/api/jsonws")!
     }
     
     var path: String {
@@ -50,17 +57,16 @@ extension ApiClient: TargetType {
         switch self {
             
         case .signup:
-            return Constants.API.singupPath
+            return "/loyalty.customer"
+            
+        case .gasStations:
+            return "/loyalty.gazstation"
         }
     }
     
     var method: Moya.Method {
         
-        switch self {
-            
-        case .signup:
-            return .post
-        }
+        return .post
     }
     
     var parameters: [String : Any] {
@@ -74,10 +80,13 @@ extension ApiClient: TargetType {
             request.method = "token"
             request.params["phone"] = login
             request.params["password"] = password
+            
+        case .gasStations:
+            
+            request.method = "list"
         }
         
         let params = request.requestParams()
-        
         return params
     }
     

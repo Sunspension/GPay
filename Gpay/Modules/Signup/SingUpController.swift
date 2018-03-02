@@ -21,7 +21,7 @@ class SingUpController: UITableViewController {
     
     private let items: [Item] = [.logo, .title, .phone, .code, .action]
     
-    private let viewModel = SignUpViewModel()
+    var viewModel: SignUpViewModel!
     
     override func viewDidLoad() {
         
@@ -29,6 +29,15 @@ class SingUpController: UITableViewController {
         self.configureDataSource()
         self.configureNotificationCenter()
         self.hideKeyboardHandler()
+    }
+    
+    init() {
+        
+        super.init(style: .plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Private methods
@@ -68,6 +77,7 @@ class SingUpController: UITableViewController {
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        self.tableView.separatorStyle = .none
         
         self.tableView.hideEmptyCells()
         self.tableView.register(nibClass: LabelCell.self)
@@ -102,9 +112,10 @@ class SingUpController: UITableViewController {
                 cell.phoneField.formatter.setDefaultOutputPattern(" (###) ### ## ##")
                 cell.enablePrefix()
                 
-                self.viewModel.login = cell.phoneField.rx
-                    .text.orEmpty
-                    .asObservable()
+                cell.phoneField.rx.phoneNumber.orEmpty.bind(to: self.viewModel.phoneNumber)
+                    .disposed(by: cell.disposeBag)
+
+                self.viewModel.login = cell.phoneField.rx.text.orEmpty.asObservable()
                 
                 return cell
                 
@@ -115,9 +126,7 @@ class SingUpController: UITableViewController {
                 cell.phoneField.placeholder = "Код"
                 cell.phoneField.formatter.setDefaultOutputPattern("####")
                 
-                self.viewModel.password = cell.phoneField.rx
-                    .text.orEmpty
-                    .asObservable()
+                self.viewModel.password = cell.phoneField.rx.text.orEmpty.asObservable()
                 
                 return cell
                 
@@ -127,24 +136,15 @@ class SingUpController: UITableViewController {
                 cell.selectionStyle = .none
                 
                 self.viewModel.loginAction = cell.button.rx.tap.asObservable()
-                self.viewModel.authResponse
-                    .subscribe { response in
-                    
-                        switch response {
-                            
-                        case .error(let error):
-                            
-                            self.showOkAlert(title: "Ошибка", message: error.localizedDescription)
-                            break
+                    .map { self.view.endEditing(true) }.asObservable()
+                
+                self.viewModel.authError.subscribe(onNext: { error in
 
-                        default:
-                            break
-                        }
-                        
-                    }.disposed(by: cell.disposeBag)
+                    self.showOkAlert(title: "Ошибка", message: error.localizedDescription)
 
-                self.viewModel.isCanLogin
-                    .bind(to: cell.button.rx.isEnabled)
+                }).disposed(by: cell.disposeBag)
+                
+                self.viewModel.isCanLogin.bind(to: cell.button.rx.isEnabled)
                     .disposed(by: cell.disposeBag)
                 
                 return cell

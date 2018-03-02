@@ -50,16 +50,44 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 2 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
+    /// Image `location`.
+    static let location = Rswift.ImageResource(bundle: R.hostingBundle, name: "location")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `minus`.
+    static let minus = Rswift.ImageResource(bundle: R.hostingBundle, name: "minus")
+    /// Image `pin`.
+    static let pin = Rswift.ImageResource(bundle: R.hostingBundle, name: "pin")
+    /// Image `plus`.
+    static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
     /// Image `signup`.
     static let signup = Rswift.ImageResource(bundle: R.hostingBundle, name: "signup")
+    
+    /// `UIImage(named: "location", bundle: ..., traitCollection: ...)`
+    static func location(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.location, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "minus", bundle: ..., traitCollection: ...)`
+    static func minus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.minus, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "pin", bundle: ..., traitCollection: ...)`
+    static func pin(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.pin, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "plus", bundle: ..., traitCollection: ...)`
+    static func plus(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.plus, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "signup", bundle: ..., traitCollection: ...)`
@@ -154,6 +182,7 @@ struct R: Rswift.Validatable {
 
 struct _R: Rswift.Validatable {
   static func validate() throws {
+    try storyboard.validate()
     try nib.validate()
   }
   
@@ -213,7 +242,11 @@ struct _R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
       typealias InitialController = UIKit.UIViewController
       
@@ -223,11 +256,21 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct main: Rswift.StoryboardResourceWithInitialControllerType {
-      typealias InitialController = SingUpController
-      
+    struct main: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
+      let maps = StoryboardViewControllerResource<MapsController>(identifier: "Maps")
       let name = "Main"
+      
+      func maps(_: Void = ()) -> MapsController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: maps)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "location") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'location' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "minus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'minus' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().maps() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'maps' could not be loaded from storyboard 'Main' as 'MapsController'.") }
+      }
       
       fileprivate init() {}
     }
