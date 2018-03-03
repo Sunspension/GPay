@@ -23,16 +23,20 @@ PODS:
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
+  - RxGoogleMaps (3.0.1):
+    - GoogleMaps (~> 2.6.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
   - SHSPhoneComponent (2.31)
   - Swinject (2.2.0)
 
 DEPENDENCIES:
-  - GoogleMaps
   - KeychainAccess
   - Moya/RxSwift (~> 11.0)
   - R.swift
   - RxDataSources (~> 3.0)
+  - RxGoogleMaps
   - SHSPhoneComponent
   - Swinject
 
@@ -47,10 +51,11 @@ SPEC CHECKSUMS:
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
+  RxGoogleMaps: 8e8501ee42f2f4095c02e7794ecb0e8758358934
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SHSPhoneComponent: fa4401ae7c34511669287e62739b3da7c4c49807
   Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
 
-PODFILE CHECKSUM: 51ec651774158cffec8814519d1377d4a4f1f3fd
+PODFILE CHECKSUM: b93e6ae75503ace2d777756bebeb835d721f0007
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

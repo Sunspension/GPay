@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VLh-aS-eSy">
-                                <rect key="frame" x="278" y="208" width="81" height="250"/>
+                                <rect key="frame" x="294" y="218.5" width="81" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w0-nV-6KG">
                                         <rect key="frame" x="0.0" y="0.0" width="81" height="83.5"/>
@@ -41,13 +41,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uPd-sn-oIH" firstAttribute="trailing" secondItem="VLh-aS-eSy" secondAttribute="trailing" constant="16" id="Fbb-qI-diT"/>
-                            <constraint firstItem="VLh-aS-eSy" firstAttribute="centerY" secondItem="JBq-Yq-vas" secondAttribute="centerY" id="yys-fN-6Gh"/>
+                            <constraint firstItem="uPd-sn-oIH" firstAttribute="trailing" secondItem="VLh-aS-eSy" secondAttribute="trailing" id="Fbb-qI-diT"/>
+                            <constraint firstItem="VLh-aS-eSy" firstAttribute="centerY" secondItem="uPd-sn-oIH" secondAttribute="centerY" id="yys-fN-6Gh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uPd-sn-oIH"/>
                     </view>
                     <connections>
+                        <outlet property="myLocation" destination="ej0-fl-c5x" id="fGf-im-jAU"/>
                         <outlet property="stackView" destination="VLh-aS-eSy" id="v7o-pW-mTE"/>
+                        <outlet property="zoomIn" destination="9w0-nV-6KG" id="qD8-P4-dqH"/>
+                        <outlet property="zoomOut" destination="vqh-9F-3Bw" id="kef-b1-P9Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cae-xq-mR1" userLabel="First Responder" sceneMemberID="firstResponder"/>

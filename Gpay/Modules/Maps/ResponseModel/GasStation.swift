@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct GasStation: Decodable {
     
@@ -15,6 +16,11 @@ struct GasStation: Decodable {
     let longitude: Double
     let name: String
     let number: Int
+    
+    var position: CLLocationCoordinate2D {
+        
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 }
 
 extension GasStation: CustomStringConvertible {

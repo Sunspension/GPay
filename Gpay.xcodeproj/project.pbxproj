@@ -44,6 +44,7 @@
 		77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */; };
 		77C8B9132049412600EB8BEE /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B9122049412600EB8BEE /* GasStation.swift */; };
 		77C8B91520494A9200EB8BEE /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B91420494A9200EB8BEE /* WireFrame.swift */; };
+		77DE4FAC204AFC60007E440C /* GoogleMapsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */; };
 		B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521269A89BA4413A881E475A /* Pods_Gpay.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		77C8B9122049412600EB8BEE /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		77C8B91420494A9200EB8BEE /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
+		77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsExtensions.swift; sourceTree = "<group>"; };
 		ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +227,7 @@
 				77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */,
 				77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */,
 				77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */,
+				77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,7 +510,6 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSPhoneComponent/SHSPhoneComponent.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
-				"${BUILT_PRODUCTS_DIR}/SwinjectStoryboard/SwinjectStoryboard.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -522,7 +524,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSPhoneComponent.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwinjectStoryboard.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -540,7 +541,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -610,6 +611,7 @@
 				773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */,
 				77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */,
 				7713ABAC203DC5D5001F0CFD /* Constants.swift in Sources */,
+				77DE4FAC204AFC60007E440C /* GoogleMapsExtensions.swift in Sources */,
 				77C43507203EC1E800C8BB90 /* MapsController.swift in Sources */,
 				77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */,
 				77C313272044007900DA309B /* Error.swift in Sources */,

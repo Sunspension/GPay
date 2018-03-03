@@ -10,8 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    private var wireframe = MainWireframe.shared
     
     var window: UIWindow?
 
@@ -19,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = wireframe.initialViewController()
+        window?.rootViewController = MainWireframe.shared.initialViewController()
         
         return true
     }
