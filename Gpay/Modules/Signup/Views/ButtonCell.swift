@@ -24,7 +24,7 @@ class ButtonCell: UITableViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        button.setButtonColor(R.color.mainBlue()!)
-        button.enableShadow(color: R.color.mainBlue()!)
+        button.setButtonColor(UIColor.mainBlue)
+        button.enableShadow(color: UIColor.mainBlue)
     }
 }

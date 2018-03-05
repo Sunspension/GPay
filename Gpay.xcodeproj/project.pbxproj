@@ -30,6 +30,7 @@
 		773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE23203DA462006D9677 /* PhoneCell.swift */; };
 		773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE24203DA462006D9677 /* PhoneCell.xib */; };
 		773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE29203DA854006D9677 /* RoundedView.swift */; };
+		775FF4C3204D432500A30D98 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4C2204D432500A30D98 /* UIColorExtensions.swift */; };
 		77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB8E20498D60001DCEBB /* MapsRouter.swift */; };
 		77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB9020498E3F001DCEBB /* SingUpRouter.swift */; };
 		77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB922049A1EB001DCEBB /* MapsViewModel.swift */; };
@@ -97,6 +98,7 @@
 		773BEE23203DA462006D9677 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		773BEE24203DA462006D9677 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
 		773BEE29203DA854006D9677 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		775FF4C2204D432500A30D98 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		77AADB8E20498D60001DCEBB /* MapsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
 		77AADB9020498E3F001DCEBB /* SingUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpRouter.swift; sourceTree = "<group>"; };
 		77AADB922049A1EB001DCEBB /* MapsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewModel.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				77C3132D204446BE00DA309B /* UIAlertActionExtensions.swift */,
 				77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */,
 				77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */,
+				775FF4C2204D432500A30D98 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */,
 				773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */,
 				77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */,
+				775FF4C3204D432500A30D98 /* UIColorExtensions.swift in Sources */,
 				77C313292044394900DA309B /* ResponseError.swift in Sources */,
 				77C313302044514100DA309B /* R.generated.swift in Sources */,
 				771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */,
@@ -784,11 +788,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BT398QG55;
 				INFOPLIST_FILE = Gpay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.Gpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -800,11 +805,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BT398QG55;
 				INFOPLIST_FILE = Gpay/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gpn.Gpay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

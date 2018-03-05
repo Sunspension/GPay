@@ -13,7 +13,7 @@ class RoundedButton: UIButton {
     private lazy var shadowLayer: CAShapeLayer = {
         
         let layer = CAShapeLayer()
-        layer.shadowColor = R.color.mainBlue()?.cgColor
+        layer.shadowColor = UIColor.mainBlue.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 10)
         layer.shadowOpacity = 0.4
         layer.shadowRadius = 8

@@ -16,6 +16,7 @@ class PhoneCell: UITableViewCell {
     
     @IBOutlet weak var phoneField: SHSPhoneTextField!
     
+    @IBOutlet weak var roundedView: RoundedView!
     
     override func prepareForReuse() {
         
@@ -25,6 +26,8 @@ class PhoneCell: UITableViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        roundedView.backgroundColor = UIColor.babyBlue
+        phoneField.textColor = UIColor.mainBlue
     }
     
     func enablePrefix() {

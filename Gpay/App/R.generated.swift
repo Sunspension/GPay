@@ -16,27 +16,8 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 2 colors.
+  /// This `R.color` struct is generated, and contains static references to 0 colors.
   struct color {
-    /// Color `babyBlue`.
-    static let babyBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "babyBlue")
-    /// Color `mainBlue`.
-    static let mainBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "mainBlue")
-    
-    /// `UIColor(named: "babyBlue", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func babyBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.babyBlue, compatibleWith: traitCollection)
-    }
-    
-    /// `UIColor(named: "mainBlue", bundle: ..., traitCollection: ...)`
-    @available(tvOS 11.0, *)
-    @available(iOS 11.0, *)
-    static func mainBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
-      return UIKit.UIColor(resource: R.color.mainBlue, compatibleWith: traitCollection)
-    }
-    
     fileprivate init() {}
   }
   
