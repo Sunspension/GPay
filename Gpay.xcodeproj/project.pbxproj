@@ -166,8 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				771E4C7F203B2BD6003D40C7 /* Gpay */,
-				773BEE27203DA839006D9677 /* Custom */,
-				77242C8A203D822E003D9852 /* Extensions */,
 				771E4C94203B2BD6003D40C7 /* GpayTests */,
 				771E4C9F203B2BD6003D40C7 /* GpayUITests */,
 				771E4C7E203B2BD6003D40C7 /* Products */,
@@ -189,6 +187,8 @@
 		771E4C7F203B2BD6003D40C7 /* Gpay */ = {
 			isa = PBXGroup;
 			children = (
+				77242C8A203D822E003D9852 /* Extensions */,
+				773BEE27203DA839006D9677 /* Custom */,
 				7726BB2D2048449E003231B9 /* Helpers */,
 				77C3132A20443F0A00DA309B /* Responses */,
 				77C313252044006000DA309B /* Errors */,
