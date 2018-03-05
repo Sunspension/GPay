@@ -12,14 +12,13 @@ import RxCocoa
 
 class MapsViewModel {
     
-    private var router: MapsRoutable
-    
     private var bag = DisposeBag()
     
     var stations = PublishSubject<[GasStation]>()
     
     var viewDidLoad = PublishRelay<Void>()
     
+    var router: MapsRoutable
     
     init(router: MapsRoutable) {
         

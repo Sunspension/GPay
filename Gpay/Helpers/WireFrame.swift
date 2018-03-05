@@ -90,8 +90,18 @@ final class MainWireframe: Wireframe {
         
         container.register(MapsController.self) { _ in
             
-            let controller = R.storyboard.main().instantiateViewController(withIdentifier: "Maps") as! MapsController
+            let controller = R.storyboard.main()
+                .instantiateViewController(withIdentifier: "Maps") as! MapsController
             controller.viewModel = MapsViewModel(router: MapsRouter(wireframe: self))
+            return controller
+        }
+        
+        
+        container.register(StationInfoController.self) { (resolver, station: GasStation) in
+            
+            let controller = R.storyboard.main()
+                .instantiateViewController(withIdentifier: "StationInfo") as! StationInfoController
+            controller.viewModel = StationInfoViewModel(station)
             return controller
         }
     }

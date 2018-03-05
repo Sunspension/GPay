@@ -79,6 +79,22 @@ class MapsController: UIViewController {
             .map { GMSCameraUpdate.setTarget($0!.coordinate, zoom: 13) }
             .bind(to: self.mapView.rx.animate)
             .disposed(by: bag)
+        
+        self.mapView.rx.handleTapMarker {
+            
+            self.mapView.selectedMarker = $0
+            self.mapView.animate(with: GMSCameraUpdate.setTarget($0.position))
+            self.viewModel.router.openStationInfo($0.userData as! GasStation, in: self)
+            return true
+        }
+        
+        self.mapView.rx.didTapAt
+            .subscribe(onNext: { coordinates in
+                
+                self.viewModel.router.closeStationInfo()
+                self.mapView.selectedMarker = nil
+                
+            }).disposed(by: bag)
     }
     
     private func onStations(_ stations: [GasStation]) {
@@ -88,6 +104,7 @@ class MapsController: UIViewController {
             let marker = GMSMarker(position: station.position)
             marker.icon = R.image.pin()
             marker.map = mapView
+            marker.userData = station
         }
     }
 }

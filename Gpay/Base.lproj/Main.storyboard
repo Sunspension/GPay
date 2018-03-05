@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VLh-aS-eSy">
-                                <rect key="frame" x="294" y="218.5" width="81" height="250"/>
+                                <rect key="frame" x="294" y="177" width="81" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9w0-nV-6KG">
                                         <rect key="frame" x="0.0" y="0.0" width="81" height="83.5"/>
@@ -42,7 +42,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uPd-sn-oIH" firstAttribute="trailing" secondItem="VLh-aS-eSy" secondAttribute="trailing" id="Fbb-qI-diT"/>
-                            <constraint firstItem="VLh-aS-eSy" firstAttribute="centerY" secondItem="uPd-sn-oIH" secondAttribute="centerY" id="yys-fN-6Gh"/>
+                            <constraint firstAttribute="bottom" secondItem="VLh-aS-eSy" secondAttribute="bottom" constant="240" id="j3z-0e-enN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uPd-sn-oIH"/>
                     </view>
@@ -56,6 +56,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cae-xq-mR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="357.60000000000002" y="53.523238380809602"/>
+        </scene>
+        <!--Station Info Controller-->
+        <scene sceneID="V0y-Ll-kX0">
+            <objects>
+                <viewController storyboardIdentifier="StationInfo" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TG6-BN-VZR" customClass="StationInfoController" customModule="Gpay" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PkW-dZ-tms">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="АЗС №231" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-t3-r3S">
+                                <rect key="frame" x="20" y="16" width="335" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Зарайск, Московская, 8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKr-cU-9bu">
+                                <rect key="frame" x="20" y="53" width="335" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="G-95 G-98 G-95 G-98 G-95 G-98 G-95 G-98 G-95 G-98, G-95 G-98" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4E-3M-0O0">
+                                <rect key="frame" x="20" y="86" width="335" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aq5-IL-Wtv" customClass="RoundedButton" customModule="Gpay" customModuleProvider="target">
+                                <rect key="frame" x="20" y="144.5" width="335" height="58"/>
+                                <color key="backgroundColor" red="0.71576605902777779" green="0.592041015625" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="YB9-L9-UYt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Заправиться">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WKr-cU-9bu" firstAttribute="trailing" secondItem="BJv-t3-r3S" secondAttribute="trailing" id="4VA-WM-D6p"/>
+                            <constraint firstItem="Aq5-IL-Wtv" firstAttribute="trailing" secondItem="X4E-3M-0O0" secondAttribute="trailing" id="5Dt-Wk-Dg3"/>
+                            <constraint firstItem="Aq5-IL-Wtv" firstAttribute="top" secondItem="X4E-3M-0O0" secondAttribute="bottom" constant="20" id="5hy-Tn-i82"/>
+                            <constraint firstItem="X4E-3M-0O0" firstAttribute="top" secondItem="WKr-cU-9bu" secondAttribute="bottom" constant="16" id="6Of-pA-MGM"/>
+                            <constraint firstItem="Aq5-IL-Wtv" firstAttribute="leading" secondItem="X4E-3M-0O0" secondAttribute="leading" id="GW5-ZJ-9Yi"/>
+                            <constraint firstItem="BJv-t3-r3S" firstAttribute="top" secondItem="PkW-dZ-tms" secondAttribute="top" constant="16" id="N8n-k7-G9F"/>
+                            <constraint firstItem="WKr-cU-9bu" firstAttribute="leading" secondItem="BJv-t3-r3S" secondAttribute="leading" id="UuL-4W-QA7"/>
+                            <constraint firstItem="BJv-t3-r3S" firstAttribute="leading" secondItem="PkW-dZ-tms" secondAttribute="leading" constant="20" id="bn6-Rk-uMZ"/>
+                            <constraint firstItem="X4E-3M-0O0" firstAttribute="trailing" secondItem="WKr-cU-9bu" secondAttribute="trailing" id="cTW-hK-Zjb"/>
+                            <constraint firstItem="X4E-3M-0O0" firstAttribute="leading" secondItem="WKr-cU-9bu" secondAttribute="leading" id="k7f-Cl-qAH"/>
+                            <constraint firstAttribute="trailing" secondItem="BJv-t3-r3S" secondAttribute="trailing" constant="20" id="mNC-Gv-bea"/>
+                            <constraint firstItem="WKr-cU-9bu" firstAttribute="top" secondItem="BJv-t3-r3S" secondAttribute="bottom" constant="8" id="tZH-v8-Wdb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D5q-Q2-ooc"/>
+                    </view>
+                    <connections>
+                        <outlet property="action" destination="Aq5-IL-Wtv" id="YYr-NN-EHo"/>
+                        <outlet property="stationAddress" destination="WKr-cU-9bu" id="V5b-L8-UQQ"/>
+                        <outlet property="stationFuelList" destination="X4E-3M-0O0" id="UOo-Qg-JI3"/>
+                        <outlet property="stationTitle" destination="BJv-t3-r3S" id="cjT-GE-q57"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="miN-xb-3P0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160.8" y="53.523238380809602"/>
         </scene>
     </scenes>
     <resources>

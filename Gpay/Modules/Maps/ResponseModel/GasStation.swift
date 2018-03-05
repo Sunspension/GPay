@@ -15,6 +15,7 @@ struct GasStation: Decodable {
     let latitude: Double
     let longitude: Double
     let name: String
+    let address: String
     let number: Int
     
     var position: CLLocationCoordinate2D {
@@ -29,7 +30,23 @@ extension GasStation: CustomStringConvertible {
         
         return """
         GasStation:
-        id: \(id), latitude: \(latitude), longitude: \(longitude), name: \(name), number: \(number)
+        id: \(id), latitude: \(latitude), longitude: \(longitude), name: \(name), address: \(address), number: \(number)
         """
+    }
+}
+
+extension GasStation: Equatable {
+    
+    public static func ==(lhs: GasStation, rhs: GasStation) -> Bool {
+        
+        return lhs.id == rhs.id
+    }
+}
+
+extension GasStation: Hashable {
+    
+    public var hashValue: Int {
+        
+        return self.id.hashValue ^ 56
     }
 }
