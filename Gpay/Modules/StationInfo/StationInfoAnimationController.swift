@@ -54,49 +54,43 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
         
         let frame = transitionContext.finalFrame(for: controller)
         container.frame = frame
-        container.addSubview(view)
         
+        let visual = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        visual.contentView.addSubview(view)
+        
+        container.addSubview(visual)
+        
+        visual.frame = container.bounds
         view.frame = container.bounds
         
         let height = frame.height
         container.center.y += height
         
+        container.layer.cornerRadius = 20
+        container.clipsToBounds = true
+        
         // Animate the presented view to it final position
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 0.4,
                        delay: 0,
-                       usingSpringWithDamping: 10,
-                       initialSpringVelocity: 20,
+                       usingSpringWithDamping: 5,
+                       initialSpringVelocity: 30,
                        options: .allowUserInteraction,
                        animations: { container.center.y -= height + 22 },
-                       completion: nil)
-        
-        // Complete transition context at the same time with the animation above
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            
-            transitionContext.completeTransition(true)
-        }
+                       completion: { transitionContext.completeTransition($0) })
     }
     
     private func animateDismissal(with transitionContext: UIViewControllerContextTransitioning) {
-        
-        guard let view = transitionContext.view(forKey: UITransitionContextViewKey.from) else { return }
         
         let container = transitionContext.containerView
         let height = container.bounds.height + 22
         
         // Animate the presented view off the bottom of the view
-        UIView.animate(withDuration: 0.7,
+        UIView.animate(withDuration: 0.3,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 0,
                        options: .allowUserInteraction,
-                       animations: { view.center.y += height },
-                       completion: nil)
-        
-        // Complete transition context at the same time with the animation above
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            
-            transitionContext.completeTransition(true)
-        }
+                       animations: { container.center.y += height },
+                       completion: { transitionContext.completeTransition($0) })
     }
 }

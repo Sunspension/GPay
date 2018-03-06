@@ -24,13 +24,13 @@ class StationInfoPresentationController: UIPresentationController {
         return CGRect(x: x, y: y, width: width, height: height)
     }
     
-    override func presentationTransitionWillBegin() {
-        
-        guard let container = containerView, let view = presentedView else { return }
-        
-        view.layer.cornerRadius = 20
-        view.clipsToBounds = true
-        
-        container.addSubview(view)
-    }
+//    override func presentationTransitionWillBegin() {
+//        
+//        guard let container = containerView, let view = presentedView else { return }
+//        
+//        view.layer.cornerRadius = 20
+//        view.clipsToBounds = true
+//        
+//        container.addSubview(view)
+//    }
 }
