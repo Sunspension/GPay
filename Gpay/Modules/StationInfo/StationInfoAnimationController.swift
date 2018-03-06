@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 enum StationInfoAnimationDirection {
     
@@ -17,6 +18,7 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
     
     private var direction: StationInfoAnimationDirection
     
+    private var bag = DisposeBag()
     
     init(_ direction: StationInfoAnimationDirection) {
         
@@ -50,12 +52,14 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
         
         let container = transitionContext.containerView
         
-        view.frame = transitionContext.finalFrame(for: controller)
-        view.center.y += container.bounds.height
+        let frame = transitionContext.finalFrame(for: controller)
+        container.frame = frame
         container.addSubview(view)
-        container.isUserInteractionEnabled = false
         
-        let height = container.bounds.size.height + 20
+        view.frame = container.bounds
+        
+        let height = frame.height
+        container.center.y += height
         
         // Animate the presented view to it final position
         UIView.animate(withDuration: 0.5,
@@ -63,7 +67,7 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
                        usingSpringWithDamping: 10,
                        initialSpringVelocity: 20,
                        options: .allowUserInteraction,
-                       animations: { view.center.y -= height },
+                       animations: { container.center.y -= height + 22 },
                        completion: nil)
         
         // Complete transition context at the same time with the animation above
@@ -78,7 +82,7 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
         guard let view = transitionContext.view(forKey: UITransitionContextViewKey.from) else { return }
         
         let container = transitionContext.containerView
-        let height = container.bounds.size.height + 20
+        let height = container.bounds.height + 22
         
         // Animate the presented view off the bottom of the view
         UIView.animate(withDuration: 0.7,

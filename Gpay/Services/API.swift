@@ -60,6 +60,12 @@ struct API {
         return provider.rx.request(.gasStations).mapResponse([GasStation].self)
     }
     
+    static func refuelers(for stationId: String) -> Single<Result<[Refueler]>> {
+        
+        return provider.rx.request(.refuelers(stationId: stationId))
+            .mapResponse([Refueler].self)
+    }
+    
     fileprivate static func handleError(_ response: Response) -> Error {
         
         do {

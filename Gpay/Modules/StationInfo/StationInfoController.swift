@@ -21,6 +21,9 @@ class StationInfoController: UIViewController {
     
     @IBOutlet weak var action: RoundedButton!
     
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    
     var viewModel: StationInfoViewModel! {
         
         willSet {
@@ -49,12 +52,62 @@ class StationInfoController: UIViewController {
         self.viewModel.onStation
             .bind(onNext: { [unowned self] in self.onStation($0) })
             .disposed(by: bag)
+        
+        self.viewModel.onRefuelers
+            .bind(onNext:{[unowned self] in self.onRefuelers($0) })
+            .disposed(by: bag)
+        
+        self.action.rx.tap.subscribe(onNext: { print("click") })
+            .disposed(by: bag)
     }
     
     func onStation(_ station: GasStation) {
         
         stationTitle.text = station.name
         stationAddress.text = station.address
+    }
+    
+    func onRefuelers(_ refuelers: [Refueler]) {
+        
+        let fuelSet = Set(refuelers.flatMap ({ $0.nozzles.map({ $0.fuel }) }))
+        
+        let prices = NSMutableAttributedString(string: "")
+        
+        for fuel in fuelSet {
+            
+            let string = self.combineAttributedText(name: fuel.name,
+                                                    price: String(format: "%.2f", fuel.price),
+                                                    iconColor: UIColor.red)
+            prices.append(string)
+            
+            let space = NSAttributedString(string:"  ", attributes: [ NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16)])
+            prices.append(space)
+        }
+        
+        self.stationFuelList.attributedText = prices
+        self.activity.stopAnimating()
+    }
+    
+    private func combineAttributedText(name: String, price: String, iconColor: UIColor) -> NSAttributedString {
+        
+        let name = NSAttributedString(string: name + " ", attributes: [ NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16)])
+        
+        let attachment = NSTextAttachment()
+        attachment.image = R.image.fuelSmall()?.withRenderingMode(.alwaysTemplate)
+        
+        attachment.bounds = CGRect(x: 0, y: -1, width: attachment.image!.size.width, height: attachment.image!.size.height)
+        
+        let icon = NSAttributedString(attachment: attachment)
+        let iconRange = NSMakeRange(name.length - 1, icon.length)
+        
+        let price = NSAttributedString(string: " " + price, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor : UIColor.mainBlue])
+        
+        let finalString = NSMutableAttributedString(attributedString: name)
+        finalString.append(icon)
+        finalString.addAttributes([NSAttributedStringKey.foregroundColor : iconColor], range: iconRange)
+        finalString.append(price)
+        
+        return finalString
     }
 }
 

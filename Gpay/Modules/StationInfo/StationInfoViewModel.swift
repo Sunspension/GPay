@@ -18,6 +18,8 @@ class StationInfoViewModel {
     
     var onStation = PublishSubject<GasStation>()
     
+    var onRefuelers = PublishSubject<[Refueler]>()
+    
     var viewDidLoad = PublishRelay<Void>()
     
     
@@ -26,15 +28,24 @@ class StationInfoViewModel {
         self.station = station
         
         self.viewDidLoad
-            .subscribe(onNext: { [unowned self] _ in
-            
-                self.onStation.onNext(self.station)
-        
-            }).disposed(by: bag)
+            .subscribe(onNext: { [unowned self] _ in self.onStation(station) })
+            .disposed(by: bag)
     }
     
     func nextStation(_ station: GasStation) {
         
+        self.onStation(station)
+    }
+    
+    private func onStation(_ station: GasStation) {
+        
         self.onStation.onNext(station)
+        
+        API.refuelers(for: station.id)
+            .subscribe(onSuccess: { result in
+                
+                result.onSucess({ self.onRefuelers.onNext($0) })
+                
+            }).disposed(by: self.bag)
     }
 }

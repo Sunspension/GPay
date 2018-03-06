@@ -13,3 +13,11 @@ struct ResponseError: Decodable {
     let errorCode: String
     let errorMessage: String
 }
+
+extension ResponseError: CustomStringConvertible {
+    
+    var description: String {
+        
+        return "error code: " + errorCode + ", " + " error message: " + errorMessage
+    }
+}

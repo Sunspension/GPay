@@ -12,10 +12,13 @@ import Moya
 enum ApiClient {
     
     case signup(login: String, password: String)
+    
     case gasStations
+    
+    case refuelers(stationId: String)
 }
 
-enum CodingKeys: String, CodingKey {
+private enum CodingKeys: String, CodingKey {
 
     case jsonrpc, method, params
 }
@@ -59,7 +62,8 @@ extension ApiClient: TargetType {
         case .signup:
             return "/loyalty.customer"
             
-        case .gasStations:
+        case .gasStations,
+             .refuelers:
             return "/loyalty.gazstation"
         }
     }
@@ -76,7 +80,7 @@ extension ApiClient: TargetType {
         switch self {
             
         case .signup(let login, let password):
-
+            
             request.method = "token"
             request.params["phone"] = login
             request.params["password"] = password
@@ -84,6 +88,11 @@ extension ApiClient: TargetType {
         case .gasStations:
             
             request.method = "list"
+            
+        case .refuelers(let stationId):
+            
+            request.method = "dispensers"
+            request.params["gazStationId"] = stationId
         }
         
         let params = request.requestParams()
