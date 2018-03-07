@@ -20,6 +20,7 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
     
     private var bag = DisposeBag()
     
+    
     init(_ direction: StationInfoAnimationDirection) {
         
         self.direction = direction
@@ -64,8 +65,8 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
         view.frame = container.bounds
         
         let height = frame.height
-        container.center.y += height
         
+        container.center.y += height
         container.layer.cornerRadius = 20
         container.clipsToBounds = true
         
@@ -75,7 +76,7 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
                        usingSpringWithDamping: 5,
                        initialSpringVelocity: 30,
                        options: .allowUserInteraction,
-                       animations: { container.center.y -= height + 22 },
+                       animations: { container.center.y -= height },
                        completion: { transitionContext.completeTransition($0) })
     }
     

@@ -255,10 +255,15 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let maps = StoryboardViewControllerResource<MapsController>(identifier: "Maps")
       let name = "Main"
+      let refuelerSelector = StoryboardViewControllerResource<RefuelerSelectorController>(identifier: "RefuelerSelector")
       let stationInfo = StoryboardViewControllerResource<StationInfoController>(identifier: "StationInfo")
       
       func maps(_: Void = ()) -> MapsController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: maps)
+      }
+      
+      func refuelerSelector(_: Void = ()) -> RefuelerSelectorController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: refuelerSelector)
       }
       
       func stationInfo(_: Void = ()) -> StationInfoController? {
@@ -269,6 +274,7 @@ struct _R: Rswift.Validatable {
         if UIKit.UIImage(named: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "location") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'location' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "minus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'minus' is used in storyboard 'Main', but couldn't be loaded.") }
+        if _R.storyboard.main().refuelerSelector() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'refuelerSelector' could not be loaded from storyboard 'Main' as 'RefuelerSelectorController'.") }
         if _R.storyboard.main().maps() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'maps' could not be loaded from storyboard 'Main' as 'MapsController'.") }
         if _R.storyboard.main().stationInfo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'stationInfo' could not be loaded from storyboard 'Main' as 'StationInfoController'.") }
       }

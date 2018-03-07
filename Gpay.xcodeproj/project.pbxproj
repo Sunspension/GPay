@@ -38,6 +38,7 @@
 		7780BF2F204EE7560064F5A7 /* Refueler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF2E204EE7560064F5A7 /* Refueler.swift */; };
 		7780BF32204F19660064F5A7 /* RefuelerSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF31204F19660064F5A7 /* RefuelerSelectorController.swift */; };
 		7780BF34204F19F10064F5A7 /* RefuelerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF33204F19F10064F5A7 /* RefuelerCell.swift */; };
+		7780BF39204F4A1C0064F5A7 /* StationInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF38204F4A1C0064F5A7 /* StationInfoRouter.swift */; };
 		77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB8E20498D60001DCEBB /* MapsRouter.swift */; };
 		77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB9020498E3F001DCEBB /* SingUpRouter.swift */; };
 		77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB922049A1EB001DCEBB /* MapsViewModel.swift */; };
@@ -113,6 +114,7 @@
 		7780BF2E204EE7560064F5A7 /* Refueler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refueler.swift; sourceTree = "<group>"; };
 		7780BF31204F19660064F5A7 /* RefuelerSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelerSelectorController.swift; sourceTree = "<group>"; };
 		7780BF33204F19F10064F5A7 /* RefuelerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelerCell.swift; sourceTree = "<group>"; };
+		7780BF38204F4A1C0064F5A7 /* StationInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoRouter.swift; sourceTree = "<group>"; };
 		77AADB8E20498D60001DCEBB /* MapsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
 		77AADB9020498E3F001DCEBB /* SingUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpRouter.swift; sourceTree = "<group>"; };
 		77AADB922049A1EB001DCEBB /* MapsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewModel.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				775FF4C7204D87F300A30D98 /* StationInfoViewModel.swift */,
 				775FF4C9204D91F000A30D98 /* StationInfoAnimationController.swift */,
 				775FF4CB204D96D600A30D98 /* StationInfoPresentationController.swift */,
+				7780BF38204F4A1C0064F5A7 /* StationInfoRouter.swift */,
 			);
 			path = StationInfo;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				775FF4CC204D96D600A30D98 /* StationInfoPresentationController.swift in Sources */,
 				77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */,
 				7780BF32204F19660064F5A7 /* RefuelerSelectorController.swift in Sources */,
+				7780BF39204F4A1C0064F5A7 /* StationInfoRouter.swift in Sources */,
 				77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */,
 				773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */,
 				77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */,

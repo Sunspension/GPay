@@ -20,6 +20,8 @@ class SignUpViewModel {
     
     var authError = PublishSubject<Swift.Error>()
     
+    var loginActivity = PublishSubject<Bool>()
+    
     var login = Observable.just("")
     
     var password = Observable.just("")
@@ -40,8 +42,15 @@ class SignUpViewModel {
             let loginPassword = Observable.combineLatest(phoneNumber, password) { (login: String($0.dropFirst()), password: $1) }
             
             newValue.withLatestFrom(loginPassword)
+                .map({ element -> (login: String, password: String) in
+                    
+                    self.loginActivity.onNext(true)
+                    return element
+                })
                 .flatMapLatest { API.signup(login: $0.login, password: $0.password) }
                 .subscribe(onNext: { result in
+                    
+                    self.loginActivity.onNext(false)
                     
                     result.onError { error in self.authError.onNext(error) }
                     result.onSucess { auth in
@@ -49,8 +58,8 @@ class SignUpViewModel {
                         StorageManager.auth = auth
                         self.router.openRootController()
                     }
-                })
-                .disposed(by: disposeBag)
+                    
+                }, onError: { _ in self.loginActivity.onNext(false) }).disposed(by: disposeBag)
         }
     }
     

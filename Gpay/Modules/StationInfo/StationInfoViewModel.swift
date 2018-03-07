@@ -12,9 +12,15 @@ import RxCocoa
 
 class StationInfoViewModel {
     
-    private let station: GasStation
-    
     private var bag = DisposeBag()
+    
+    private var _station: GasStation
+    
+    
+    var station: GasStation {
+        
+        return _station
+    }
     
     var onStation = PublishSubject<GasStation>()
     
@@ -25,7 +31,7 @@ class StationInfoViewModel {
     
     init(_ station: GasStation) {
         
-        self.station = station
+        _station = station
         
         self.viewDidLoad
             .subscribe(onNext: { [unowned self] _ in self.onStation(station) })
@@ -39,12 +45,13 @@ class StationInfoViewModel {
     
     private func onStation(_ station: GasStation) {
         
+        _station = station
         self.onStation.onNext(station)
         
         API.refuelers(for: station.id)
-            .subscribe(onSuccess: { result in
+            .subscribe(onSuccess: { [weak self] result in
                 
-                result.onSucess({ self.onRefuelers.onNext($0) })
+                result.onSucess({ self?.onRefuelers.onNext($0) })
                 
             }).disposed(by: self.bag)
     }

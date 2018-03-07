@@ -23,6 +23,7 @@ class StationInfoController: UIViewController {
     
     @IBOutlet weak var activity: UIActivityIndicatorView!
     
+    var router: StationInfoRoutable!
     
     var viewModel: StationInfoViewModel! {
         
@@ -57,8 +58,13 @@ class StationInfoController: UIViewController {
             .bind(onNext:{[unowned self] in self.onRefuelers($0) })
             .disposed(by: bag)
         
-        self.action.rx.tap.subscribe(onNext: { print("click") })
-            .disposed(by: bag)
+        self.action.rx.tap.subscribe(onNext: {
+            
+            let id = self.viewModel.station.id
+            let name = self.viewModel.station.name
+            self.router.openRefuelerSelector(stationId: id, stationName: name, in: self)
+            
+        }).disposed(by: bag)
     }
     
     func onStation(_ station: GasStation) {

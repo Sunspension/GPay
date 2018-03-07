@@ -18,11 +18,8 @@ class MapsViewModel {
     
     var viewDidLoad = PublishRelay<Void>()
     
-    var router: MapsRoutable
     
-    init(router: MapsRoutable) {
-        
-        self.router = router
+    init() {
         
         viewDidLoad
             .flatMap { API.gasStations() }

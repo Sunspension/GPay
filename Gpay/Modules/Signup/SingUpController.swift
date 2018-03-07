@@ -85,6 +85,21 @@ class SingUpController: UITableViewController {
         self.tableView.register(nibClass: PhoneCell.self)
         self.tableView.register(nibClass: ButtonCell.self)
         
+        self.viewModel.loginActivity
+            .asObservable()
+            .subscribe(onNext: { isActive in
+                
+                if isActive == true {
+                    
+                    self.tableView.showBusy()
+                }
+                else {
+                    
+                    self.tableView.hideBusy()
+                }
+                
+            }).disposed(by: disposeBag)
+                
         Observable.just(items)
             .bind(to: tableView.rx.items) { table, row, item in
             

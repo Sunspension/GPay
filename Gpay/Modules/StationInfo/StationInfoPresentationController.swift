@@ -19,18 +19,8 @@ class StationInfoPresentationController: UIPresentationController {
         let width: CGFloat = frame.size.width - 44
         let height: CGFloat = 224
         let x: CGFloat = 22
-        let y: CGFloat = frame.height - height
+        let y: CGFloat = frame.height - height - 22
         
         return CGRect(x: x, y: y, width: width, height: height)
     }
-    
-//    override func presentationTransitionWillBegin() {
-//        
-//        guard let container = containerView, let view = presentedView else { return }
-//        
-//        view.layer.cornerRadius = 20
-//        view.clipsToBounds = true
-//        
-//        container.addSubview(view)
-//    }
 }

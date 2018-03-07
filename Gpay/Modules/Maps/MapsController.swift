@@ -30,6 +30,8 @@ class MapsController: UIViewController {
     
     @IBOutlet weak var myLocation: UIButton!
     
+    var router: MapsRoutable!
+    
     var viewModel: MapsViewModel! {
         
         willSet {
@@ -84,14 +86,14 @@ class MapsController: UIViewController {
             
             self.mapView.selectedMarker = $0
             self.mapView.animate(with: GMSCameraUpdate.setTarget($0.position))
-            self.viewModel.router.openStationInfo($0.userData as! GasStation, in: self)
+            self.router.openStationInfo($0.userData as! GasStation, in: self)
             return true
         }
         
         self.mapView.rx.didTapAt
             .subscribe(onNext: { coordinates in
                 
-                self.viewModel.router.closeStationInfo()
+                self.router.closeStationInfo()
                 self.mapView.selectedMarker = nil
                 
             }).disposed(by: bag)

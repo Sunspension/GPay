@@ -133,7 +133,7 @@
         <!--Refueler Selector Controller-->
         <scene sceneID="fdw-K7-Rnw">
             <objects>
-                <viewController id="21O-c1-Jun" customClass="RefuelerSelectorController" customModule="Gpay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RefuelerSelector" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="21O-c1-Jun" customClass="RefuelerSelectorController" customModule="Gpay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aSC-3R-Ij4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,8 +151,8 @@
                                     <constraint firstAttribute="height" constant="1" id="DjV-Fz-pUp"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chj-lp-M5x">
-                                <rect key="frame" x="0.0" y="609" width="375" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chj-lp-M5x" customClass="RoundedButton" customModule="Gpay" customModuleProvider="target">
+                                <rect key="frame" x="20" y="609" width="335" height="58"/>
                                 <color key="backgroundColor" red="0.2156862745" green="0.54901960780000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="CH4-jN-899"/>
@@ -230,9 +230,9 @@
                             <constraint firstItem="P83-j2-hGY" firstAttribute="top" secondItem="Gdw-Xm-7JS" secondAttribute="top" constant="24" id="gdD-2Q-VZg"/>
                             <constraint firstItem="Yq4-1Q-a1r" firstAttribute="top" secondItem="Bcg-N9-GOC" secondAttribute="bottom" constant="24" id="gmv-4T-Emx"/>
                             <constraint firstItem="P83-j2-hGY" firstAttribute="leading" secondItem="Gdw-Xm-7JS" secondAttribute="leading" constant="16" id="kqa-eD-ReN"/>
-                            <constraint firstItem="chj-lp-M5x" firstAttribute="leading" secondItem="Gdw-Xm-7JS" secondAttribute="leading" id="lqr-MK-5MK"/>
+                            <constraint firstItem="chj-lp-M5x" firstAttribute="leading" secondItem="Gdw-Xm-7JS" secondAttribute="leading" constant="20" id="lqr-MK-5MK"/>
                             <constraint firstItem="Bcg-N9-GOC" firstAttribute="top" secondItem="P83-j2-hGY" secondAttribute="bottom" constant="24" id="mo9-A8-oXN"/>
-                            <constraint firstItem="Gdw-Xm-7JS" firstAttribute="trailing" secondItem="chj-lp-M5x" secondAttribute="trailing" id="zeu-5n-NxF"/>
+                            <constraint firstItem="Gdw-Xm-7JS" firstAttribute="trailing" secondItem="chj-lp-M5x" secondAttribute="trailing" constant="20" id="zeu-5n-NxF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gdw-Xm-7JS"/>
                     </view>
