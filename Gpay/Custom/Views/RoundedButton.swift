@@ -13,15 +13,9 @@ class RoundedButton: UIButton {
     private lazy var shadowLayer: CAShapeLayer = {
         
         let layer = CAShapeLayer()
-        layer.shadowColor = UIColor.mainBlue.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 10)
-        layer.shadowOpacity = 0.4
-        layer.shadowRadius = 8
-        
+        self.layer.insertSublayer(layer, at: 0)
         return layer
     }()
-    
-    private var isShadowEnabled: Bool = false
     
     override var isEnabled: Bool {
         
@@ -35,20 +29,12 @@ class RoundedButton: UIButton {
         
         super.layoutSubviews()
         
-        if self.shadowLayer.superlayer == nil {
-            
-            layer.insertSublayer(self.shadowLayer, at: 0)
-        }
-        
         let radius = min(self.bounds.width, self.bounds.height) / 2
         layer.cornerRadius = radius
         
-        if isShadowEnabled {
-            
-            let path = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
-            shadowLayer.path = path
-            shadowLayer.shadowPath = path
-        }
+        let path = UIBezierPath(roundedRect: bounds, cornerRadius: radius).cgPath
+        shadowLayer.path = path
+        shadowLayer.shadowPath = path
     }
     
     func setButtonColor(_ color: UIColor) {
@@ -56,13 +42,19 @@ class RoundedButton: UIButton {
         self.shadowLayer.fillColor = color.cgColor
     }
     
-    func enableShadow(color: UIColor, radius: CGFloat = 7, offset: CGSize = CGSize(width: 0, height: 7)) {
-        
-        self.isShadowEnabled = true
+    func enableShadow(color: UIColor, radius: CGFloat = 7, offset: CGSize = CGSize(width: 0, height: 7), opacity: Float = 0.4) {
         
         shadowLayer.shadowColor = color.cgColor
         shadowLayer.shadowOffset = offset
-        shadowLayer.shadowOpacity = 0.4
+        shadowLayer.shadowOpacity = opacity
         shadowLayer.shadowRadius = radius
+    }
+    
+    func disableShadow() {
+        
+        shadowLayer.shadowColor = UIColor.white.cgColor
+        shadowLayer.shadowOffset = CGSize.zero
+        shadowLayer.shadowOpacity = 1
+        shadowLayer.shadowRadius = 0
     }
 }

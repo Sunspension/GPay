@@ -23,6 +23,49 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showError(error: Swift.Error) {
+        
+        showOkAlert(title: "Ошибка", message: error.localizedDescription)
+    }
+    
+    func showBusy() {
+        
+        guard self.view.subviews.first(where: { $0 is UIActivityIndicatorView }) == nil else {
+            
+            return
+        }
+        
+        let busy = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        busy.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        busy.hidesWhenStopped = true
+        busy.startAnimating()
+        
+        let container = UIView(frame: self.view.bounds)
+        container.backgroundColor = UIColor.clear
+        container.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        container.tag = container.hash ^ 99
+        container.isUserInteractionEnabled = false
+        
+        container.addSubview(busy)
+        
+        busy.translatesAutoresizingMaskIntoConstraints = false
+        busy.centerXAnchor.constraint(equalTo: container.centerXAnchor).isActive = true
+        busy.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        
+        self.view.addSubview(container)
+    }
+    
+    func hideBusy() {
+        
+        self.view.subviews.forEach { view in
+            
+            if view.tag == view.hash ^ 99 {
+                
+                view.removeFromSuperview()
+            }
+        }
+    }
 }
 
 public extension Reactive where Base: UIViewController {

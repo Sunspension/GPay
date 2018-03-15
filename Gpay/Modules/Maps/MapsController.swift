@@ -30,6 +30,10 @@ class MapsController: UIViewController {
     
     @IBOutlet weak var myLocation: UIButton!
     
+    @IBOutlet weak var pay: UIButton!
+    
+    let controller = PaymentController()
+    
     var router: MapsRoutable!
     
     var viewModel: MapsViewModel! {

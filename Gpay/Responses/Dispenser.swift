@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import RxDataSources
 
-struct Refueler: Decodable {
+struct Dispenser: Decodable {
     
     private enum CodingKeys: String, CodingKey {
 
@@ -65,5 +66,15 @@ extension Fuel: Hashable {
     var hashValue: Int {
         
         return name.hashValue ^ 66
+    }
+}
+
+extension Fuel: IdentifiableType {
+    
+    typealias Identity = Fuel
+    
+    var identity: Fuel {
+        
+        return self
     }
 }

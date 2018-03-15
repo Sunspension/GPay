@@ -11,7 +11,7 @@ import KeychainAccess
 
 class StorageManager {
     
-    private static let keychain = Keychain(service: "com.gpn.Gpay")
+    private static let keychain = Keychain(service: "com.gpn.gpay")
     
     static var auth: AuthResponse? {
         

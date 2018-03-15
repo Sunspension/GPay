@@ -15,7 +15,11 @@ enum ApiClient {
     
     case gasStations
     
-    case refuelers(stationId: String)
+    case dispensers(stationId: String)
+    
+    case order(order: Order)
+    
+    case payment(orderId: String, paymentData: String)
 }
 
 private enum CodingKeys: String, CodingKey {
@@ -62,9 +66,11 @@ extension ApiClient: TargetType {
         case .signup:
             return "/loyalty.customer"
             
-        case .gasStations,
-             .refuelers:
+        case .gasStations, .dispensers:
             return "/loyalty.gazstation"
+            
+        case .order, .payment:
+            return "/loyalty.ticket"
         }
     }
     
@@ -84,15 +90,35 @@ extension ApiClient: TargetType {
             request.method = "token"
             request.params["phone"] = login
             request.params["password"] = password
+            break
             
         case .gasStations:
             
             request.method = "list"
+            break
             
-        case .refuelers(let stationId):
+        case .dispensers(let stationId):
             
             request.method = "dispensers"
             request.params["gazStationId"] = stationId
+            break
+            
+        case .order(let order):
+            
+            request.method = "order"
+            request.params["gazStationId"] = order.stationId
+            request.params["deviceNumber"] = order.dispenserId
+            request.params["nozzleGuid"] = order.nozzle.guid
+            request.params["amount"] = order.liters * order.nozzle.fuel.price
+            request.params["quantity"] = order.liters
+            break
+            
+        case .payment(let orderId, let paymentData):
+            
+            request.method = "apple-pay"
+            request.params["orderId"] = orderId
+            request.params["paymentToken"] = paymentData
+            break
         }
         
         let params = request.requestParams()

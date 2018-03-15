@@ -35,7 +35,6 @@ class StationInfoController: UIViewController {
         }
     }
     
-    
     required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
@@ -54,15 +53,13 @@ class StationInfoController: UIViewController {
             .bind(onNext: { [unowned self] in self.onStation($0) })
             .disposed(by: bag)
         
-        self.viewModel.onRefuelers
-            .bind(onNext:{[unowned self] in self.onRefuelers($0) })
+        self.viewModel.onDispensers
+            .bind(onNext: { [unowned self] in self.onRefuelers($0) })
             .disposed(by: bag)
         
-        self.action.rx.tap.subscribe(onNext: {
+        self.action.rx.tap.subscribe(onNext: { [unowned self] in
             
-            let id = self.viewModel.station.id
-            let name = self.viewModel.station.name
-            self.router.openRefuelerSelector(stationId: id, stationName: name, in: self)
+            self.router.openDispenserSelector(station: self.viewModel.station, in: self)
             
         }).disposed(by: bag)
     }
@@ -73,7 +70,7 @@ class StationInfoController: UIViewController {
         stationAddress.text = station.address
     }
     
-    func onRefuelers(_ refuelers: [Refueler]) {
+    func onRefuelers(_ refuelers: [Dispenser]) {
         
         let fuelSet = Set(refuelers.flatMap ({ $0.nozzles.map({ $0.fuel }) }))
         

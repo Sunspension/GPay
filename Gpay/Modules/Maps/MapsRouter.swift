@@ -15,19 +15,11 @@ protocol MapsRoutable {
     func closeStationInfo()
 }
 
-class MapsRouter: MapsRoutable {
-    
-    private let wireframe: Wireframe
+class MapsRouter: RouterBase, MapsRoutable {
     
     private var station: GasStation?
     
     private weak var presentedInfo: StationInfoController?
-    
-    
-    init(wireframe: Wireframe) {
-        
-        self.wireframe = wireframe
-    }
     
     func openStationInfo(_ station: GasStation, in view: UIViewController) {
         

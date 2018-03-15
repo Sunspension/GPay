@@ -108,10 +108,20 @@ final class MainWireframe: Wireframe {
             return controller
         }
         
-        container.register(RefuelerSelectorController.self) { (resolver, stationId: String, stationName: String) in
+        container.register(DispenserSelectorController.self) { (resolver, station: GasStation) in
             
-            let controller = R.storyboard.main().instantiateViewController(withIdentifier: "RefuelerSelector") as! RefuelerSelectorController
-            controller.title = stationName
+            let controller = R.storyboard.main().instantiateViewController(withIdentifier: "DispenserSelector") as! DispenserSelectorController
+            controller.title = station.name
+            controller.viewModel = DispenserSelectorViewModel(station)
+            controller.router = DispenserSelectorRouter(wireframe: self)
+            
+            return controller
+        }
+        
+        container.register(OrderDetailsController.self) { (resolver, order: Order, station: GasStation) in
+            
+            let controller = R.storyboard.main().instantiateViewController(withIdentifier: "OrderDetails") as! OrderDetailsController
+            controller.viewModel = OrderDetailsViewModel(order: order, station: station)
             
             return controller
         }

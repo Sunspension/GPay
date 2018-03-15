@@ -13,17 +13,7 @@ protocol SingUpRoutable {
     func openRootController()
 }
 
-class SingUpRouter {
-    
-    private var wireframe: Wireframe
-    
-    init(wireframe: Wireframe) {
-        
-        self.wireframe = wireframe
-    }
-}
-
-extension SingUpRouter: SingUpRoutable {
+class SingUpRouter: RouterBase, SingUpRoutable{
     
     func openRootController() {
         

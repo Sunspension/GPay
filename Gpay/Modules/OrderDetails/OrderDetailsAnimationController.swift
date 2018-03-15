@@ -1,31 +1,30 @@
 //
-//  StationInfoAnimationController.swift
+//  OrderDetailsAnimationController.swift
 //  Gpay
 //
-//  Created by Vladimir Kokhanevich on 05/03/2018.
+//  Created by Vladimir Kokhanevich on 15/03/2018.
 //  Copyright © 2018 gpn. All rights reserved.
 //
 
 import UIKit
 
-enum StationInfoAnimationDirection {
+enum OrderDetailsAnimationDirection {
     
     case present, dismiss
 }
 
-class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+class OrderDetailsAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var direction: StationInfoAnimationDirection
+    private var direction: OrderDetailsAnimationDirection
     
-    
-    init(_ direction: StationInfoAnimationDirection) {
+    init(_ direction: OrderDetailsAnimationDirection) {
         
         self.direction = direction
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         
-        return 0.3
+        return 0.5
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -49,46 +48,43 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
             let view = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
         
         let container = transitionContext.containerView
+        container.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        container.addSubview(view)
         
-        let frame = transitionContext.finalFrame(for: controller)
-        container.frame = frame
-        
-        let visual = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        visual.contentView.addSubview(view)
-        
-        container.addSubview(visual)
-        
-        visual.frame = container.bounds
-        view.frame = container.bounds
-        
-        let height = frame.height
-        
-        container.center.y += height
-        container.layer.cornerRadius = 20
-        container.clipsToBounds = true
+        view.frame = transitionContext.finalFrame(for: controller)
+        view.center.y -= container.bounds.height
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
         
         // Animate the presented view to it final position
-        UIView.animate(withDuration: 0.4,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       usingSpringWithDamping: 5,
-                       initialSpringVelocity: 30,
+                       usingSpringWithDamping: 10,
+                       initialSpringVelocity: 20,
                        options: .allowUserInteraction,
-                       animations: { container.center.y -= height },
+                       animations: { view.center.y = container.bounds.height / 2 },
                        completion: { transitionContext.completeTransition($0) })
     }
     
     private func animateDismissal(with transitionContext: UIViewControllerContextTransitioning) {
         
+        guard let view = transitionContext.view(forKey: UITransitionContextViewKey.from) else { return }
+        
         let container = transitionContext.containerView
-        let height = container.bounds.height + 22
+        let height = container.bounds.height
         
         // Animate the presented view off the bottom of the view
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 0,
                        options: .allowUserInteraction,
-                       animations: { container.center.y += height },
-                       completion: { transitionContext.completeTransition($0) })
+                       animations: { view.center.y += height },
+                       completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+            
+            transitionContext.completeTransition(true)
+        }
     }
 }

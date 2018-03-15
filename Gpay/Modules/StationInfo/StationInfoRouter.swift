@@ -10,22 +10,18 @@ import UIKit
 
 protocol StationInfoRoutable {
     
-    func openRefuelerSelector(stationId: String, stationName: String, in view: UIViewController)
+    func openDispenserSelector(station: GasStation, in view: UIViewController)
 }
 
-class StationInfoRouter: StationInfoRoutable {
+class StationInfoRouter: RouterBase, StationInfoRoutable {
     
-    private let wireframe: Wireframe
+    private var controller: PaymentController?
     
-    
-    init(wireframe: Wireframe) {
+    func openDispenserSelector(station: GasStation, in view: UIViewController) {
         
-        self.wireframe = wireframe
-    }
-    
-    func openRefuelerSelector(stationId: String, stationName: String, in view: UIViewController) {
+        let controller = self.wireframe.container.resolve(DispenserSelectorController.self, argument: station)!
+        let navi = UINavigationController(rootViewController: controller)
         
-        let controller = self.wireframe.container.resolve(RefuelerSelectorController.self, arguments: stationId, stationName)!
-        view.present(controller, animated: true, completion: nil)
+        view.present(navi, animated: true, completion: nil)
     }
 }

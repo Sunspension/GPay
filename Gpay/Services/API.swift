@@ -60,10 +60,22 @@ struct API {
         return provider.rx.request(.gasStations).mapResponse([GasStation].self)
     }
     
-    static func refuelers(for stationId: String) -> Single<Result<[Refueler]>> {
+    static func dispensers(for stationId: String) -> Single<Result<[Dispenser]>> {
         
-        return provider.rx.request(.refuelers(stationId: stationId))
-            .mapResponse([Refueler].self)
+        return provider.rx.request(.dispensers(stationId: stationId))
+            .mapResponse([Dispenser].self)
+    }
+    
+    static func makeOrder(_ order: Order) -> Single<Result<OrderResponse>> {
+        
+        return provider.rx.request(.order(order: order)).mapResponse(OrderResponse.self)
+    }
+    
+    // Apple Pay payment method
+    static func makePayment(orderId: String, paymentData: String) -> Single<Result<Payment>> {
+        
+        return provider.rx.request(.payment(orderId: orderId, paymentData: paymentData))
+            .mapResponse(Payment.self)
     }
     
     fileprivate static func handleError(_ response: Response) -> Error {

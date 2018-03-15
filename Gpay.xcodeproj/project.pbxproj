@@ -7,12 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770A4CA6205A8AAF00E3D43E /* OrderDetailsPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CA5205A8AAF00E3D43E /* OrderDetailsPresentationController.swift */; };
+		770A4CA8205A8B7E00E3D43E /* OrderDetailsAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CA7205A8B7E00E3D43E /* OrderDetailsAnimationController.swift */; };
+		770A4CAA205A8F3300E3D43E /* DispenserSelectorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CA9205A8F3300E3D43E /* DispenserSelectorRouter.swift */; };
+		770A4CAC205AA44600E3D43E /* OrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CAB205AA44600E3D43E /* OrderDetailsViewModel.swift */; };
+		770A4CAE205ACE3400E3D43E /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CAD205ACE3400E3D43E /* OrderResponse.swift */; };
+		770A4CB3205AD4CD00E3D43E /* RouterBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CB2205AD4CD00E3D43E /* RouterBase.swift */; };
+		770A4CB5205AD91500E3D43E /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CB4205AD91500E3D43E /* PaymentViewModel.swift */; };
+		770A4CB7205ADAD600E3D43E /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A4CB6205ADAD600E3D43E /* Payment.swift */; };
 		7713ABA2203DB0B3001F0CFD /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABA0203DB0B3001F0CFD /* ButtonCell.swift */; };
 		7713ABA3203DB0B3001F0CFD /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7713ABA1203DB0B3001F0CFD /* ButtonCell.xib */; };
 		7713ABA5203DB119001F0CFD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABA4203DB119001F0CFD /* RoundedButton.swift */; };
 		7713ABAC203DC5D5001F0CFD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAB203DC5D5001F0CFD /* Constants.swift */; };
 		7713ABAE203DC82E001F0CFD /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAD203DC82E001F0CFD /* ApiClient.swift */; };
 		7713ABB0203DC902001F0CFD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713ABAF203DC902001F0CFD /* API.swift */; };
+		7719E9BD205A726B00B65199 /* OrderDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7719E9BC205A726B00B65199 /* OrderDetailsController.swift */; };
 		771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771E4C80203B2BD6003D40C7 /* AppDelegate.swift */; };
 		771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C84203B2BD6003D40C7 /* Main.storyboard */; };
 		771E4C88203B2BD6003D40C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 771E4C87203B2BD6003D40C7 /* Assets.xcassets */; };
@@ -30,20 +39,28 @@
 		773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE23203DA462006D9677 /* PhoneCell.swift */; };
 		773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773BEE24203DA462006D9677 /* PhoneCell.xib */; };
 		773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773BEE29203DA854006D9677 /* RoundedView.swift */; };
+		773F7FDA20593E9100E5E31B /* FuelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F7FD920593E9100E5E31B /* FuelCell.swift */; };
 		775FF4C3204D432500A30D98 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4C2204D432500A30D98 /* UIColorExtensions.swift */; };
 		775FF4C6204D763000A30D98 /* StationInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4C5204D763000A30D98 /* StationInfoController.swift */; };
 		775FF4C8204D87F300A30D98 /* StationInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4C7204D87F300A30D98 /* StationInfoViewModel.swift */; };
 		775FF4CA204D91F000A30D98 /* StationInfoAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4C9204D91F000A30D98 /* StationInfoAnimationController.swift */; };
 		775FF4CC204D96D600A30D98 /* StationInfoPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775FF4CB204D96D600A30D98 /* StationInfoPresentationController.swift */; };
-		7780BF2F204EE7560064F5A7 /* Refueler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF2E204EE7560064F5A7 /* Refueler.swift */; };
-		7780BF32204F19660064F5A7 /* RefuelerSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF31204F19660064F5A7 /* RefuelerSelectorController.swift */; };
-		7780BF34204F19F10064F5A7 /* RefuelerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF33204F19F10064F5A7 /* RefuelerCell.swift */; };
+		77790A28205961E70062C57E /* TableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77790A27205961E70062C57E /* TableFooterView.xib */; };
+		77790A2A205961FE0062C57E /* TableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77790A29205961FE0062C57E /* TableFooterView.swift */; };
+		77790A2C205966680062C57E /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77790A2B205966680062C57E /* UIViewExtensions.swift */; };
+		7780BF2F204EE7560064F5A7 /* Dispenser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF2E204EE7560064F5A7 /* Dispenser.swift */; };
+		7780BF32204F19660064F5A7 /* DispenserSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF31204F19660064F5A7 /* DispenserSelectorController.swift */; };
+		7780BF34204F19F10064F5A7 /* DispenserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF33204F19F10064F5A7 /* DispenserCell.swift */; };
 		7780BF39204F4A1C0064F5A7 /* StationInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7780BF38204F4A1C0064F5A7 /* StationInfoRouter.swift */; };
 		77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB8E20498D60001DCEBB /* MapsRouter.swift */; };
 		77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB9020498E3F001DCEBB /* SingUpRouter.swift */; };
 		77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AADB922049A1EB001DCEBB /* MapsViewModel.swift */; };
 		77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */; };
 		77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */; };
+		77B384E32056D89400493CBE /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B384E22056D89400493CBE /* UICollectionViewExtensions.swift */; };
+		77B384E52056D8BA00493CBE /* UICollectionViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B384E42056D8BA00493CBE /* UICollectionViewCellExtensions.swift */; };
+		77BC5F052050090800BCF788 /* PaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC5F042050090800BCF788 /* PaymentController.swift */; };
+		77BC5F0820503EDB00BCF788 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC5F0720503EDB00BCF788 /* Order.swift */; };
 		77C313272044007900DA309B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313262044007900DA309B /* Error.swift */; };
 		77C313292044394900DA309B /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C313282044394900DA309B /* ResponseError.swift */; };
 		77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */; };
@@ -54,6 +71,7 @@
 		77C8B9132049412600EB8BEE /* GasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B9122049412600EB8BEE /* GasStation.swift */; };
 		77C8B91520494A9200EB8BEE /* WireFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C8B91420494A9200EB8BEE /* WireFrame.swift */; };
 		77DE4FAC204AFC60007E440C /* GoogleMapsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */; };
+		77FC56462057F44500417812 /* DispenserSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC56452057F44500417812 /* DispenserSelectorViewModel.swift */; };
 		B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521269A89BA4413A881E475A /* Pods_Gpay.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,12 +95,21 @@
 /* Begin PBXFileReference section */
 		26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.debug.xcconfig"; sourceTree = "<group>"; };
 		521269A89BA4413A881E475A /* Pods_Gpay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gpay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		770A4CA5205A8AAF00E3D43E /* OrderDetailsPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsPresentationController.swift; sourceTree = "<group>"; };
+		770A4CA7205A8B7E00E3D43E /* OrderDetailsAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsAnimationController.swift; sourceTree = "<group>"; };
+		770A4CA9205A8F3300E3D43E /* DispenserSelectorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserSelectorRouter.swift; sourceTree = "<group>"; };
+		770A4CAB205AA44600E3D43E /* OrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewModel.swift; sourceTree = "<group>"; };
+		770A4CAD205ACE3400E3D43E /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
+		770A4CB2205AD4CD00E3D43E /* RouterBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterBase.swift; sourceTree = "<group>"; };
+		770A4CB4205AD91500E3D43E /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		770A4CB6205ADAD600E3D43E /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		7713ABA0203DB0B3001F0CFD /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		7713ABA1203DB0B3001F0CFD /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		7713ABA4203DB119001F0CFD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		7713ABAB203DC5D5001F0CFD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7713ABAD203DC82E001F0CFD /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		7713ABAF203DC902001F0CFD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		7719E9BC205A726B00B65199 /* OrderDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsController.swift; sourceTree = "<group>"; };
 		771E4C7D203B2BD6003D40C7 /* Gpay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gpay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		771E4C80203B2BD6003D40C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		771E4C85203B2BD6003D40C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,20 +133,29 @@
 		773BEE23203DA462006D9677 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		773BEE24203DA462006D9677 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
 		773BEE29203DA854006D9677 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		773F7FD920593E9100E5E31B /* FuelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelCell.swift; sourceTree = "<group>"; };
 		775FF4C2204D432500A30D98 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		775FF4C5204D763000A30D98 /* StationInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoController.swift; sourceTree = "<group>"; };
 		775FF4C7204D87F300A30D98 /* StationInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoViewModel.swift; sourceTree = "<group>"; };
 		775FF4C9204D91F000A30D98 /* StationInfoAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoAnimationController.swift; sourceTree = "<group>"; };
 		775FF4CB204D96D600A30D98 /* StationInfoPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoPresentationController.swift; sourceTree = "<group>"; };
-		7780BF2E204EE7560064F5A7 /* Refueler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refueler.swift; sourceTree = "<group>"; };
-		7780BF31204F19660064F5A7 /* RefuelerSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelerSelectorController.swift; sourceTree = "<group>"; };
-		7780BF33204F19F10064F5A7 /* RefuelerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelerCell.swift; sourceTree = "<group>"; };
+		77790A27205961E70062C57E /* TableFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableFooterView.xib; sourceTree = "<group>"; };
+		77790A29205961FE0062C57E /* TableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableFooterView.swift; sourceTree = "<group>"; };
+		77790A2B205966680062C57E /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		7780BF2E204EE7560064F5A7 /* Dispenser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispenser.swift; sourceTree = "<group>"; };
+		7780BF31204F19660064F5A7 /* DispenserSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserSelectorController.swift; sourceTree = "<group>"; };
+		7780BF33204F19F10064F5A7 /* DispenserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserCell.swift; sourceTree = "<group>"; };
 		7780BF38204F4A1C0064F5A7 /* StationInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfoRouter.swift; sourceTree = "<group>"; };
 		77AADB8E20498D60001DCEBB /* MapsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsRouter.swift; sourceTree = "<group>"; };
 		77AADB9020498E3F001DCEBB /* SingUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingUpRouter.swift; sourceTree = "<group>"; };
 		77AADB922049A1EB001DCEBB /* MapsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewModel.swift; sourceTree = "<group>"; };
 		77ACD209203F1B1A000A18DF /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSPhoneComponentExtensions.swift; sourceTree = "<group>"; };
+		77B384E22056D89400493CBE /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		77B384E42056D8BA00493CBE /* UICollectionViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellExtensions.swift; sourceTree = "<group>"; };
+		77BC5F042050090800BCF788 /* PaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentController.swift; sourceTree = "<group>"; };
+		77BC5F0620500D3200BCF788 /* Gpay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gpay.entitlements; sourceTree = "<group>"; };
+		77BC5F0720503EDB00BCF788 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		77C313262044007900DA309B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		77C313282044394900DA309B /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		77C3132B2044444D00DA309B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -130,6 +166,7 @@
 		77C8B9122049412600EB8BEE /* GasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasStation.swift; sourceTree = "<group>"; };
 		77C8B91420494A9200EB8BEE /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
 		77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsExtensions.swift; sourceTree = "<group>"; };
+		77FC56452057F44500417812 /* DispenserSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserSelectorViewModel.swift; sourceTree = "<group>"; };
 		ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +196,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770A4CB1205AD4AF00E3D43E /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				770A4CB2205AD4CD00E3D43E /* RouterBase.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		7713ABA6203DC099001F0CFD /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +221,17 @@
 				7713ABAB203DC5D5001F0CFD /* Constants.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		7719E9BB205A722300B65199 /* OrderDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7719E9BC205A726B00B65199 /* OrderDetailsController.swift */,
+				770A4CA5205A8AAF00E3D43E /* OrderDetailsPresentationController.swift */,
+				770A4CA7205A8B7E00E3D43E /* OrderDetailsAnimationController.swift */,
+				770A4CAB205AA44600E3D43E /* OrderDetailsViewModel.swift */,
+			);
+			path = OrderDetails;
 			sourceTree = "<group>";
 		};
 		771E4C74203B2BD6003D40C7 = {
@@ -203,6 +259,7 @@
 		771E4C7F203B2BD6003D40C7 /* Gpay */ = {
 			isa = PBXGroup;
 			children = (
+				770A4CB1205AD4AF00E3D43E /* Base */,
 				77242C8A203D822E003D9852 /* Extensions */,
 				773BEE27203DA839006D9677 /* Custom */,
 				7726BB2D2048449E003231B9 /* Helpers */,
@@ -214,6 +271,7 @@
 				771E4C84203B2BD6003D40C7 /* Main.storyboard */,
 				771E4C89203B2BD6003D40C7 /* LaunchScreen.storyboard */,
 				771E4C87203B2BD6003D40C7 /* Assets.xcassets */,
+				77BC5F0620500D3200BCF788 /* Gpay.entitlements */,
 				771E4C8C203B2BD6003D40C7 /* Info.plist */,
 			);
 			path = Gpay;
@@ -247,6 +305,9 @@
 				77B14D352047F84A001065CA /* SHSPhoneComponentExtensions.swift */,
 				77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */,
 				775FF4C2204D432500A30D98 /* UIColorExtensions.swift */,
+				77B384E22056D89400493CBE /* UICollectionViewExtensions.swift */,
+				77B384E42056D8BA00493CBE /* UICollectionViewCellExtensions.swift */,
+				77790A2B205966680062C57E /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,13 +350,36 @@
 			path = StationInfo;
 			sourceTree = "<group>";
 		};
-		7780BF30204F18E70064F5A7 /* RefuelerSelector */ = {
+		77790A2520595B4D0062C57E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7780BF31204F19660064F5A7 /* RefuelerSelectorController.swift */,
-				7780BF33204F19F10064F5A7 /* RefuelerCell.swift */,
+				773F7FD920593E9100E5E31B /* FuelCell.swift */,
+				7780BF33204F19F10064F5A7 /* DispenserCell.swift */,
 			);
-			path = RefuelerSelector;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		7780BF30204F18E70064F5A7 /* DispenserSelector */ = {
+			isa = PBXGroup;
+			children = (
+				77790A2520595B4D0062C57E /* Cells */,
+				7780BF31204F19660064F5A7 /* DispenserSelectorController.swift */,
+				77FC56452057F44500417812 /* DispenserSelectorViewModel.swift */,
+				770A4CA9205A8F3300E3D43E /* DispenserSelectorRouter.swift */,
+				77790A29205961FE0062C57E /* TableFooterView.swift */,
+				77790A27205961E70062C57E /* TableFooterView.xib */,
+			);
+			path = DispenserSelector;
+			sourceTree = "<group>";
+		};
+		77BC5F03205008EA00BCF788 /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				77BC5F0720503EDB00BCF788 /* Order.swift */,
+				77BC5F042050090800BCF788 /* PaymentController.swift */,
+				770A4CB4205AD91500E3D43E /* PaymentViewModel.swift */,
+			);
+			path = ApplePay;
 			sourceTree = "<group>";
 		};
 		77C313252044006000DA309B /* Errors */ = {
@@ -312,7 +396,9 @@
 				77C313282044394900DA309B /* ResponseError.swift */,
 				77C8B9122049412600EB8BEE /* GasStation.swift */,
 				77C43A28203F0F5F00C8BB90 /* AuthResponse.swift */,
-				7780BF2E204EE7560064F5A7 /* Refueler.swift */,
+				7780BF2E204EE7560064F5A7 /* Dispenser.swift */,
+				770A4CAD205ACE3400E3D43E /* OrderResponse.swift */,
+				770A4CB6205ADAD600E3D43E /* Payment.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -330,7 +416,9 @@
 		77FA6FE4203C612200694EB2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				7780BF30204F18E70064F5A7 /* RefuelerSelector */,
+				7719E9BB205A722300B65199 /* OrderDetails */,
+				77BC5F03205008EA00BCF788 /* ApplePay */,
+				7780BF30204F18E70064F5A7 /* DispenserSelector */,
 				775FF4C4204D75F500A30D98 /* StationInfo */,
 				77FA6FE5203C613200694EB2 /* Signup */,
 				77C43505203EC1C000C8BB90 /* Maps */,
@@ -454,6 +542,11 @@
 					771E4C7C203B2BD6003D40C7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 					771E4C90203B2BD6003D40C7 = {
 						CreatedOnToolsVersion = 9.2;
@@ -498,6 +591,7 @@
 				773BEE1E203D98BD006D9677 /* LabelCell.xib in Resources */,
 				7713ABA3203DB0B3001F0CFD /* ButtonCell.xib in Resources */,
 				773BEE26203DA462006D9677 /* PhoneCell.xib in Resources */,
+				77790A28205961E70062C57E /* TableFooterView.xib in Resources */,
 				771E4C86203B2BD6003D40C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,28 +709,40 @@
 			files = (
 				773BEE2A203DA854006D9677 /* RoundedView.swift in Sources */,
 				7713ABA5203DB119001F0CFD /* RoundedButton.swift in Sources */,
+				77B384E52056D8BA00493CBE /* UICollectionViewCellExtensions.swift in Sources */,
+				77BC5F0820503EDB00BCF788 /* Order.swift in Sources */,
+				77790A2C205966680062C57E /* UIViewExtensions.swift in Sources */,
 				77242C88203D6F12003D9852 /* SingUpController.swift in Sources */,
+				77FC56462057F44500417812 /* DispenserSelectorViewModel.swift in Sources */,
 				7713ABA2203DB0B3001F0CFD /* ButtonCell.swift in Sources */,
 				775FF4CA204D91F000A30D98 /* StationInfoAnimationController.swift in Sources */,
 				77AADB9120498E3F001DCEBB /* SingUpRouter.swift in Sources */,
 				775FF4CC204D96D600A30D98 /* StationInfoPresentationController.swift in Sources */,
 				77C3132E204446BE00DA309B /* UIAlertActionExtensions.swift in Sources */,
-				7780BF32204F19660064F5A7 /* RefuelerSelectorController.swift in Sources */,
+				7780BF32204F19660064F5A7 /* DispenserSelectorController.swift in Sources */,
 				7780BF39204F4A1C0064F5A7 /* StationInfoRouter.swift in Sources */,
 				77ACD20A203F1B1A000A18DF /* SignUpViewModel.swift in Sources */,
 				773BEE25203DA462006D9677 /* PhoneCell.swift in Sources */,
 				77B14D362047F84A001065CA /* SHSPhoneComponentExtensions.swift in Sources */,
 				775FF4C3204D432500A30D98 /* UIColorExtensions.swift in Sources */,
-				7780BF34204F19F10064F5A7 /* RefuelerCell.swift in Sources */,
+				7780BF34204F19F10064F5A7 /* DispenserCell.swift in Sources */,
+				77790A2A205961FE0062C57E /* TableFooterView.swift in Sources */,
 				77C313292044394900DA309B /* ResponseError.swift in Sources */,
+				770A4CB5205AD91500E3D43E /* PaymentViewModel.swift in Sources */,
+				770A4CA6205A8AAF00E3D43E /* OrderDetailsPresentationController.swift in Sources */,
+				770A4CA8205A8B7E00E3D43E /* OrderDetailsAnimationController.swift in Sources */,
 				77C313302044514100DA309B /* R.generated.swift in Sources */,
 				771E4C81203B2BD6003D40C7 /* AppDelegate.swift in Sources */,
 				7713ABB0203DC902001F0CFD /* API.swift in Sources */,
 				77C8B9132049412600EB8BEE /* GasStation.swift in Sources */,
+				770A4CAA205A8F3300E3D43E /* DispenserSelectorRouter.swift in Sources */,
+				770A4CB7205ADAD600E3D43E /* Payment.swift in Sources */,
 				775FF4C8204D87F300A30D98 /* StationInfoViewModel.swift in Sources */,
 				77242C8C203D8255003D9852 /* UITableViewExtensions.swift in Sources */,
+				773F7FDA20593E9100E5E31B /* FuelCell.swift in Sources */,
 				77AADB932049A1EB001DCEBB /* MapsViewModel.swift in Sources */,
-				7780BF2F204EE7560064F5A7 /* Refueler.swift in Sources */,
+				7780BF2F204EE7560064F5A7 /* Dispenser.swift in Sources */,
+				770A4CAE205ACE3400E3D43E /* OrderResponse.swift in Sources */,
 				77AADB8F20498D61001DCEBB /* MapsRouter.swift in Sources */,
 				775FF4C6204D763000A30D98 /* StationInfoController.swift in Sources */,
 				773BEE1D203D98BD006D9677 /* LabelCell.swift in Sources */,
@@ -645,12 +751,17 @@
 				77C8B91520494A9200EB8BEE /* WireFrame.swift in Sources */,
 				77C3132C2044444D00DA309B /* UIViewControllerExtensions.swift in Sources */,
 				773BEE21203D9A02006D9677 /* ImageViewCell.swift in Sources */,
+				770A4CB3205AD4CD00E3D43E /* RouterBase.swift in Sources */,
+				77BC5F052050090800BCF788 /* PaymentController.swift in Sources */,
 				77242C8E203D833E003D9852 /* UITableViewCellExtensions.swift in Sources */,
+				7719E9BD205A726B00B65199 /* OrderDetailsController.swift in Sources */,
 				7713ABAC203DC5D5001F0CFD /* Constants.swift in Sources */,
 				77DE4FAC204AFC60007E440C /* GoogleMapsExtensions.swift in Sources */,
 				77C43507203EC1E800C8BB90 /* MapsController.swift in Sources */,
+				770A4CAC205AA44600E3D43E /* OrderDetailsViewModel.swift in Sources */,
 				77C43A29203F0F5F00C8BB90 /* AuthResponse.swift in Sources */,
 				77C313272044007900DA309B /* Error.swift in Sources */,
+				77B384E32056D89400493CBE /* UICollectionViewExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +928,7 @@
 			baseConfigurationReference = 26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gpay/Gpay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BT398QG55;
 				INFOPLIST_FILE = Gpay/Info.plist;
@@ -834,6 +946,7 @@
 			baseConfigurationReference = ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gpay/Gpay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BT398QG55;
 				INFOPLIST_FILE = Gpay/Info.plist;

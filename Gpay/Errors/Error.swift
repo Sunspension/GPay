@@ -23,7 +23,7 @@ enum Error: Swift.Error {
         
         switch response.errorCode {
             
-        case "LT-1":
+        case "LT--1":
             self = .system
             
         case "LT-33":

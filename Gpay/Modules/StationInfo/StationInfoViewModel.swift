@@ -24,7 +24,7 @@ class StationInfoViewModel {
     
     var onStation = PublishSubject<GasStation>()
     
-    var onRefuelers = PublishSubject<[Refueler]>()
+    var onDispensers = PublishSubject<[Dispenser]>()
     
     var viewDidLoad = PublishRelay<Void>()
     
@@ -48,10 +48,10 @@ class StationInfoViewModel {
         _station = station
         self.onStation.onNext(station)
         
-        API.refuelers(for: station.id)
+        API.dispensers(for: station.id)
             .subscribe(onSuccess: { [weak self] result in
                 
-                result.onSucess({ self?.onRefuelers.onNext($0) })
+                result.onSucess({ self?.onDispensers.onNext($0) })
                 
             }).disposed(by: self.bag)
     }
