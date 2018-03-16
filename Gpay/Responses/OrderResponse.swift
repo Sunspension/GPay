@@ -11,8 +11,6 @@ import Foundation
 struct OrderResponse: Decodable {
     
     let orderId: String
-    
-    let orderNumber: String
 }
 
 extension OrderResponse: CustomStringConvertible {

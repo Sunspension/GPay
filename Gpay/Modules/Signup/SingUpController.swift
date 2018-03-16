@@ -17,18 +17,23 @@ private enum Item {
 
 class SingUpController: UITableViewController {
 
-    private var disposeBag = DisposeBag()
+    private var bag = DisposeBag()
     
     private let items: [Item] = [.logo, .title, .phone, .code, .action]
     
     var viewModel: SignUpViewModel!
     
+    var router: SingUpRoutable!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.setupTableView()
         self.configureDataSource()
         self.configureNotificationCenter()
         self.hideKeyboardHandler()
+        self.setupViewModel()
     }
     
     init() {
@@ -42,12 +47,35 @@ class SingUpController: UITableViewController {
     
     // MARK: - Private methods
     
+    private func setupViewModel() {
+        
+        viewModel.logedIn
+            .asObservable()
+            .subscribe(onNext: { [unowned self] in self.router.openRootController() })
+            .disposed(by: bag)
+        
+        self.viewModel.loginActivity
+            .asObservable()
+            .subscribe(onNext: { [unowned self] isActive in
+                
+                if isActive == true {
+                    
+                    self.tableView.showBusy()
+                }
+                else {
+                    
+                    self.tableView.hideBusy()
+                }
+                
+            }).disposed(by: bag)
+    }
+    
     private func configureNotificationCenter() {
         
         NotificationCenter.default.rx
             .notification(NSNotification.Name.UIKeyboardWillShow)
             .asObservable()
-            .subscribe { notification in
+            .subscribe { [unowned self] notification in
                 
                 DispatchQueue.main.async {
                     
@@ -56,7 +84,7 @@ class SingUpController: UITableViewController {
                     self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 }
                 
-        }.disposed(by: disposeBag)
+        }.disposed(by: bag)
     }
     
     private func hideKeyboardHandler() {
@@ -66,12 +94,12 @@ class SingUpController: UITableViewController {
         tapBackground.rx
             .event
             .subscribe(onNext: { [unowned self] _ in self.view.endEditing(true) })
-            .disposed(by: disposeBag)
+            .disposed(by: bag)
         
         self.view.addGestureRecognizer(tapBackground)
     }
     
-    private func configureDataSource() {
+    private func setupTableView() {
         
         self.tableView.dataSource = nil
         self.tableView.estimatedRowHeight = 44
@@ -84,24 +112,12 @@ class SingUpController: UITableViewController {
         self.tableView.register(nibClass: ImageViewCell.self)
         self.tableView.register(nibClass: PhoneCell.self)
         self.tableView.register(nibClass: ButtonCell.self)
-        
-        self.viewModel.loginActivity
-            .asObservable()
-            .subscribe(onNext: { isActive in
-                
-                if isActive == true {
-                    
-                    self.tableView.showBusy()
-                }
-                else {
-                    
-                    self.tableView.hideBusy()
-                }
-                
-            }).disposed(by: disposeBag)
+    }
+    
+    private func configureDataSource() {
                 
         Observable.just(items)
-            .bind(to: tableView.rx.items) { table, row, item in
+            .bind(to: tableView.rx.items) { [unowned self] table, row, item in
             
             let indexPath = IndexPath(row: row, section: 0)
             
@@ -127,7 +143,8 @@ class SingUpController: UITableViewController {
                 cell.phoneField.formatter.setDefaultOutputPattern(" (###) ### ## ##")
                 cell.enablePrefix()
                 
-                cell.phoneField.rx.phoneNumber.orEmpty.bind(to: self.viewModel.phoneNumber)
+                cell.phoneField.rx.phoneNumber.orEmpty
+                    .bind(to: self.viewModel.phoneNumber)
                     .disposed(by: cell.disposeBag)
 
                 self.viewModel.login = cell.phoneField.rx.text.orEmpty.asObservable()
@@ -159,12 +176,13 @@ class SingUpController: UITableViewController {
 
                 }).disposed(by: cell.disposeBag)
                 
-                self.viewModel.isCanLogin.bind(to: cell.button.rx.isEnabled)
+                self.viewModel.isCanLogin
+                    .bind(to: cell.button.rx.isEnabled)
                     .disposed(by: cell.disposeBag)
                 
                 return cell
             }
             
-        }.disposed(by: disposeBag)
+        }.disposed(by: bag)
     }
 }

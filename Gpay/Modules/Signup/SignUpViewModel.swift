@@ -12,9 +12,7 @@ import RxCocoa
 
 class SignUpViewModel {
     
-    private var disposeBag = DisposeBag()
-    
-    private var router: SingUpRoutable
+    private var bag = DisposeBag()
     
     var phoneNumber = PublishRelay<String>()
     
@@ -25,6 +23,8 @@ class SignUpViewModel {
     var login = Observable.just("")
     
     var password = Observable.just("")
+    
+    var logedIn = PublishRelay<Void>()
     
     var isCanLogin: Observable<Bool> {
         
@@ -56,15 +56,11 @@ class SignUpViewModel {
                     result.onSucess { auth in
                         
                         StorageManager.auth = auth
-                        self.router.openRootController()
+                        self.logedIn.accept(Void())
                     }
                     
-                }, onError: { _ in self.loginActivity.onNext(false) }).disposed(by: disposeBag)
+                }, onError: { _ in self.loginActivity.onNext(false) })
+                .disposed(by: bag)
         }
-    }
-    
-    init(router: SingUpRoutable) {
-        
-        self.router = router
     }
 }

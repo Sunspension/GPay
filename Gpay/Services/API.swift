@@ -89,7 +89,7 @@ struct API {
                 
             case .authorization:
                 
-                let notification = Notification(name: Notification.Name(Constants.Notification.showSingupNotification))
+                let notification = Notification(name: Notification.Name(Constants.Notification.showSingup))
                 NotificationCenter.default.post(notification)
                 break
                 

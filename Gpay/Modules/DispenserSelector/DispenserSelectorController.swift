@@ -13,14 +13,7 @@ import RxDataSources
 
 class DispenserSelectorController: UIViewController {
     
-    private var bag = DisposeBag()
-    
-    private lazy var footer: UIView = {
-        
-        let view = UIView.loadFromNib(view: TableFooterView.self)!
-        view.autoresizingMask = .flexibleWidth
-        return view
-    }()
+    private let bag = DisposeBag()
     
     @IBOutlet weak var mainTitle: UILabel!
     
@@ -45,6 +38,7 @@ class DispenserSelectorController: UIViewController {
     }
     
     var router: DispenserSelectorRoutable!
+    
     
     override func viewDidLoad() {
         
@@ -86,7 +80,7 @@ class DispenserSelectorController: UIViewController {
     
     private func setupTableView() {
         
-        self.tableView.tableFooterView = UIView()
+        self.tableView.hideEmptyCells()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
     }
@@ -110,7 +104,7 @@ class DispenserSelectorController: UIViewController {
     private func setupViewModel() {
         
         viewModel.loadingActivity
-            .subscribe(onNext: { isActive in
+            .subscribe(onNext: { [unowned self] isActive in
             
             if isActive {
                 
@@ -124,7 +118,7 @@ class DispenserSelectorController: UIViewController {
         }).disposed(by: bag)
         
         viewModel.dispensers
-            .bind(onNext: self.onDispensers(_:))
+            .bind(onNext: { [unowned self] in self.onDispensers($0) })
             .disposed(by: bag)
         
         let animation = AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .top)
@@ -150,15 +144,24 @@ class DispenserSelectorController: UIViewController {
         viewModel.order
             .asObservable()
             .filter({ $0 != nil })
-            .subscribe(onNext: { order in
-            
+            .bind(onNext: { [unowned self] order in
+                
                 let station = self.viewModel.station
                 self.router.openOrderDetails(order: order!, station: station, in: self)
-            
-        }).disposed(by: bag)
+            })
+            .disposed(by: bag)
+        
+        viewModel.payment
+            .asObservable()
+            .filter({ $0 != nil })
+            .bind(onNext: { [unowned self] pair in
+                
+                self.router.openPaymentController(order: pair!.order, orderId: pair!.orderId, in: self)
+            })
+            .disposed(by: bag)
         
         viewModel.error
-            .bind(onNext: onError(_:))
+            .bind(onNext: { [unowned self] in self.onError($0) })
             .disposed(by: bag)
         
         tableView.rx.itemSelected
@@ -218,10 +221,9 @@ class DispenserSelectorController: UIViewController {
                 cell.index.setTitle("\(row + 1)", for: .normal)
                 
                 guard dispensers.count > row else { return cell }
-                
                 cell.isActive = true
                 
-//                let dispenser = self.dispensers[row]
+//                let dispenser = dispensers[row]
                 
                 return cell
                 

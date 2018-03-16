@@ -236,9 +236,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hqW-Qg-Xxk">
-                                                    <rect key="frame" x="8" y="8" width="64" height="74"/>
-                                                </imageView>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHX-kF-jCQ" customClass="RoundedButton" customModule="Gpay" customModuleProvider="target">
                                                     <rect key="frame" x="13.5" y="17.5" width="54" height="54"/>
                                                     <constraints>
@@ -254,15 +251,10 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="hqW-Qg-Xxk" firstAttribute="top" secondItem="wdz-WH-qpj" secondAttribute="topMargin" id="1R4-ee-pra"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="hqW-Qg-Xxk" secondAttribute="trailing" id="RNr-uS-CCm"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="hqW-Qg-Xxk" secondAttribute="bottom" id="uXP-az-dmU"/>
-                                            <constraint firstItem="hqW-Qg-Xxk" firstAttribute="leading" secondItem="wdz-WH-qpj" secondAttribute="leadingMargin" id="wKc-gm-YjX"/>
                                             <constraint firstItem="HHX-kF-jCQ" firstAttribute="centerY" secondItem="wdz-WH-qpj" secondAttribute="centerY" id="xEb-dV-6Ug"/>
                                             <constraint firstItem="HHX-kF-jCQ" firstAttribute="centerX" secondItem="wdz-WH-qpj" secondAttribute="centerX" id="yHh-d4-ckP"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="busyIcon" destination="hqW-Qg-Xxk" id="bGl-tL-nS9"/>
                                             <outlet property="index" destination="HHX-kF-jCQ" id="qLs-SA-UF5"/>
                                         </connections>
                                     </collectionViewCell>

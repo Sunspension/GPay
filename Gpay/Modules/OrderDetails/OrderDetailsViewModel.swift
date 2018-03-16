@@ -22,11 +22,13 @@ class OrderDetailsViewModel {
     
     let activity = PublishRelay<Bool>()
     
+    let dismiss = PublishRelay<Void>()
+    
     var makePayment = Observable<Void>.empty() {
         
         willSet {
             
-            newValue.subscribe(onNext: {
+            newValue.subscribe(onNext: { [unowned self] in
                 
                 self.activity.accept(true)
                 
@@ -35,7 +37,11 @@ class OrderDetailsViewModel {
                     
                         self.activity.accept(false)
                         
-                        result.onSucess({ order in })
+                        result.onSucess({ order in
+                            
+                            self.orderNotify(order)
+                            self.dismiss.accept(Void())
+                        })
                         result.onError({ self.error.accept($0) })
                         
                     }, onError: {
@@ -53,5 +59,12 @@ class OrderDetailsViewModel {
         
         self.station = station
         self.order = order
+    }
+    
+    private func orderNotify(_ order: OrderResponse) {
+        
+        let name = Notification.Name(Constants.Notification.orderReadyToPayment)
+        let notification = Notification(name: name, object: order, userInfo: nil)
+        NotificationCenter.default.post(notification)
     }
 }

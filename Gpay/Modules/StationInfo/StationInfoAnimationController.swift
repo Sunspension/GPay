@@ -64,6 +64,11 @@ class StationInfoAnimationController: NSObject, UIViewControllerAnimatedTransiti
         let height = frame.height
         
         container.center.y += height
+        
+        view.layer.cornerRadius = 20
+        view.clipsToBounds = true
+        visual.layer.cornerRadius = 20
+        visual.clipsToBounds = true
         container.layer.cornerRadius = 20
         container.clipsToBounds = true
         

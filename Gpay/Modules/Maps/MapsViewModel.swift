@@ -18,6 +18,10 @@ class MapsViewModel {
     
     var viewDidLoad = PublishRelay<Void>()
     
+    deinit {
+        
+        print("")
+    }
     
     init() {
         
@@ -25,7 +29,7 @@ class MapsViewModel {
             .flatMap { API.gasStations() }
             .subscribe(onNext: { result in
                 
-                result.onSucess({ stations in
+                result.onSucess({ [unowned self] stations in
                     
                     self.stations.onNext(stations)
                 })

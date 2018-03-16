@@ -39,9 +39,9 @@ final class MainWireframe: Wireframe {
     init() {
         
         NotificationCenter.default.rx
-            .notification(Notification.Name(Constants.Notification.showSingupNotification))
+            .notification(Notification.Name(Constants.Notification.showSingup))
             .asObservable()
-            .subscribe(onNext: { _ in self.showSingup() })
+            .subscribe(onNext: { [unowned self] _ in self.showSingup() })
             .disposed(by: bag)
         
         self.registerServices()
@@ -84,7 +84,8 @@ final class MainWireframe: Wireframe {
         container.register(SingUpController.self) { _ in
             
             let controller = SingUpController()
-            controller.viewModel = SignUpViewModel(router: SingUpRouter(wireframe: self))
+            controller.viewModel = SignUpViewModel()
+            controller.router = SingUpRouter(wireframe: self)
             return controller
         }
         

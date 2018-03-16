@@ -12,8 +12,6 @@ class DispenserCell: UICollectionViewCell {
     
     @IBOutlet weak var index: RoundedButton!
     
-    @IBOutlet weak var busyIcon: UIImageView!
-    
     var isActive: Bool = false {
         
         willSet {

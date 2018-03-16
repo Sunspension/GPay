@@ -27,6 +27,8 @@ class DispenserSelectorViewModel {
     
     var order = BehaviorRelay<Order?>(value: nil)
     
+    var payment = BehaviorRelay<(orderId: String, order: Order)?>(value: nil)
+    
     var dispensers = PublishSubject<[Dispenser]>()
     
     var fuelSection = BehaviorRelay(value: [FuelSection]())
@@ -50,7 +52,7 @@ class DispenserSelectorViewModel {
             
             newValue
                 .map({ self._nozzles[self.selectedFuelIndex.value!] })
-                .subscribe(onNext: { nozzle in
+                .subscribe(onNext: { [unowned self] nozzle in
                     
                     let order = self.createOrder(nozzle, liters: 10)
                     self.order.accept(order)
@@ -66,6 +68,19 @@ class DispenserSelectorViewModel {
         self.viewDidLoad
             .subscribe(onNext: { [unowned self] _ in self.loadDispensers() })
             .disposed(by: bag)
+        
+        let name = Notification.Name(Constants.Notification.orderReadyToPayment)
+        NotificationCenter.default.rx
+            .notification(name, object: nil)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] notification in
+                
+                let orderReponse = notification.object as! OrderResponse
+                let order = self.order.value!
+                
+                self.payment.accept((orderReponse.orderId, order))
+                
+            }).disposed(by: bag)
     }
     
     func onDidSelectDispenser(_ index: Int) {

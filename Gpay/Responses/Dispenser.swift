@@ -13,13 +13,13 @@ struct Dispenser: Decodable {
     
     private enum CodingKeys: String, CodingKey {
 
-        case isLock = "lock"
+        case isLocked = "lock"
         case deviceNumber
         case nozzles
     }
     
     let deviceNumber: Int
-    let isLock: Bool
+    let isLocked: Bool
     let nozzles: [Nozzle]
 }
 
@@ -27,13 +27,13 @@ struct Nozzle: Decodable {
     
     private enum CodingKeys: String, CodingKey {
 
-        case isLock = "lock"
+        case isLocked = "lock"
         case number
         case guid
         case fuel
     }
     
-    let isLock: Bool
+    let isLocked: Bool
     let number: Int
     let guid: String
     let fuel: Fuel
@@ -43,13 +43,13 @@ struct Fuel: Decodable {
     
     private enum CodingKeys: String, CodingKey {
 
-        case isLock = "lock"
+        case isLocked = "lock"
         case name
         case price
     }
     
     let name: String
-    let isLock: Bool
+    let isLocked: Bool
     let price: Double
 }
 

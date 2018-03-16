@@ -12,6 +12,7 @@ enum Constants {
     
     enum Notification {
     
-        static let showSingupNotification = "showSingupNotification"
+        static let showSingup = "showSingupNotification"
+        static let orderReadyToPayment = "orderReadyToPaymentNotification"
     }
 }
