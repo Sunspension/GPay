@@ -144,4 +144,17 @@ public extension Reactive where Base: UIViewController {
         let source = self.sentMessage(#selector(Base.dismiss)).map { $0.first as? Bool ?? false }
         return ControlEvent(events: source)
     }
+    
+    public var keyboardHeight: Observable<CGFloat> {
+        
+        let willShow = NotificationCenter.default.rx
+            .notification(Notification.Name.UIKeyboardWillShow)
+            .map({ ($0.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0 })
+        
+        let willHide = NotificationCenter.default.rx
+            .notification(Notification.Name.UIKeyboardWillHide)
+            .map({ _ in CGFloat(0) })
+        
+        return Observable.from([willShow, willHide]).merge()
+    }
 }

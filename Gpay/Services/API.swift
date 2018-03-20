@@ -78,6 +78,11 @@ struct API {
             .mapResponse(Payment.self)
     }
     
+    static func orderStatus(orderId: String) -> Single<Result<OrderStatus>> {
+        
+        return provider.rx.request(.orderStatus(orderId: orderId)).mapResponse(OrderStatus.self)
+    }
+    
     fileprivate static func handleError(_ response: Response) -> Error {
         
         do {

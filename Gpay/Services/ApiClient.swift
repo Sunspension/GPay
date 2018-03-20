@@ -20,6 +20,8 @@ enum ApiClient {
     case order(order: Order)
     
     case payment(orderId: String, paymentData: String)
+    
+    case orderStatus(orderId: String)
 }
 
 private enum CodingKeys: String, CodingKey {
@@ -69,7 +71,7 @@ extension ApiClient: TargetType {
         case .gasStations, .dispensers:
             return "/loyalty.gazstation"
             
-        case .order, .payment:
+        case .order, .payment, .orderStatus:
             return "/loyalty.ticket"
         }
     }
@@ -118,6 +120,12 @@ extension ApiClient: TargetType {
             request.method = "apple-pay"
             request.params["orderId"] = orderId
             request.params["paymentToken"] = paymentData
+            break
+            
+        case .orderStatus(let orderId):
+            
+            request.method = "order-status"
+            request.params["orderId"] = orderId
             break
         }
         

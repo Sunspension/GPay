@@ -26,7 +26,7 @@ class PhoneCell: UITableViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        roundedView.backgroundColor = UIColor.babyBlue
+        roundedView.backgroundColor = UIColor.babyBlueLight
         phoneField.textColor = UIColor.mainBlue
     }
     

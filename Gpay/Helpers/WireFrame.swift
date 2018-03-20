@@ -126,5 +126,13 @@ final class MainWireframe: Wireframe {
             
             return controller
         }
+        
+        container.register(OrderStatusController.self) { (resolver, orderId: String, orderNumber: String) in
+            
+            let controller = R.storyboard.main().instantiateViewController(withIdentifier: "OrderStatus") as! OrderStatusController
+            controller.title = "Заказ № " + orderNumber
+            
+            return controller
+        }
     }
 }

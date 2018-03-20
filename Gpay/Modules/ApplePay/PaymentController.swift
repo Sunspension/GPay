@@ -60,9 +60,21 @@ extension PaymentController: PKPaymentAuthorizationControllerDelegate {
         let string = String(data: base64, encoding: .utf8)!
         
         API.makePayment(orderId: self.orderId!, paymentData: string)
-            .subscribe(onSuccess: { result in
+            .subscribe(onSuccess: { [weak self] result in
                 
-                result.onSucess({ _ in completion(.success) })
+                result.onSucess({ payment in
+                    
+                    if payment.isSuccess {
+                      
+                        self?.paymentNotify()
+                        completion(.success)
+                    }
+                    else {
+                        
+                        completion(.failure)
+                    }
+                })
+                
                 result.onError({ _ in completion(.failure) })
                 
             }, onError: { _ in completion(.failure) })
@@ -72,5 +84,12 @@ extension PaymentController: PKPaymentAuthorizationControllerDelegate {
     func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
         
         controller.dismiss(completion: nil)
+    }
+    
+    private func paymentNotify() {
+        
+        let name = Notification.Name(Constants.Notification.successPayment)
+        let notification = Notification(name: name, object: self.orderId!, userInfo: nil)
+        NotificationCenter.default.post(notification)
     }
 }

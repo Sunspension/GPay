@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FuelCell: UITableViewCell {
+class FuelCell: TableViewCellBase {
 
     private var fuel: Fuel?
     
@@ -20,9 +20,11 @@ class FuelCell: UITableViewCell {
     
     
     override func awakeFromNib() {
+        
         super.awakeFromNib()
+        
         self.selectionStyle = .none
-        // Initialization code
+        isNeedAddBottomSeparator = true
     }
     
     override func prepareForReuse() {

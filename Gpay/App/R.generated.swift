@@ -31,12 +31,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 15 images.
   struct image {
     /// Image `checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checked")
     /// Image `close`.
     static let close = Rswift.ImageResource(bundle: R.hostingBundle, name: "close")
+    /// Image `dispenser`.
+    static let dispenser = Rswift.ImageResource(bundle: R.hostingBundle, name: "dispenser")
     /// Image `fuel-big`.
     static let fuelBig = Rswift.ImageResource(bundle: R.hostingBundle, name: "fuel-big")
     /// Image `fuel-small`.
@@ -57,6 +59,8 @@ struct R: Rswift.Validatable {
     static let plus = Rswift.ImageResource(bundle: R.hostingBundle, name: "plus")
     /// Image `signup`.
     static let signup = Rswift.ImageResource(bundle: R.hostingBundle, name: "signup")
+    /// Image `success`.
+    static let success = Rswift.ImageResource(bundle: R.hostingBundle, name: "success")
     /// Image `unchecked`.
     static let unchecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "unchecked")
     
@@ -68,6 +72,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "close", bundle: ..., traitCollection: ...)`
     static func close(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.close, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "dispenser", bundle: ..., traitCollection: ...)`
+    static func dispenser(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.dispenser, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "fuel-big", bundle: ..., traitCollection: ...)`
@@ -120,6 +129,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.signup, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "success", bundle: ..., traitCollection: ...)`
+    static func success(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.success, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "unchecked", bundle: ..., traitCollection: ...)`
     static func unchecked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.unchecked, compatibleWith: traitCollection)
@@ -128,7 +142,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `ButtonCell`.
     static let buttonCell = _R.nib._ButtonCell()
@@ -138,8 +152,6 @@ struct R: Rswift.Validatable {
     static let labelCell = _R.nib._LabelCell()
     /// Nib `PhoneCell`.
     static let phoneCell = _R.nib._PhoneCell()
-    /// Nib `TableFooterView`.
-    static let tableFooterView = _R.nib._TableFooterView()
     
     /// `UINib(name: "ButtonCell", in: bundle)`
     static func buttonCell(_: Void = ()) -> UIKit.UINib {
@@ -161,20 +173,19 @@ struct R: Rswift.Validatable {
       return UIKit.UINib(resource: R.nib.phoneCell)
     }
     
-    /// `UINib(name: "TableFooterView", in: bundle)`
-    static func tableFooterView(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.tableFooterView)
-    }
-    
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `Dispenser`.
     static let dispenser: Rswift.ReuseIdentifier<DispenserCell> = Rswift.ReuseIdentifier(identifier: "Dispenser")
+    /// Reuse identifier `DispensersCell`.
+    static let dispensersCell: Rswift.ReuseIdentifier<DispensersCell> = Rswift.ReuseIdentifier(identifier: "DispensersCell")
     /// Reuse identifier `FuelCell`.
     static let fuelCell: Rswift.ReuseIdentifier<FuelCell> = Rswift.ReuseIdentifier(identifier: "FuelCell")
+    /// Reuse identifier `Title`.
+    static let title: Rswift.ReuseIdentifier<TitleCell> = Rswift.ReuseIdentifier(identifier: "Title")
     
     fileprivate init() {}
   }
@@ -281,17 +292,6 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
     
-    struct _TableFooterView: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "TableFooterView"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> TableFooterView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? TableFooterView
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   
@@ -315,6 +315,7 @@ struct _R: Rswift.Validatable {
       let maps = StoryboardViewControllerResource<MapsController>(identifier: "Maps")
       let name = "Main"
       let orderDetails = StoryboardViewControllerResource<OrderDetailsController>(identifier: "OrderDetails")
+      let orderStatus = StoryboardViewControllerResource<OrderStatusController>(identifier: "OrderStatus")
       let stationInfo = StoryboardViewControllerResource<StationInfoController>(identifier: "StationInfo")
       
       func dispenserSelector(_: Void = ()) -> DispenserSelectorController? {
@@ -329,20 +330,27 @@ struct _R: Rswift.Validatable {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: orderDetails)
       }
       
+      func orderStatus(_: Void = ()) -> OrderStatusController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: orderStatus)
+      }
+      
       func stationInfo(_: Void = ()) -> StationInfoController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: stationInfo)
       }
       
       static func validate() throws {
-        if UIKit.UIImage(named: "minus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'minus' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "location") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'location' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "unchecked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'unchecked' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "dispenser") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'dispenser' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "minus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'minus' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "checked") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'checked' is used in storyboard 'Main', but couldn't be loaded.") }
         if UIKit.UIImage(named: "close") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'close' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "plus") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'plus' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "success") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'success' is used in storyboard 'Main', but couldn't be loaded.") }
         if _R.storyboard.main().stationInfo() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'stationInfo' could not be loaded from storyboard 'Main' as 'StationInfoController'.") }
         if _R.storyboard.main().dispenserSelector() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'dispenserSelector' could not be loaded from storyboard 'Main' as 'DispenserSelectorController'.") }
         if _R.storyboard.main().orderDetails() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'orderDetails' could not be loaded from storyboard 'Main' as 'OrderDetailsController'.") }
+        if _R.storyboard.main().orderStatus() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'orderStatus' could not be loaded from storyboard 'Main' as 'OrderStatusController'.") }
         if _R.storyboard.main().maps() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'maps' could not be loaded from storyboard 'Main' as 'MapsController'.") }
       }
       

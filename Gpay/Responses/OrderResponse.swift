@@ -10,7 +10,15 @@ import Foundation
 
 struct OrderResponse: Decodable {
     
+    private enum CodingKeys: String, CodingKey {
+        
+        case orderId
+        case orderNumber = "orderNum"
+    }
+    
     let orderId: String
+    
+    let orderNumber: String
 }
 
 extension OrderResponse: CustomStringConvertible {

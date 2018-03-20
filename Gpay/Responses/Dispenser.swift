@@ -78,3 +78,29 @@ extension Fuel: IdentifiableType {
         return self
     }
 }
+
+extension Dispenser: IdentifiableType {
+    
+    typealias Identity = Dispenser
+    
+    var identity: Dispenser {
+        
+        return self
+    }
+}
+
+extension Dispenser: Hashable {
+    
+    var hashValue: Int {
+        
+        return deviceNumber.hashValue ^ 66
+    }
+}
+
+extension Dispenser: Equatable {
+    
+    static func ==(lhs: Dispenser, rhs: Dispenser) -> Bool {
+        
+        return lhs.deviceNumber == rhs.deviceNumber
+    }
+}

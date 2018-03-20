@@ -14,5 +14,6 @@ enum Constants {
     
         static let showSingup = "showSingupNotification"
         static let orderReadyToPayment = "orderReadyToPaymentNotification"
+        static let successPayment = "successPaymentNotification"
     }
 }

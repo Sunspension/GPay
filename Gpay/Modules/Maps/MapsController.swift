@@ -86,7 +86,6 @@ class MapsController: UIViewController {
         
         self.mapView.rx.handleTapMarker { [unowned self] in
             
-            self.mapView.selectedMarker = $0
             self.mapView.animate(with: GMSCameraUpdate.setTarget($0.position))
             self.router.openStationInfo($0.userData as! GasStation, in: self)
             
@@ -97,7 +96,6 @@ class MapsController: UIViewController {
             .subscribe(onNext: { [unowned self] coordinates in
                 
                 self.router.closeStationInfo()
-                self.mapView.selectedMarker = nil
                 
             }).disposed(by: bag)
     }

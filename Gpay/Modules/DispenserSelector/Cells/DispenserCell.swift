@@ -51,7 +51,14 @@ class DispenserCell: UICollectionViewCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
+        
         index.setButtonColor(.babyBlue)
         isActive = false
+    }
+    
+    override func prepareForReuse() {
+        
+        isActive = false
+        isSelected = false
     }
 }
