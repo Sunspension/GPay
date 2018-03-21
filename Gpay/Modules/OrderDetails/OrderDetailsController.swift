@@ -59,8 +59,8 @@ class OrderDetailsController: UIViewController {
         self.stationAddress.text = self.viewModel.station.address
         self.dispenserNumber.text = "\(self.viewModel.order.dispenserIndex)"
         self.fuel.text = self.viewModel.order.nozzle.fuel.name
-        self.liters.text = "\(self.viewModel.order.liters) Л"
-        self.price.text = "\(self.viewModel.order.liters * self.viewModel.order.nozzle.fuel.price) \u{20BD}"
+        self.liters.text = String(format: "%.2f", self.viewModel.order.liters) + " Л"
+        self.price.text = String(format: "%.2f", self.viewModel.order.liters * self.viewModel.order.nozzle.fuel.price) + " \u{20BD}"
         
         close.rx.tap
             .subscribe(onNext: { [unowned self] in self.dismiss(animated: true, completion: nil) })
