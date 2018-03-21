@@ -48,18 +48,18 @@ class SignUpViewModel {
                     return element
                 })
                 .flatMapLatest { API.signup(login: $0.login, password: $0.password) }
-                .subscribe(onNext: { result in
+                .subscribe(onNext: { auth in
                     
                     self.loginActivity.onNext(false)
                     
-                    result.onError { error in self.authError.onNext(error) }
-                    result.onSucess { auth in
-                        
-                        StorageManager.auth = auth
-                        self.logedIn.accept(Void())
-                    }
+                    StorageManager.auth = auth
+                    self.logedIn.accept(Void())
                     
-                }, onError: { _ in self.loginActivity.onNext(false) })
+                }, onError: { error in
+                    
+                    self.loginActivity.onNext(false)
+                    self.authError.onNext(error)
+                })
                 .disposed(by: bag)
         }
     }

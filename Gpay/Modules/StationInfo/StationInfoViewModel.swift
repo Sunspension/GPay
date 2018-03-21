@@ -49,9 +49,9 @@ class StationInfoViewModel {
         self.onStation.onNext(station)
         
         API.dispensers(for: station.id)
-            .subscribe(onSuccess: { [weak self] result in
+            .subscribe(onSuccess: { [weak self] dispensers in
                 
-                result.onSucess({ self?.onDispensers.onNext($0) })
+                self?.onDispensers.onNext(dispensers)
                 
             }).disposed(by: self.bag)
     }

@@ -22,9 +22,9 @@ class OrderStatusViewModel {
         viewDidLoad.bind(onNext: {
             
             API.orderStatus(orderId: orderId)
-                .subscribe(onSuccess: { result in
+                .subscribe(onSuccess: { status in
                 
-                    result.onSucess({ print($0) })
+                    print(status)
                     
                 }, onError: { error in
                     

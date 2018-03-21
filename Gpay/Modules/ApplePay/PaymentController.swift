@@ -60,22 +60,17 @@ extension PaymentController: PKPaymentAuthorizationControllerDelegate {
         let string = String(data: base64, encoding: .utf8)!
         
         API.makePayment(orderId: self.orderId!, paymentData: string)
-            .subscribe(onSuccess: { [weak self] result in
+            .subscribe(onSuccess: { [weak self] payment in
                 
-                result.onSucess({ payment in
+                if payment.isSuccess {
                     
-                    if payment.isSuccess {
-                      
-                        self?.paymentNotify()
-                        completion(.success)
-                    }
-                    else {
-                        
-                        completion(.failure)
-                    }
-                })
-                
-                result.onError({ _ in completion(.failure) })
+                    self?.paymentNotify()
+                    completion(.success)
+                }
+                else {
+                    
+                    completion(.failure)
+                }
                 
             }, onError: { _ in completion(.failure) })
             .disposed(by: bag)

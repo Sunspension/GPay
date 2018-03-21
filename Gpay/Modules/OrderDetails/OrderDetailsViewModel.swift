@@ -33,20 +33,16 @@ class OrderDetailsViewModel {
                 self.activity.accept(true)
                 
                 API.makeOrder(self.order)
-                    .subscribe(onSuccess: { result in
+                    .subscribe(onSuccess: { orderResponse in
                     
                         self.activity.accept(false)
                         
-                        result.onSucess({ order in
-                            
-                            self.orderNotify(order)
-                            self.dismiss.accept(Void())
-                        })
-                        result.onError({ self.error.accept($0) })
+                        self.orderNotify(orderResponse)
+                        self.dismiss.accept(Void())
                         
                     }, onError: {
                     
-                        self.activity.accept(true)
+                        self.activity.accept(false)
                         self.error.accept($0)
                     })
                     .disposed(by: self.bag)

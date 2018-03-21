@@ -157,22 +157,12 @@ class DispenserSelectorViewModel {
         self.loadingActivity.onNext(true)
         
         API.dispensers(for: station.id)
-            .subscribe(onSuccess: { [unowned self] result in
+            .subscribe(onSuccess: { [unowned self] dispensers in
         
                 self.loadingActivity.onNext(false)
-                
-                result.onSucess ({
-                    
-                    self._dispensers = $0
-                    self.createDispenserSection()
-                    self.sections.accept([self._dispenserSection!])
-                })
-                
-                result.onError({ error in
-                    
-                    self.loadingActivity.onNext(false)
-                    self.error.onNext(error)
-                })
+                self._dispensers = dispensers
+                self.createDispenserSection()
+                self.sections.accept([self._dispenserSection!])
                 
                 }, onError: { [weak self] error in
                     

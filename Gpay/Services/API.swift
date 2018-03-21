@@ -10,75 +10,42 @@ import Foundation
 import Moya
 import RxSwift
 
-enum Result<T: Decodable> {
-    
-    case success(object: T)
-    
-    case error(error: Swift.Error)
-    
-    func onSucess(_ completion: (_ object: T) -> Void) {
-        
-        switch self {
-            
-        case .success(let object):
-            completion(object)
-            break
-            
-        default:
-            break
-        }
-    }
-    
-    func onError(_ completion: (_ error: Swift.Error) -> Void) {
-        
-        switch self {
-            
-        case .error(let error):
-            completion(error)
-            break
-            
-        default:
-            break
-        }
-    }
-}
-
 struct API {
     
     private static let provider = MoyaProvider<ApiClient>(plugins: [NetworkLoggerPlugin(verbose: true)])
     
     private init() {}
     
-    static func signup(login: String, password: String) -> Single<Result<AuthResponse>> {
+    static func signup(login: String, password: String) -> Single<AuthResponse> {
         
         return provider.rx.request(.signup(login: login, password: password))
             .mapResponse(AuthResponse.self)
     }
     
-    static func gasStations() -> Single<Result<[GasStation]>> {
+    static func gasStations() -> Single<[GasStation]> {
         
         return provider.rx.request(.gasStations).mapResponse([GasStation].self)
     }
     
-    static func dispensers(for stationId: String) -> Single<Result<[Dispenser]>> {
+    static func dispensers(for stationId: String) -> Single<[Dispenser]> {
         
         return provider.rx.request(.dispensers(stationId: stationId))
             .mapResponse([Dispenser].self)
     }
     
-    static func makeOrder(_ order: Order) -> Single<Result<OrderResponse>> {
+    static func makeOrder(_ order: Order) -> Single<OrderResponse> {
         
         return provider.rx.request(.order(order: order)).mapResponse(OrderResponse.self)
     }
     
     // Apple Pay payment method
-    static func makePayment(orderId: String, paymentData: String) -> Single<Result<Payment>> {
+    static func makePayment(orderId: String, paymentData: String) -> Single<Payment> {
         
         return provider.rx.request(.payment(orderId: orderId, paymentData: paymentData))
             .mapResponse(Payment.self)
     }
     
-    static func orderStatus(orderId: String) -> Single<Result<OrderStatus>> {
+    static func orderStatus(orderId: String) -> Single<OrderStatus> {
         
         return provider.rx.request(.orderStatus(orderId: orderId)).mapResponse(OrderStatus.self)
     }
@@ -113,20 +80,25 @@ struct API {
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
     
-    func mapResponse<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = "result", using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Single<Result<D>> {
+    func mapResponse<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = "result", using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) -> Single<D> {
         
-        return flatMap { res -> Single<Result<D>> in
+        return flatMap { res in
             
-            do {
+            return Single.create(subscribe: { event in
                 
-                let response = try res.map(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData)
-                return Single.just(Result.success(object: response))
-            }
-            catch {
+                do {
+                    
+                    let response = try res.map(type, atKeyPath: keyPath, using: decoder, failsOnEmptyData: failsOnEmptyData)
+                    event(SingleEvent<D>.success(response))
+                }
+                catch {
+                    
+                    let error = API.handleError(res)
+                    event(SingleEvent<D>.error(error))
+                }
                 
-                let error = API.handleError(res)
-                return Single.just(Result.error(error: error))
-            }
+                return Disposables.create()
+            })
         }
     }
 }
