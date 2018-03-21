@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'Gpay' do
@@ -8,7 +8,7 @@ pod 'Moya/RxSwift', '~> 11.0'
 pod 'RxDataSources', '~> 3.0'
 pod 'R.swift'
 pod 'SHSPhoneComponent'
-pod 'RxGoogleMaps' #need minimum version cocoapods 1.4
+pod 'RxGoogleMaps'
 pod 'KeychainAccess'
 pod 'Swinject'
 

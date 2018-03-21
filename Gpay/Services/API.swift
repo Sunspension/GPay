@@ -18,8 +18,8 @@ struct API {
     
     static func signup(login: String, password: String) -> Single<AuthResponse> {
         
-        return provider.rx.request(.signup(login: login, password: password))
-            .mapResponse(AuthResponse.self)
+        let signup = ApiClient.signup(login: login, password: password)
+        return provider.rx.request(signup).mapResponse(AuthResponse.self)
     }
     
     static func gasStations() -> Single<[GasStation]> {
@@ -29,25 +29,26 @@ struct API {
     
     static func dispensers(for stationId: String) -> Single<[Dispenser]> {
         
-        return provider.rx.request(.dispensers(stationId: stationId))
-            .mapResponse([Dispenser].self)
+        let dispensers = ApiClient.dispensers(stationId: stationId)
+        return provider.rx.request(dispensers).mapResponse([Dispenser].self)
     }
     
     static func makeOrder(_ order: Order) -> Single<OrderResponse> {
         
-        return provider.rx.request(.order(order: order)).mapResponse(OrderResponse.self)
+        let order = ApiClient.order(order: order)
+        return provider.rx.request(order).mapResponse(OrderResponse.self)
     }
     
-    // Apple Pay payment method
     static func makePayment(orderId: String, paymentData: String) -> Single<Payment> {
         
-        return provider.rx.request(.payment(orderId: orderId, paymentData: paymentData))
-            .mapResponse(Payment.self)
+        let payment = ApiClient.payment(orderId: orderId, paymentData: paymentData)
+        return provider.rx.request(payment).mapResponse(Payment.self)
     }
     
     static func orderStatus(orderId: String) -> Single<OrderStatus> {
         
-        return provider.rx.request(.orderStatus(orderId: orderId)).mapResponse(OrderStatus.self)
+        let status = ApiClient.orderStatus(orderId: orderId)
+        return provider.rx.request(status).mapResponse(OrderStatus.self)
     }
     
     fileprivate static func handleError(_ response: Response) -> Error {
@@ -61,7 +62,8 @@ struct API {
                 
             case .authorization:
                 
-                let notification = Notification(name: Notification.Name(Constants.Notification.showSingup))
+                let name = Notification.Name(Constants.Notification.showSingup)
+                let notification = Notification(name: name)
                 NotificationCenter.default.post(notification)
                 break
                 
