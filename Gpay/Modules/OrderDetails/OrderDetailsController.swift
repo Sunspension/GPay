@@ -84,7 +84,10 @@ class OrderDetailsController: UIViewController {
             .disposed(by: bag)
         
         viewModel.dismiss
-            .subscribe(onNext: { [unowned self] in self.dismiss(animated: true, completion: nil) })
+            .subscribe(onNext: { [unowned self] in
+                
+                self.dismiss(animated: true, completion: { self.viewModel.onDismissComplete() })
+            })
             .disposed(by: bag)
         
         viewModel.makePayment = self.payment.rx.tap.asObservable()

@@ -19,7 +19,7 @@ class OrderStatusViewModel {
     
     init(_ orderId: String) {
         
-        viewDidLoad.bind(onNext: {
+        viewDidLoad.bind(onNext: { [unowned self] in
             
             API.orderStatus(orderId: orderId)
                 .subscribe(onSuccess: { status in

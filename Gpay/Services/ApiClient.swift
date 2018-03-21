@@ -63,17 +63,25 @@ extension ApiClient: TargetType {
     
     var path: String {
         
+        let first = "/loyalty."
+        var last = ""
+        
         switch self {
             
         case .signup:
-            return "/loyalty.customer"
+            last = "customer"
+            break
             
         case .gasStations, .dispensers:
-            return "/loyalty.gazstation"
+            last = "gazstation"
+            break
             
         case .order, .payment, .orderStatus:
-            return "/loyalty.ticket"
+            last = "ticket"
+            break
         }
+        
+        return first + last
     }
     
     var method: Moya.Method {

@@ -14,6 +14,8 @@ class OrderDetailsViewModel {
     
     private let bag = DisposeBag()
     
+    private var orderResponse: OrderResponse?
+    
     let order: Order
     
     let station: GasStation
@@ -36,8 +38,7 @@ class OrderDetailsViewModel {
                     .subscribe(onSuccess: { orderResponse in
                     
                         self.activity.accept(false)
-                        
-                        self.orderNotify(orderResponse)
+                        self.orderResponse = orderResponse
                         self.dismiss.accept(Void())
                         
                     }, onError: {
@@ -55,6 +56,11 @@ class OrderDetailsViewModel {
         
         self.station = station
         self.order = order
+    }
+    
+    func onDismissComplete() {
+        
+        self.orderNotify(self.orderResponse!)
     }
     
     private func orderNotify(_ order: OrderResponse) {
