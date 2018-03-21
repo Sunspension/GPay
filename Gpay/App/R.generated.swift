@@ -31,8 +31,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 15 images.
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
+    /// Image `canceled`.
+    static let canceled = Rswift.ImageResource(bundle: R.hostingBundle, name: "canceled")
     /// Image `checked`.
     static let checked = Rswift.ImageResource(bundle: R.hostingBundle, name: "checked")
     /// Image `close`.
@@ -61,8 +63,15 @@ struct R: Rswift.Validatable {
     static let signup = Rswift.ImageResource(bundle: R.hostingBundle, name: "signup")
     /// Image `success`.
     static let success = Rswift.ImageResource(bundle: R.hostingBundle, name: "success")
+    /// Image `timer`.
+    static let timer = Rswift.ImageResource(bundle: R.hostingBundle, name: "timer")
     /// Image `unchecked`.
     static let unchecked = Rswift.ImageResource(bundle: R.hostingBundle, name: "unchecked")
+    
+    /// `UIImage(named: "canceled", bundle: ..., traitCollection: ...)`
+    static func canceled(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.canceled, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "checked", bundle: ..., traitCollection: ...)`
     static func checked(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -132,6 +141,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "success", bundle: ..., traitCollection: ...)`
     static func success(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.success, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "timer", bundle: ..., traitCollection: ...)`
+    static func timer(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.timer, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "unchecked", bundle: ..., traitCollection: ...)`

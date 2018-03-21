@@ -276,10 +276,7 @@ class DispenserSelectorController: UIViewController {
             .filter({ $0 != nil })
             .bind(onNext: { [unowned self] pair in
                 
-                let orderNumber = self.viewModel.orderResponse!.orderNumber
-                let orderId = self.viewModel.orderResponse!.orderId
-                self.router.openOrderStatusController(orderId: orderId, orderNumber: orderNumber, in: self)
-//                self.router.openPaymentController(order: pair!.order, orderId: pair!.orderId, in: self)
+                self.router.openPaymentController(order: pair!.order, orderId: pair!.orderId, in: self)
             })
             .disposed(by: bag)
         

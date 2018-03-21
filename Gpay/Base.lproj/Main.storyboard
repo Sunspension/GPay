@@ -279,8 +279,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-c4-tpV">
-                                <rect key="frame" x="0.0" y="200" width="375" height="170"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Eh-c4-tpV">
+                                <rect key="frame" x="0.0" y="717" width="375" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0W-gF-Lve">
                                         <rect key="frame" x="181.5" y="44" width="11" height="21"/>
@@ -648,6 +648,10 @@
                         <outlet property="action" destination="pSu-gC-TUD" id="qP1-ZH-GOE"/>
                         <outlet property="actionBottomSpace" destination="vRq-Ks-So2" id="7Hf-iV-jfL"/>
                         <outlet property="container" destination="6kL-UB-uLb" id="jMu-op-jpi"/>
+                        <outlet property="image" destination="ARg-y8-fd9" id="wxS-xT-lwC"/>
+                        <outlet property="mainTitle" destination="c8z-jR-9Hp" id="i1y-1E-vH2"/>
+                        <outlet property="orderStatusImage" destination="jYo-WW-96p" id="mNf-3v-wqn"/>
+                        <outlet property="orderStatusTitle" destination="8a1-TB-ceA" id="hEB-tR-kgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6o-A7-iss" userLabel="First Responder" sceneMemberID="firstResponder"/>

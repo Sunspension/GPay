@@ -11,7 +11,7 @@ import RxSwift
 
 class OrderStatusController: UIViewController {
 
-    private let bag = DisposeBag()
+    private let _bag = DisposeBag()
     
     @IBOutlet weak var container: UIView!
     
@@ -19,13 +19,21 @@ class OrderStatusController: UIViewController {
     
     @IBOutlet weak var actionBottomSpace: NSLayoutConstraint!
 
+    @IBOutlet weak var orderStatusTitle: UILabel!
+    
+    @IBOutlet weak var orderStatusImage: UIImageView!
+    
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var mainTitle: UILabel!
+    
     var viewModel: OrderStatusViewModel! {
         
         willSet {
             
             self.rx.viewDidLoad
                 .bind(to: newValue.viewDidLoad)
-                .disposed(by: bag)
+                .disposed(by: _bag)
         }
     }
     
@@ -33,6 +41,7 @@ class OrderStatusController: UIViewController {
         
         super.viewDidLoad()
         
+        hideViews()
         action.setButtonColor(.mainBlue)
         action.enableShadow(color: .mainBlue)
         
@@ -42,7 +51,26 @@ class OrderStatusController: UIViewController {
         
         action.rx.tap
             .bind(onNext: { [unowned self] in self.dismiss(animated: true, completion: nil) })
-            .disposed(by: bag)
+            .disposed(by: _bag)
+        
+        viewModel.orderStatus
+            .bind(onNext: { [unowned self] in self.onOrderStatus($0) })
+            .disposed(by: _bag)
+        
+        viewModel.loadingActivity
+            .subscribe(onNext: { [unowned self] isActive in
+                
+                if isActive {
+                    
+                    self.showBusy()
+                }
+                else {
+                    
+                    self.showViews()
+                    self.hideBusy()
+                }
+                
+            }).disposed(by: _bag)
     }
     
     @available(iOS 11.0, *)
@@ -56,8 +84,46 @@ class OrderStatusController: UIViewController {
         }
     }
     
-    private func requestOrderStatus() {
+    private func hideViews() {
         
-//        API.orderStatus(orderId: <#T##String#>)
+        self.image.isHidden = true
+        self.mainTitle.isHidden = true
+        self.container.isHidden = true
+    }
+    
+    private func showViews() {
+        
+        self.container.isHidden = false
+    }
+    
+    private func onOrderStatus(_ status: OrderStatus) {
+        
+        switch status.state {
+            
+        case .pendingPayment:
+            
+            self.orderStatusImage.image = R.image.timer()
+            self.container.backgroundColor = .lightYellow
+            self.orderStatusTitle.text = "Ожидание оплаты"
+            break
+            
+        case .canceled:
+            
+            self.container.backgroundColor = .lightRed
+            self.orderStatusTitle.text = "Ваш заказ отменен"
+            self.orderStatusImage.image = R.image.canceled()
+            break
+            
+        case .waitingRefueling:
+            
+            self.orderStatusImage.image = R.image.success()
+            self.container.backgroundColor = .lightGreen
+            self.orderStatusTitle.text = "Ваш заказ оплачен"
+            self.image.isHidden = false
+            self.mainTitle.isHidden = false
+            
+        default:
+            break
+        }
     }
 }
