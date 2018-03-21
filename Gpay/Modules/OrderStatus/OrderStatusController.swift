@@ -19,6 +19,15 @@ class OrderStatusController: UIViewController {
     
     @IBOutlet weak var actionBottomSpace: NSLayoutConstraint!
 
+    var viewModel: OrderStatusViewModel! {
+        
+        willSet {
+            
+            self.rx.viewDidLoad
+                .bind(to: newValue.viewDidLoad)
+                .disposed(by: bag)
+        }
+    }
     
     override func viewDidLoad() {
         

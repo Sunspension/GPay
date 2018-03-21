@@ -11,10 +11,15 @@ import Foundation
 enum OrderStatusEnum: String {
     
     case undefined
+    
     case new = "NEW"
+    
     case pendingPayment = "PENDING_PAYMENT"
+    
     case waitingRefueling = "WAITING_REFUELING"
+    
     case completed = "COMPLETED"
+    
     case canceled =  "CANCELED"
 }
 
@@ -25,5 +30,13 @@ struct OrderStatus: Decodable {
     var state: OrderStatusEnum {
         
         return OrderStatusEnum(rawValue: status) ?? OrderStatusEnum.undefined
+    }
+}
+
+extension OrderStatus: CustomStringConvertible {
+    
+    var description: String {
+        
+        return "Order status: " + status
     }
 }

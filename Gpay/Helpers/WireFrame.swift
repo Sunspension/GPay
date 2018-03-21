@@ -131,6 +131,7 @@ final class MainWireframe: Wireframe {
             
             let controller = R.storyboard.main().instantiateViewController(withIdentifier: "OrderStatus") as! OrderStatusController
             controller.title = "Заказ № " + orderNumber
+            controller.viewModel = OrderStatusViewModel(orderId)
             
             return controller
         }

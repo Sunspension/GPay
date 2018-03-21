@@ -12,29 +12,26 @@ import RxCocoa
 
 class OrderStatusViewModel {
     
-    private var orderId: String
-    
-    private let bag = DisposeBag()
+    private let _bag = DisposeBag()
     
     var viewDidLoad = PublishRelay<Void>()
     
     
     init(_ orderId: String) {
         
-        self.orderId = orderId
-        
         viewDidLoad.bind(onNext: {
             
-            API.orderStatus(orderId: self.orderId)
+            API.orderStatus(orderId: orderId)
                 .subscribe(onSuccess: { result in
                 
-//                    result.onSucess(<#T##completion: (OrderStatus) -> Void##(OrderStatus) -> Void#>)
+                    result.onSucess({ print($0) })
                     
                 }, onError: { error in
                     
+                    print(error.localizedDescription)
                     
-                }).disposed(by: self.bag)
+                }).disposed(by: self._bag)
             
-        }).disposed(by: bag)
+        }).disposed(by: _bag)
     }
 }
