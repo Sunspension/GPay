@@ -49,11 +49,13 @@ class DispenserSelectorController: UIViewController {
     
     var router: DispenserSelectorRoutable!
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         setupViewModel()
+        setupDataSource()
         setupView()
         hideAllViews()
         setupTableView()
@@ -168,6 +170,7 @@ class DispenserSelectorController: UIViewController {
     
     @objc private func onDismiss() {
         
+        self.hideKeyboard()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -189,22 +192,7 @@ class DispenserSelectorController: UIViewController {
         self.tableView.isHidden = false
     }
     
-    private func setupViewModel() {
-        
-        viewModel.loadingActivity
-            .subscribe(onNext: { [unowned self] isActive in
-            
-            if isActive {
-                
-                self.showBusy()
-            }
-            else {
-                
-                self.hideBusy()
-                self.showAllViews()
-            }
-            
-        }).disposed(by: bag)
+    private func setupDataSource() {
         
         let animation = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
         
@@ -221,7 +209,7 @@ class DispenserSelectorController: UIViewController {
                     .asObservable()
                     .filter({ $0 != nil })
                     .bind(onNext: { index in
-                    
+                        
                         cell.mainTitle.text = "Колонка № \(index! + 1)"
                     })
                     .disposed(by: cell.bag)
@@ -243,7 +231,7 @@ class DispenserSelectorController: UIViewController {
                 return cell
                 
             case .fuel(let fuel):
-             
+                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FuelCell", for: indexPath) as! FuelCell
                 cell.configure(fuel)
                 return cell
@@ -254,6 +242,24 @@ class DispenserSelectorController: UIViewController {
             .asObservable()
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: bag)
+    }
+    
+    private func setupViewModel() {
+        
+        viewModel.loadingActivity
+            .subscribe(onNext: { [unowned self] isActive in
+            
+            if isActive {
+                
+                self.showBusy()
+            }
+            else {
+                
+                self.hideBusy()
+                self.showAllViews()
+            }
+            
+        }).disposed(by: bag)
         
         viewModel.order
             .asObservable()
@@ -270,7 +276,10 @@ class DispenserSelectorController: UIViewController {
             .filter({ $0 != nil })
             .bind(onNext: { [unowned self] pair in
                 
-                self.router.openPaymentController(order: pair!.order, orderId: pair!.orderId, in: self)
+                let orderNumber = self.viewModel.orderResponse!.orderNumber
+                let orderId = self.viewModel.orderResponse!.orderId
+                self.router.openOrderStatusController(orderId: orderId, orderNumber: orderNumber, in: self)
+//                self.router.openPaymentController(order: pair!.order, orderId: pair!.orderId, in: self)
             })
             .disposed(by: bag)
         
@@ -295,6 +304,10 @@ class DispenserSelectorController: UIViewController {
         viewModel.amount
             .bind(to: self.amount.rx.text)
             .disposed(by: bag)
+        
+        self.viewModel.makeOrder = self.action.rx.tap
+            .asObservable().map({ [unowned self] in self.hideKeyboard() })
+            .asObservable()
         
         self.liters.rx.text.orEmpty
             .bind(to: self.viewModel.liters)

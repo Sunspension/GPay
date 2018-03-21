@@ -60,10 +60,10 @@ class DispenserSelectorViewModel {
         willSet {
             
             newValue
-                .map({ self._nozzles[self.selectedFuelIndex.value!] })
-                .subscribe(onNext: { [unowned self] nozzle in
+                .map({ (nozzle: self._nozzles[self.selectedFuelIndex.value!], liters: Double(self.liters.value)!) })
+                .subscribe(onNext: { [unowned self] pair in
                     
-                    let order = self.createOrder(nozzle, liters: 10)
+                    let order = self.createOrder(pair.nozzle, liters: pair.liters)
                     self.order.accept(order)
                     
                 }).disposed(by: _bag)
@@ -85,9 +85,7 @@ class DispenserSelectorViewModel {
                 self.selectedFuelIndex.value != nil else { return }
             
             let nozzle = self._nozzles[self.selectedFuelIndex.value!]
-            let amount = (Double(liters) ?? 0) * nozzle.fuel.price
-            let amountString = amount == 0 ? "" : String(format: "%.2f", amount)
-            self.amount.accept(amountString)
+            self.calculateAmount(nozzle.fuel, liters: liters)
             
         }.disposed(by: _bag)
         
@@ -114,6 +112,25 @@ class DispenserSelectorViewModel {
                 self.successPayment.accept(orderId)
                 
             }).disposed(by: _bag)
+        
+        selectedFuelIndex.asObservable()
+            .filter({ $0 != nil })
+            .bind { index in
+            
+                let liters = Double(self.liters.value) ?? 0.00
+                guard liters > 0 else { return }
+                
+                let nozzle = self._nozzles[index!]
+                self.calculateAmount(nozzle.fuel, liters: self.liters.value)
+            
+        }.disposed(by: _bag)
+    }
+    
+    private func calculateAmount(_ fuel: Fuel, liters: String) {
+        
+        let amount = (Double(liters) ?? 0) * fuel.price
+        let amountString = amount == 0 ? "" : String(format: "%.2f", amount)
+        self.amount.accept(amountString)
     }
     
     func onDidSelectDispenser(_ index: Int) {
@@ -182,7 +199,6 @@ class DispenserSelectorViewModel {
             if self._dispensers.count > index {
                 
                 let dispenser = self._dispensers[index]
-                
                 items.append((index: index, dispenser: dispenser))
             }
             else {
