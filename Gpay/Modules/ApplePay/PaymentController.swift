@@ -12,24 +12,26 @@ import RxSwift
 
 class PaymentController: NSObject {
     
-    static let supportedNetworks: [PKPaymentNetwork] = [.masterCard, .visa]
-    
-    private var paymentController: PKPaymentAuthorizationController?
+    private let _bag = DisposeBag()
     
     private var orderId: String?
     
-    private let bag = DisposeBag()
+    private var order: Order?
     
-    func startPayment(with order: Order, orderId: String) {
+    private var payment: Payment?
+    
+    
+    func paymentController(order: Order, orderId: String) -> PKPaymentAuthorizationViewController? {
         
+        let request = makePaymentRequest(with: order)
         self.orderId = orderId
-        let request = self.makeRequest(with: order)
-        paymentController = PKPaymentAuthorizationController(paymentRequest: request)
-        paymentController!.delegate = self
-        paymentController!.present { _ in }
+        let controller = PKPaymentAuthorizationViewController(paymentRequest: request)
+        controller?.delegate = self
+        
+        return controller
     }
     
-    private func makeRequest(with order: Order) -> PKPaymentRequest {
+    private func makePaymentRequest(with order: Order) -> PKPaymentRequest {
         
         let label = "Топливо: " + order.nozzle.fuel.name + "\nобъем: \(order.liters) л"
         let amount = order.liters * order.nozzle.fuel.price
@@ -42,49 +44,45 @@ class PaymentController: NSObject {
         paymentRequest.merchantCapabilities = .capability3DS
         paymentRequest.countryCode = "RU"
         paymentRequest.currencyCode = "RUB"
-        paymentRequest.supportedNetworks = PaymentController.supportedNetworks
+        paymentRequest.supportedNetworks = [.masterCard, .visa]
         
         return paymentRequest
     }
+    
+    private func paymentNotify() {
+        
+        let notification = Notification(name: Notification.Name(Constants.Notification.successPayment))
+        NotificationCenter.default.post(notification)
+    }
 }
 
-extension PaymentController: PKPaymentAuthorizationControllerDelegate {
-    
-    func paymentAuthorizationController(_ controller: PKPaymentAuthorizationController,
-                                        didAuthorizePayment payment: PKPayment,
-                                        completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+extension PaymentController: PKPaymentAuthorizationViewControllerDelegate {
+
+    func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController,
+                                            didAuthorizePayment payment: PKPayment,
+                                            completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
         
         guard payment.token.paymentData.count > 0 else { return completion(.failure) }
         
         let base64 = payment.token.paymentData.base64EncodedData()
         let string = String(data: base64, encoding: .utf8)!
         
-        API.makePayment(orderId: self.orderId!, paymentData: string)
+        API.makePayment(orderId: orderId!, paymentData: string)
             .subscribe(onSuccess: { [weak self] payment in
                 
-                if payment.isSuccess {
-                    
-                    self?.paymentNotify()
-                    completion(.success)
-                }
-                else {
-                    
-                    completion(.failure)
-                }
+                guard payment.isSuccess else { return completion(.failure) }
+                self?.payment = payment
+                completion(.success)
                 
-            }, onError: { _ in completion(.failure) })
-            .disposed(by: bag)
+            }, onError: { _ in completion(.failure) }).disposed(by: _bag)
     }
     
-    func paymentAuthorizationControllerDidFinish(_ controller: PKPaymentAuthorizationController) {
+    func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
-        controller.dismiss(completion: nil)
-    }
-    
-    private func paymentNotify() {
-        
-        let name = Notification.Name(Constants.Notification.successPayment)
-        let notification = Notification(name: name, object: self.orderId!, userInfo: nil)
-        NotificationCenter.default.post(notification)
+        controller.dismiss(animated: true) {
+            
+            guard self.payment != nil else { return }
+            self.paymentNotify()
+        }
     }
 }

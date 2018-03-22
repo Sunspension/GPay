@@ -11,7 +11,7 @@ import RxSwift
 
 class OrderDetailsController: UIViewController {
 
-    private let bag = DisposeBag()
+    private let _bag = DisposeBag()
     
     @IBOutlet weak var close: UIButton!
     
@@ -64,7 +64,7 @@ class OrderDetailsController: UIViewController {
         
         close.rx.tap
             .subscribe(onNext: { [unowned self] in self.dismiss(animated: true, completion: nil) })
-            .disposed(by: bag)
+            .disposed(by: _bag)
     }
     
     private func setupViewModel() {
@@ -81,16 +81,21 @@ class OrderDetailsController: UIViewController {
                     self.activity.stopAnimating()
                 }
             })
-            .disposed(by: bag)
+            .disposed(by: _bag)
         
         viewModel.dismiss
             .subscribe(onNext: { [unowned self] in
                 
                 self.dismiss(animated: true, completion: { self.viewModel.onDismissComplete() })
             })
-            .disposed(by: bag)
+            .disposed(by: _bag)
         
         viewModel.makePayment = self.payment.rx.tap.asObservable()
+        
+        viewModel.error.asObservable()
+            .filter({ $0 != nil })
+            .bind(onNext: { [unowned self] error in self.showError(error: error!) })
+            .disposed(by: _bag)
     }
 }
 

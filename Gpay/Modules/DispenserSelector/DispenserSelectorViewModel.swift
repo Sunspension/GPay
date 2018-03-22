@@ -96,9 +96,8 @@ class DispenserSelectorViewModel {
             .subscribe(onNext: { [unowned self] notification in
                 
                 let orderResponse = notification.object as! OrderResponse
-                let order = self.order.value!
                 self.orderResponse = orderResponse
-                self.payment.accept((orderResponse.orderId, order))
+                self.payment.accept((orderResponse.orderId, self.order.value!))
                 
             }).disposed(by: _bag)
         
@@ -108,8 +107,7 @@ class DispenserSelectorViewModel {
             .asObservable()
             .subscribe(onNext: { [unowned self] notification in
                 
-                let orderId = notification.object as! String
-                self.successPayment.accept(orderId)
+                self.successPayment.accept(self.orderResponse!.orderId)
                 
             }).disposed(by: _bag)
         

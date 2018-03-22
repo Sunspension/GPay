@@ -29,7 +29,10 @@ class DispenserSelectorRouter: RouterBase, DispenserSelectorRoutable {
     
     func openPaymentController(order: Order, orderId: String, in view: UIViewController) {
         
-        payment.startPayment(with: order, orderId: orderId)
+        if let controller = payment.paymentController(order: order, orderId: orderId) {
+            
+            view.present(controller, animated: true, completion: nil)
+        }
     }
     
     func openOrderStatusController(orderId: String, orderNumber: String, in view: UIViewController) {
