@@ -29,6 +29,24 @@ class DispenserCell: UICollectionViewCell {
         }
     }
     
+    var isLocked: Bool = false {
+        
+        willSet {
+            
+            if newValue {
+                
+                index.setTitle(nil, for: .normal)
+                index.setImage(R.image.locked())
+                self.isUserInteractionEnabled = false
+            }
+            else {
+                
+                index.setImage(nil)
+                self.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
     override var isSelected: Bool {
         
         willSet {
@@ -52,13 +70,39 @@ class DispenserCell: UICollectionViewCell {
         
         super.awakeFromNib()
         
+        index.setTitle(nil, for: .normal)
         index.setButtonColor(.babyBlue)
         isActive = false
     }
     
     override func prepareForReuse() {
         
-        isActive = false
+        index.setTitle(nil, for: .normal)
+        isActive = true
         isSelected = false
+        isLocked = false
+    }
+    
+    func configure(_ item: (index: Int, dispenser: Dispenser?)) {
+        
+        if let dispenser = item.dispenser {
+            
+            isActive = true
+            
+            if dispenser.isLocked {
+                
+                isLocked = true
+            }
+            else {
+                
+                isLocked = false
+                index.setTitle("\(item.index + 1)", for: .normal)
+            }
+        }
+        else {
+            
+            index.setTitle("\(item.index + 1)", for: .normal)
+            isActive = false
+        }
     }
 }

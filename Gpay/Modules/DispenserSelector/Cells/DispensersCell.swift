@@ -38,9 +38,8 @@ class DispensersCell: TableViewCellBase {
             
             let indexPath = IndexPath(row: row, section: 0)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Dispenser", for: indexPath) as! DispenserCell
-            cell.index.setTitle("\(row + 1)", for: .normal)
-            cell.isActive = item.dispenser != nil
             
+            cell.configure(item)
             return cell
             
         }.disposed(by: _bag)
