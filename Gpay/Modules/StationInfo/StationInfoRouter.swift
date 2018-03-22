@@ -15,8 +15,6 @@ protocol StationInfoRoutable {
 
 class StationInfoRouter: RouterBase, StationInfoRoutable {
     
-    private var controller: PaymentController?
-    
     func openDispenserSelector(station: GasStation, in view: UIViewController) {
         
         let controller = self.wireframe.container.resolve(DispenserSelectorController.self, argument: station)!

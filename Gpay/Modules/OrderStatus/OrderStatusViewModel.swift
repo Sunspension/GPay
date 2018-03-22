@@ -41,32 +41,23 @@ class OrderStatusViewModel {
     
     private func requestOrderStatus() {
         
-        Observable<OrderStatus>.create { [unowned self] observer in
-            
-            API.orderStatus(orderId: self.orderId)
-                .subscribe(onSuccess: { status in
-            
-                    self.loadingActivity.accept(false)
-                    observer.on(.next(status))
-                    
-                    if status.state == .waitingRefueling || status.state == .canceled {
-                        
-                        observer.on(.completed)
-                    }
-                    
-                }, onError: { observer.onError($0) }).disposed(by: self._bag)
-            
-            return Disposables.create()
-            
-            }.bind(onNext: { [weak self] status in
+        API.orderStatus(orderId: self.orderId)
+            .subscribe(onSuccess: { [weak self] status in
                 
+                self?.loadingActivity.accept(false)
                 self?.orderStatus.accept(status)
                 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                    
-                    self?.requestOrderStatus()
-                })
+                print(status)
                 
-            }).disposed(by: _bag)
+                if status.state != .waitingRefueling &&
+                    status.state != .canceled {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                        
+                        self?.requestOrderStatus()
+                    })
+                }
+                
+            }).disposed(by: self._bag)
     }
 }
