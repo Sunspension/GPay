@@ -54,10 +54,22 @@ class PaymentController: NSObject {
         let notification = Notification(name: Notification.Name(Constants.Notification.successPayment))
         NotificationCenter.default.post(notification)
     }
+    
+    private func makePayment(_ paymentData: String, _ completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
+        
+        API.makePayment(orderId: orderId!, paymentData: paymentData)
+            .subscribe(onSuccess: { [weak self] payment in
+                
+                guard payment.isSuccess else { return completion(.failure) }
+                self?.payment = payment
+                completion(.success)
+                
+                }, onError: { _ in completion(.failure) }).disposed(by: _bag)
+    }
 }
 
 extension PaymentController: PKPaymentAuthorizationViewControllerDelegate {
-
+    
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController,
                                             didAuthorizePayment payment: PKPayment,
                                             completion: @escaping (PKPaymentAuthorizationStatus) -> Void) {
@@ -65,16 +77,8 @@ extension PaymentController: PKPaymentAuthorizationViewControllerDelegate {
         guard payment.token.paymentData.count > 0 else { return completion(.failure) }
         
         let base64 = payment.token.paymentData.base64EncodedData()
-        let string = String(data: base64, encoding: .utf8)!
-        
-        API.makePayment(orderId: orderId!, paymentData: string)
-            .subscribe(onSuccess: { [weak self] payment in
-                
-                guard payment.isSuccess else { return completion(.failure) }
-                self?.payment = payment
-                completion(.success)
-                
-            }, onError: { _ in completion(.failure) }).disposed(by: _bag)
+        let data = String(data: base64, encoding: .utf8)!
+        self.makePayment(data, completion)
     }
     
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
