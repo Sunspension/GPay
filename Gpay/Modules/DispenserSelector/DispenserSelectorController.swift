@@ -23,6 +23,8 @@ class DispenserSelectorController: UIViewController {
     
     private var isCalculatorVisible = false
     
+    private var originalTopMargin: CGFloat = 0.0
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var calculatorContainer: UIView!
@@ -48,7 +50,6 @@ class DispenserSelectorController: UIViewController {
     }
     
     var router: DispenserSelectorRoutable!
-    
     
     override func viewDidLoad() {
         
@@ -77,7 +78,9 @@ class DispenserSelectorController: UIViewController {
                     if self.showCalculator.value && self.kHeight != nil {
                         
                         self.calculatorBottomMargin.constant += self.kHeight!
-                        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+                        self.kHeight = nil
+                        let top = self.tableView.contentInset.top
+                        self.tableView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
                     }
                 }
                 else {
@@ -87,7 +90,8 @@ class DispenserSelectorController: UIViewController {
                         self.kHeight = height
                         self.calculatorBottomMargin.constant -= height
                         let bottom = height + self.calculatorContainer.bounds.height
-                        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: bottom, right: 0)
+                        let top = self.tableView.contentInset.top
+                        self.tableView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: bottom, right: 0)
                     }
                 }
 
@@ -164,7 +168,8 @@ class DispenserSelectorController: UIViewController {
     private func hideKeyboard() {
         
         self.view.endEditing(true)
-        self.tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        let top = self.tableView.contentInset.top
+        self.tableView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
         self.tableView.layoutIfNeeded()
     }
     

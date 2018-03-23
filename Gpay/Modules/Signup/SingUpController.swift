@@ -104,8 +104,17 @@ class SingUpController: UITableViewController {
         self.tableView.dataSource = nil
         self.tableView.estimatedRowHeight = 44
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
         self.tableView.separatorStyle = .none
+        self.tableView.showsVerticalScrollIndicator = false
+        
+        if #available(iOS 11, *) {
+
+            self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        }
+        else {
+
+            self.tableView.contentInset = UIEdgeInsets(top: 84, left: 0, bottom: 0, right: 0)
+        }
         
         self.tableView.hideEmptyCells()
         self.tableView.register(nibClass: LabelCell.self)
