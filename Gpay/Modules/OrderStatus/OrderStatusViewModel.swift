@@ -22,10 +22,6 @@ class OrderStatusViewModel {
     
     var loadingActivity = PublishRelay<Bool>()
     
-    deinit {
-        
-        print("\(self): \(#function)")
-    }
     
     init(_ orderId: String) {
         
@@ -47,9 +43,7 @@ class OrderStatusViewModel {
                 self?.loadingActivity.accept(false)
                 self?.orderStatus.accept(status)
                 
-                print(status)
-                
-                if status.state != .waitingRefueling &&
+                if status.state != .completed &&
                     status.state != .canceled {
                     
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {

@@ -114,6 +114,13 @@ class OrderStatusController: UIViewController {
             self.orderStatusImage.image = R.image.canceled()
             break
             
+        case .completed:
+            
+            self.container.isHidden = true
+            self.image.image = R.image.completed()
+            self.mainTitle.text = "Заправка завершена, верните пистолет на Трк"
+            break
+            
         case .waitingRefueling:
             
             self.orderStatusImage.image = R.image.success()
