@@ -23,8 +23,6 @@ class DispenserSelectorController: UIViewController {
     
     private var isCalculatorVisible = false
     
-    private var originalTopMargin: CGFloat = 0.0
-    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var calculatorContainer: UIView!
@@ -66,6 +64,14 @@ class DispenserSelectorController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         self.view.endEditing(true)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        let path = UIBezierPath(rect: calculatorContainer.layer.bounds).cgPath
+        calculatorContainer.layer.shadowPath = path
     }
     
     private func setupKeyboardNotification() {
@@ -110,12 +116,6 @@ class DispenserSelectorController: UIViewController {
         let right = UIBarButtonItem(image: R.image.close(), style: .plain, target: self, action: #selector(onDismiss))
         self.navigationItem.rightBarButtonItem = right
         
-        let layer = calculatorContainer.layer
-        layer.shadowOpacity = 0.05
-        layer.shadowOffset = CGSize(width: 0, height: -10)
-        layer.shadowRadius = 7
-        layer.shadowPath = UIBezierPath(rect: layer.bounds).cgPath
-        
         action.setButtonColor(.mainBlue)
         action.enableShadow(color: .mainBlue)
         
@@ -135,6 +135,11 @@ class DispenserSelectorController: UIViewController {
         }).disposed(by: bag)
         
         currency.text = "\u{20BD}"
+        
+        let layer = calculatorContainer.layer
+        layer.shadowOpacity = 0.05
+        layer.shadowOffset = CGSize(width: 0, height: -10)
+        layer.shadowRadius = 7
     }
     
     private func displayCalculator() {
