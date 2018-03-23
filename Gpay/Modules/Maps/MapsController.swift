@@ -21,6 +21,8 @@ class MapsController: UIViewController {
         return view as! GMSMapView
     }
     
+    private var selectedMarker: GMSMarker?
+    
     @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var zoomIn: UIButton!
@@ -28,8 +30,6 @@ class MapsController: UIViewController {
     @IBOutlet weak var zoomOut: UIButton!
     
     @IBOutlet weak var myLocation: UIButton!
-    
-    @IBOutlet weak var pay: UIButton!
     
     var router: MapsRoutable!
     
@@ -86,6 +86,8 @@ class MapsController: UIViewController {
         
         self.mapView.rx.handleTapMarker { [unowned self] in
             
+            $0.icon = R.image.pinSelected()
+            self.selectedMarker = $0
             self.mapView.animate(with: GMSCameraUpdate.setTarget($0.position))
             self.router.openStationInfo($0.userData as! GasStation, in: self)
             
@@ -95,6 +97,9 @@ class MapsController: UIViewController {
         self.mapView.rx.didTapAt
             .subscribe(onNext: { [unowned self] coordinates in
                 
+                let marker = self.selectedMarker
+                marker?.icon = R.image.pin()
+                self.selectedMarker = nil
                 self.router.closeStationInfo()
                 
             }).disposed(by: bag)
