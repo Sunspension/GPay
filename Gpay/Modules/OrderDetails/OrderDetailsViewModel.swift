@@ -60,7 +60,10 @@ class OrderDetailsViewModel {
     
     func onDismissComplete() {
         
-        self.orderNotify(self.orderResponse!)
+        if let response = self.orderResponse {
+            
+            self.orderNotify(response)
+        }
     }
     
     private func orderNotify(_ order: OrderResponse) {
