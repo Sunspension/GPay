@@ -11,11 +11,17 @@ import Foundation
 enum Error: Swift.Error {
     
     case response(response: ResponseError)
+    
     case system
+    
     case wrongPhoneFormat
+    
     case emptyPhone
+    
     case incorrectPassword
+    
     case authorization
+    
     case any(error: Swift.Error)
     
     

@@ -118,7 +118,7 @@ class OrderStatusController: UIViewController {
             
             self.container.isHidden = true
             self.image.image = R.image.completed()
-            self.mainTitle.text = "Заправка завершена, верните пистолет на Трк"
+            self.mainTitle.text = "Заправка завершена"
             break
             
         case .waitingRefueling:
