@@ -77,6 +77,7 @@
 		77DE4FAC204AFC60007E440C /* GoogleMapsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */; };
 		77FC56462057F44500417812 /* DispenserSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FC56452057F44500417812 /* DispenserSelectorViewModel.swift */; };
 		B06C41531962A13CEA5E50A3 /* Pods_Gpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 521269A89BA4413A881E475A /* Pods_Gpay.framework */; };
+		F7680B080F352FC3A7AC8EE0 /* Pods_GpayTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20F07228E76C9A352E962C4 /* Pods_GpayTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 /* Begin PBXFileReference section */
 		26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.debug.xcconfig"; sourceTree = "<group>"; };
 		521269A89BA4413A881E475A /* Pods_Gpay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gpay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53C33C6989D86C83D6DB2216 /* Pods-GpayTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpayTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GpayTests/Pods-GpayTests.debug.xcconfig"; sourceTree = "<group>"; };
 		770A4CA5205A8AAF00E3D43E /* OrderDetailsPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsPresentationController.swift; sourceTree = "<group>"; };
 		770A4CA7205A8B7E00E3D43E /* OrderDetailsAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsAnimationController.swift; sourceTree = "<group>"; };
 		770A4CA9205A8F3300E3D43E /* DispenserSelectorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserSelectorRouter.swift; sourceTree = "<group>"; };
@@ -175,6 +177,8 @@
 		77C8B91420494A9200EB8BEE /* WireFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireFrame.swift; sourceTree = "<group>"; };
 		77DE4FAB204AFC60007E440C /* GoogleMapsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsExtensions.swift; sourceTree = "<group>"; };
 		77FC56452057F44500417812 /* DispenserSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispenserSelectorViewModel.swift; sourceTree = "<group>"; };
+		A20F07228E76C9A352E962C4 /* Pods_GpayTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GpayTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1C406BD185BB26F3BB10C8 /* Pods-GpayTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GpayTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GpayTests/Pods-GpayTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gpay.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gpay/Pods-Gpay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7680B080F352FC3A7AC8EE0 /* Pods_GpayTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				521269A89BA4413A881E475A /* Pods_Gpay.framework */,
+				A20F07228E76C9A352E962C4 /* Pods_GpayTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -485,6 +491,8 @@
 			children = (
 				26AE85CDBE13585DDC294D97 /* Pods-Gpay.debug.xcconfig */,
 				ED1BBAB7073AAC41908C0020 /* Pods-Gpay.release.xcconfig */,
+				53C33C6989D86C83D6DB2216 /* Pods-GpayTests.debug.xcconfig */,
+				CD1C406BD185BB26F3BB10C8 /* Pods-GpayTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -517,9 +525,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 771E4CA8203B2BD6003D40C7 /* Build configuration list for PBXNativeTarget "GpayTests" */;
 			buildPhases = (
+				55B40E4898E64BD445F427DE /* [CP] Check Pods Manifest.lock */,
 				771E4C8D203B2BD6003D40C7 /* Sources */,
 				771E4C8E203B2BD6003D40C7 /* Frameworks */,
 				771E4C8F203B2BD6003D40C7 /* Resources */,
+				B7E12E668DFB5A8E08DE15BB /* [CP] Embed Pods Frameworks */,
+				316FECC94B73686A5352A295 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -688,6 +699,39 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gpay/Pods-Gpay-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		316FECC94B73686A5352A295 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpayTests/Pods-GpayTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55B40E4898E64BD445F427DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GpayTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6F1D1B1A92A49098BFDCA7E8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -718,6 +762,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Gpay/App\"";
+		};
+		B7E12E668DFB5A8E08DE15BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GpayTests/Pods-GpayTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GpayTests/Pods-GpayTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -985,6 +1053,7 @@
 		};
 		771E4CA9203B2BD6003D40C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53C33C6989D86C83D6DB2216 /* Pods-GpayTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1002,6 +1071,7 @@
 		};
 		771E4CAA203B2BD6003D40C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD1C406BD185BB26F3BB10C8 /* Pods-GpayTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

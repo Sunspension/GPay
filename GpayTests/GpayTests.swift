@@ -7,9 +7,15 @@
 //
 
 import XCTest
+import RxTest
+import RxSwift
+import RxCocoa
+
 @testable import Gpay
 
 class GpayTests: XCTestCase {
+    
+    private let bag = DisposeBag()
     
     override func setUp() {
         super.setUp()
@@ -21,16 +27,58 @@ class GpayTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    //    func testPerformanceExample() {
+    //        // This is an example of a performance test case.
+    //        self.measure {
+    //            // Put the code you want to measure the time of here.
+    //        }
+    //    }
+    
+    func testSingUp() {
+        
+        let promise = expectation(description: "Singup")
+        
+        let viewModel = SignUpViewModel()
+        
+        viewModel.password = Observable.just("1111")
+        
+        viewModel.loginAction = Observable.create({ observer -> Disposable in
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                
+                observer.on(.next(Void()))
+            })
+            
+            return Disposables.create()
+        })
+        
+        viewModel.phoneNumber.accept("71111111112")
+        
+        viewModel.logedIn.bind(onNext: { auth in
+            
+            XCTAssert(!auth.token.isEmpty)
+            promise.fulfill()
+            
+        }).disposed(by: bag)
+        
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testLoadStations() {
+        
+        let viewModel = MapsViewModel()
+        let promise = expectation(description: "load stations")
+        
+        viewModel.stations
+            .bind { stations in
+                
+                XCTAssert(stations.count > 0)
+                promise.fulfill()
+                
+            }.disposed(by: bag)
+        
+        viewModel.viewDidLoad.accept(Void())
+        
+        waitForExpectations(timeout: 5, handler: nil)
     }
-    
 }

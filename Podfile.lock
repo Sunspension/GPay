@@ -17,6 +17,8 @@ PODS:
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
   - Result (3.2.4)
+  - RxBlocking (4.1.2):
+    - RxSwift (~> 4.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxDataSources (3.0.2):
@@ -28,6 +30,8 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - RxTest (4.1.2):
+    - RxSwift (~> 4.0)
   - SHSPhoneComponent (2.31)
   - Swinject (2.2.0)
 
@@ -35,8 +39,11 @@ DEPENDENCIES:
   - KeychainAccess
   - Moya/RxSwift (~> 11.0)
   - R.swift
+  - RxBlocking (~> 4.0)
+  - RxCocoa
   - RxDataSources (~> 3.0)
   - RxGoogleMaps
+  - RxTest (~> 4.0)
   - SHSPhoneComponent
   - Swinject
 
@@ -49,13 +56,15 @@ SPEC CHECKSUMS:
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxBlocking: f6054985901412fc8c02daa84e92d4ba68c61389
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
   RxGoogleMaps: 8e8501ee42f2f4095c02e7794ecb0e8758358934
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  RxTest: e634f15fd2c2cd0e0120132ef7a4f7be69ad0393
   SHSPhoneComponent: fa4401ae7c34511669287e62739b3da7c4c49807
   Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
 
-PODFILE CHECKSUM: 2946bb282e8911108a09c5f7c0c2613b4a3266d0
+PODFILE CHECKSUM: 8584a362ed279753fe0b1410d16acc3eb3f9fd9b
 
 COCOAPODS: 1.4.0

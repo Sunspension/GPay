@@ -51,7 +51,7 @@ class SingUpController: UITableViewController {
         
         viewModel.logedIn
             .asObservable()
-            .subscribe(onNext: { [unowned self] in self.router.openRootController() })
+            .subscribe(onNext: { [unowned self] _ in self.router.openRootController() })
             .disposed(by: bag)
         
         self.viewModel.loginActivity

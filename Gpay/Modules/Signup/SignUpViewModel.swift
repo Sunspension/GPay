@@ -24,7 +24,7 @@ class SignUpViewModel {
     
     var password = Observable.just("")
     
-    var logedIn = PublishRelay<Void>()
+    var logedIn = PublishRelay<AuthResponse>()
     
     var isCanLogin: Observable<Bool> {
         
@@ -53,7 +53,7 @@ class SignUpViewModel {
                     self.loginActivity.onNext(false)
                     
                     StorageManager.auth = auth
-                    self.logedIn.accept(Void())
+                    self.logedIn.accept(auth)
                     
                 }, onError: { error in
                     

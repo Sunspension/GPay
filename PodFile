@@ -13,3 +13,10 @@ pod 'KeychainAccess'
 pod 'Swinject'
 
 end
+
+target 'GpayTests' do
+
+pod 'RxBlocking', '~> 4.0'
+pod 'RxTest',     '~> 4.0'
+pod 'RxCocoa'
+end
