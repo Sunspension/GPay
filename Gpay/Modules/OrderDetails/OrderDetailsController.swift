@@ -83,10 +83,13 @@ class OrderDetailsController: UIViewController {
             })
             .disposed(by: _bag)
         
-        viewModel.dismiss
-            .subscribe(onNext: { [unowned self] in
+        viewModel.dismissAction
+            .subscribe(onNext: { [weak self] in
                 
-                self.dismiss(animated: true, completion: { self.viewModel.onDismissComplete() })
+                if let sself = self {
+                    
+                    sself.dismiss(animated: true, completion: { sself.viewModel.onDismissComplete() })
+                }
             })
             .disposed(by: _bag)
         
@@ -94,7 +97,7 @@ class OrderDetailsController: UIViewController {
         
         viewModel.error.asObservable()
             .filter({ $0 != nil })
-            .bind(onNext: { [unowned self] error in self.showError(error: error!) })
+            .bind(onNext: { [weak self] error in self?.showError(error: error!) })
             .disposed(by: _bag)
     }
 }

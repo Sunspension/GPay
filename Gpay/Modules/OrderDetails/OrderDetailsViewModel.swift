@@ -24,7 +24,7 @@ class OrderDetailsViewModel {
     
     let activity = PublishRelay<Bool>()
     
-    let dismiss = PublishRelay<Void>()
+    let dismissAction = PublishRelay<Void>()
     
     var makePayment = Observable<Void>.empty() {
         
@@ -39,7 +39,7 @@ class OrderDetailsViewModel {
                     
                         self.activity.accept(false)
                         self.orderResponse = orderResponse
-                        self.dismiss.accept(Void())
+                        self.dismissAction.accept(Void())
                         
                     }, onError: {
                     
