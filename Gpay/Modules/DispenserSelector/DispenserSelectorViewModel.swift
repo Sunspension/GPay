@@ -97,7 +97,13 @@ class DispenserSelectorViewModel {
                 
                 let orderResponse = notification.object as! OrderResponse
                 self.orderResponse = orderResponse
-                self.payment.accept((orderResponse.orderId, self.order.value!))
+                
+                // Sometimes the order become to nil, probably it is cauze of a bug in RxCocoa
+                // or cauze of disponsing. Couldn't find where is the problem.
+                if let order = self.order.value {
+                    
+                    self.payment.accept((orderResponse.orderId, order))
+                }
                 
             }).disposed(by: _bag)
         

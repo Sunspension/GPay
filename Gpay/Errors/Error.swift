@@ -24,6 +24,8 @@ enum Error: Swift.Error {
     
     case any(error: Swift.Error)
     
+    case withMessage(message: String)
+    
     
     init(response: ResponseError) {
         
@@ -73,6 +75,9 @@ extension Error: LocalizedError {
             
         case .authorization:
             return "Unauthorized request"
+            
+        case .withMessage(let message):
+            return message
             
         case .response(let response):
             return response.errorMessage

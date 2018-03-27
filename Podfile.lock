@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.6.0)
+  - Alamofire (4.7.0)
   - Differentiator (3.0.2)
   - GoogleMaps (2.6.0):
     - GoogleMaps/Maps (= 2.6.0)
@@ -7,10 +7,10 @@ PODS:
   - GoogleMaps/Maps (2.6.0):
     - GoogleMaps/Base
   - KeychainAccess (3.1.0)
-  - Moya/Core (11.0.0):
+  - Moya/Core (11.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Moya/RxSwift (11.0.0):
+  - Moya/RxSwift (11.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
   - R.swift (4.0.0):
@@ -48,11 +48,11 @@ DEPENDENCIES:
   - Swinject
 
 SPEC CHECKSUMS:
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
   GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
   KeychainAccess: 94c5540b32eabf7bc32bfb976a268e8ea05fd6da
-  Moya: be29766339783963a70d1279d69c891ab3a1393c
+  Moya: 3d594ada51a21cc02b18739ab578a1984f900c8a
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   SHSPhoneComponent: fa4401ae7c34511669287e62739b3da7c4c49807
   Swinject: 4ca48bca7de5f398229a26abe1ac902b9f3ee541
 
-PODFILE CHECKSUM: 8584a362ed279753fe0b1410d16acc3eb3f9fd9b
+PODFILE CHECKSUM: 4f9f6f19d5f1c4b4def11d410964455c35daf570
 
 COCOAPODS: 1.4.0
