@@ -50,7 +50,12 @@ class StationInfoController: UIViewController {
         action.enableShadow(color: UIColor.mainBlue)
         
         self.viewModel.onStation
-            .bind(onNext: { [unowned self] in self.onStation($0) })
+            .bind(onNext: { [unowned self] in
+                
+                self.stationFuelList.attributedText = nil
+                self.activity.startAnimating()
+                self.onStation($0)
+            })
             .disposed(by: bag)
         
         self.viewModel.onDispensers

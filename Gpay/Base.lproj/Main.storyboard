@@ -95,7 +95,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ksz-U5-UL6">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ksz-U5-UL6">
                                 <rect key="frame" x="177" y="317" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -374,6 +374,7 @@
                             <constraint firstItem="kMD-LB-fNl" firstAttribute="bottom" secondItem="aSC-3R-Ij4" secondAttribute="bottom" id="jF3-kE-8rz"/>
                             <constraint firstItem="9Eh-c4-tpV" firstAttribute="leading" secondItem="aSC-3R-Ij4" secondAttribute="leading" id="uQI-7W-xbf"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="LU2-Bd-nwa"/>
                     </view>
                     <connections>
                         <outlet property="action" destination="nGb-Vr-EXG" id="aDJ-me-SfL"/>
