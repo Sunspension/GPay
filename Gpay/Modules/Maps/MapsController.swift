@@ -86,6 +86,7 @@ class MapsController: UIViewController {
         
         self.mapView.rx.handleTapMarker { [unowned self] in
             
+            self.selectedMarker?.icon = R.image.pin()
             $0.icon = R.image.pinSelected()
             self.selectedMarker = $0
             self.mapView.animate(with: GMSCameraUpdate.setTarget($0.position))
